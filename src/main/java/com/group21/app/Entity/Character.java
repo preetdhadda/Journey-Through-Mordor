@@ -17,7 +17,7 @@ public class Character extends Entity implements KeyListener {
     private Image characterLeft;
     private Image characterRight;
     public Point position;
-    private String prevDirection;
+    private String imageDirection;
 
     Screen screen;
 
@@ -26,10 +26,9 @@ public class Character extends Entity implements KeyListener {
         loadImage();
         position = new Point(1,1);
         xPos = 1; yPos = 1;
-        direction = "right";
+        imageDirection = "right";
 
         this.screen = screen;
-        solidArea = new Rectangle(0,0,45,45);
     }
 
     // load image method
@@ -44,15 +43,12 @@ public class Character extends Entity implements KeyListener {
     public void draw(Graphics graphic) {
         Image img = null;
 
-        switch(direction) {
+        switch(imageDirection) {
             case "left":
                 img = characterLeft;
                 break;
             case "right":
                 img = characterRight;
-                break;
-            default:
-                img = characterLeft;
                 break;
         }
 
@@ -70,24 +66,18 @@ public class Character extends Entity implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode(); // for reading keyboard input from user
         if(key == KeyEvent.VK_UP) {
-            prevDirection = direction;
             direction = "up";
-            //position.translate(0, -1);
         }
         if(key == KeyEvent.VK_DOWN) {
-            prevDirection = direction;
             direction = "down";
-            //position.translate(0, 1);
         }
         if(key == KeyEvent.VK_LEFT) {
-            prevDirection = direction;
             direction = "left";
-            //position.translate(-1, 0);
+            imageDirection = "left";
         }
         if(key == KeyEvent.VK_RIGHT) {
-            prevDirection = direction;
             direction = "right";
-            //position.translate(1, 0);
+            imageDirection = "right";
         }
 
         // Check cell collision
@@ -95,7 +85,6 @@ public class Character extends Entity implements KeyListener {
         screen.cChecker.checkCell(this);
 
         // if collision is false player can move
-    
         if (collisionOn == false){
             switch(direction){
                 case "up":

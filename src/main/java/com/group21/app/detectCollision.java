@@ -14,19 +14,12 @@ public class detectCollision {
 
     public void checkCell(Entity entity){
 
-        
-        //System.out.println(entity.xPos + " " + entity.yPos);
-        //System.out.println(screen.cellM.map[entity.xPos][entity.yPos]);
-        
         /* IDEA
          * GET PLAYER POSITION
          * GET CELL MAP AT PLAYER POSITION
-         * IF cellmap at player position == 2 then collosionOn = true
-         * 
+         * IF cellmap at player position == 2 then collosionOn = true so the character cannot go in that direction
         */
         int[] newPos = new int[2];
-        
-        System.out.println(entity.direction);
 
         switch(entity.direction){
             case "left":
@@ -58,9 +51,5 @@ public class detectCollision {
                 }
                 break;
         }
-        
-        
-
-
     }
 }

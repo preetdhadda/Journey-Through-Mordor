@@ -19,17 +19,16 @@ public class Character extends Entity implements KeyListener {
     private Image characterRight;
     public Point position;
     private String imageDirection;
-
+    private boolean keyDownFlag = false;
     Screen screen;
-
+    
     // character constructor
     public Character(Screen screen) {
         loadImage();
         position = new Point(1,1);
         xPos = 1; yPos = 1;
-        imageDirection = "right";
-
         this.screen = screen;
+        imageDirection = "right";
     }
 
     // load image method
@@ -65,49 +64,58 @@ public class Character extends Entity implements KeyListener {
     // for left and right keys, update the direction of the character
     @Override
     public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode(); // for reading keyboard input from user
-        if(key == KeyEvent.VK_UP) {
-            direction = "up";
-        }
-        if(key == KeyEvent.VK_DOWN) {
-            direction = "down";
-        }
-        if(key == KeyEvent.VK_LEFT) {
-            direction = "left";
-            imageDirection = "left";
-        }
-        if(key == KeyEvent.VK_RIGHT) {
-            direction = "right";
-            imageDirection = "right";
-        }
+        
+        if (keyDownFlag == false){
 
-        // Check cell collision
-        collisionOn = false;
-        screen.collisionChecker.checkCell(this);
+            int key = e.getKeyCode(); // for reading keyboard input from user
 
-        // If collision is false (not obstacles) then the character can move
-        if (collisionOn == false){
-            switch(direction){
-                case "up":
-                    xPos -= 1;
-                    position.translate(0, -1);
-                    break;
-                case "down":
-                    xPos +=1;
-                    position.translate(0, 1);
-                    break;
-                case "left":
-                    yPos -=1;
-                    position.translate(-1, 0);
-                    break;
-                case "right":
-                    yPos +=1;
-                    position.translate(1, 0);
-                    break;
+            if(key == KeyEvent.VK_UP) {
+                direction = "up";
+            }
+            if(key == KeyEvent.VK_DOWN) {
+                direction = "down";
+            }
+            if(key == KeyEvent.VK_LEFT) {
+                direction = "left";
+                imageDirection = "left";
+            }
+            if(key == KeyEvent.VK_RIGHT) {
+                direction = "right";
+                imageDirection = "right";
+            }
+            
+            collisionOn = false;
+            // Check if that cell can be entered
+            screen.collisionChecker.checkCell(this);
+            
+            // If collision is false (no obstacles) then the character can move
+            if (collisionOn == false){
+                switch(direction){
+                    case "up":
+                        xPos -= 1;
+                        position.translate(0, -1);
+                        break;
+                    case "down":
+                        xPos +=1;
+                        position.translate(0, 1);
+                        break;
+                    case "left":
+                        yPos -=1;
+                        position.translate(-1, 0);
+                        break;
+                    case "right":
+                        yPos +=1;
+                        position.translate(1, 0);
+                        break;
+                }
             }
         }
+        keyDownFlag = true;
     }
 
+    // Prevents user from holding down arrow keys
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+        keyDownFlag = false;
+    }
 }

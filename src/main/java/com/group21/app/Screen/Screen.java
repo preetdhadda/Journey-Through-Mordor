@@ -67,5 +67,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+        character.keyReleased(e);
+    }
 }

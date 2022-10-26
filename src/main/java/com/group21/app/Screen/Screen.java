@@ -1,7 +1,8 @@
-package com.group21.app;
+package com.group21.app.Screen;
 
 import com.group21.app.Cell.CellMap;
 import com.group21.app.Entity.Character;
+import com.group21.app.Entity.detectCollision;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,14 +20,14 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
     // instantiate main character
     private Character character;
 
-    CellMap cellM = new CellMap(this);
+    public CellMap cellM = new CellMap(this);
 
     // timer attributes
     Timer timer;
     private int delay = 100; // in milliseconds
 
     // Collision Detection
-    public detectCollision cChecker = new detectCollision(this);
+    public detectCollision collisionChecker = new detectCollision(this);
 
     // screen constructor
     public Screen() {
@@ -39,6 +40,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
         // timer for controlling delay between moving ticks
         timer = new Timer(delay, this);
         timer.start();
+
     }
 
     // override paintComponent() in JComponent

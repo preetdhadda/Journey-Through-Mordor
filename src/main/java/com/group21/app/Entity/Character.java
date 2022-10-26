@@ -1,9 +1,10 @@
 package com.group21.app.Entity;
 
-import com.group21.app.Screen;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import com.group21.app.Screen.Screen;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -82,9 +83,9 @@ public class Character extends Entity implements KeyListener {
 
         // Check cell collision
         collisionOn = false;
-        screen.cChecker.checkCell(this);
+        screen.collisionChecker.checkCell(this);
 
-        // if collision is false player can move
+        // If collision is false (not obstacles) then the character can move
         if (collisionOn == false){
             switch(direction){
                 case "up":

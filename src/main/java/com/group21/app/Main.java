@@ -1,6 +1,7 @@
 package com.group21.app;
 
 import javax.swing.*;
+import com.group21.app.Screen.Screen;
 
 public class Main {
     public static void makeWindow() {

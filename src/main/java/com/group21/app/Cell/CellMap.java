@@ -1,8 +1,9 @@
 package com.group21.app.Cell;
 
-import com.group21.app.Screen;
-
 import javax.swing.*;
+
+import com.group21.app.Screen.Screen;
+
 import java.awt.*;
 
 // this call creates a map of objects from the Cell class
@@ -24,7 +25,8 @@ public class CellMap {
         //      0 = plain background
         //      1 = lava
         //      2 = rock
-        //      3, 4, 5, 6 = volcano (split into 4 pics so it can span 4 cells)
+        //      3 = rock + lava
+        //      4, 5, 6, 7 = volcano (split into 4 pics so it can span 4 cells)
         map = new int[][] {
                 {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
                 {2, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2},

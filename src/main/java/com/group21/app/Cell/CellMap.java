@@ -7,12 +7,13 @@ import java.awt.*;
 
 // this call creates a map of objects from the Cell class
 public class CellMap {
+
     Screen screen;
     // array of cells
-    Cell cell[];
+    public Cell cell[];
 
     // 2d array to map the cells
-    int map[][];
+    public int map[][];
 
     public CellMap(Screen screen) {
         this.screen = screen;
@@ -60,10 +61,13 @@ public class CellMap {
         cell[2] = new Cell();
         cell[2].img = new ImageIcon("src/main/resources/images/rock1.png").getImage();
         cell[2].type = "rock";
+        cell[2].collision = true;
+
         cell[3] = new Cell();
         cell[3].img = new ImageIcon("src/main/resources/images/rock2.png").getImage();
         cell[3].type = "rock";
-
+        cell[3].collision = true;
+        
         // volcano cells
         cell[4] = new Cell();
         cell[4].img = new ImageIcon("src/main/resources/images/volcano_00.png").getImage();

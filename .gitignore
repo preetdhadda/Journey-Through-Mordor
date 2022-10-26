@@ -9,6 +9,7 @@
 backup/
 temp/
 test/
+target/
 
 ### IntelliJ IDEA ###
 .idea
@@ -28,3 +29,5 @@ test/
 *.zip
 *.tar.gz
 *.rar
+
+.DS_Store

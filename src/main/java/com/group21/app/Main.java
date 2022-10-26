@@ -27,3 +27,6 @@ public class Main {
         makeWindow();
     }
 }
+
+// COMPILE THE CODE: mvn package
+// RUNNING THE CODE: java -cp target/Phase-2-1.0.jar com.group21.app.Main

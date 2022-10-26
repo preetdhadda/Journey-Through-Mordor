@@ -19,11 +19,14 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
     // instantiate main character
     private Character character;
 
-    CellMap map = new CellMap(this);
+    CellMap cellM = new CellMap(this);
 
     // timer attributes
     Timer timer;
     private int delay = 100; // in milliseconds
+
+    // Collision Detection
+    public detectCollision cChecker = new detectCollision(this);
 
     // screen constructor
     public Screen() {
@@ -31,7 +34,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
         setPreferredSize(new Dimension(cellSize*numColumns, cellSize*numRows));
 
         // render main character
-        character = new Character();
+        character = new Character(this);
 
         // timer for controlling delay between moving ticks
         timer = new Timer(delay, this);
@@ -41,7 +44,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
     // override paintComponent() in JComponent
     public void paintComponent(Graphics graphic) {
         // render the main character on the screen by calling draw in character
-        map.draw(graphic);
+        cellM.draw(graphic);
         character.draw(graphic);
 
     }

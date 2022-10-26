@@ -6,4 +6,5 @@ import java.awt.*;
 public class Cell {
     public Image img;
     public String type; // values: "empty", "rock", "lava", "mount doom"
+    public boolean collision  = false;
 }

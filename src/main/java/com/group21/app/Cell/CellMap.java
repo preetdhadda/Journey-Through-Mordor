@@ -2,21 +2,21 @@ package com.group21.app.Cell;
 
 import javax.swing.*;
 
-import com.group21.app.Screen.Screen;
+import com.group21.app.Screen.ScreenPanel;
 
 import java.awt.*;
 
 // this call creates a map of objects from the Cell class
 public class CellMap {
 
-    Screen screen;
+    ScreenPanel screen;
     // array of cells
     public Cell cell[];
 
     // 2d array to map the cells
     public int map[][];
 
-    public CellMap(Screen screen) {
+    public CellMap(ScreenPanel screen) {
         this.screen = screen;
         // increase number in [] as more cell types are added
         cell = new Cell[8];

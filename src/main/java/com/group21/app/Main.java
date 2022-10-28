@@ -1,7 +1,11 @@
 package com.group21.app;
 
 import javax.swing.*;
-import com.group21.app.Screen.Screen;
+
+import com.group21.app.Screen.MenuPanel;
+import com.group21.app.Screen.ScreenPanel;
+
+import java.awt.*;
 
 public class Main {
     public static void makeWindow() {
@@ -12,16 +16,23 @@ public class Main {
         // don't allow the user to resize the window
         window.setResizable(false);
 
-        // create a jpanel screen and add the window to it
-        Screen screen = new Screen();
-        window.add(screen);
-        window.addKeyListener(screen);
+        // instantiate screen and menu panels
+        ScreenPanel screenPanel = new ScreenPanel();
+        MenuPanel menuPanel = new MenuPanel();
+
+        // create container for panels
+        Container gameContainer = window.getContentPane();
+        gameContainer.setLayout(new BoxLayout(gameContainer, BoxLayout.Y_AXIS));
+
+        // add screen and score to the container
+        gameContainer.add(screenPanel);
+        window.addKeyListener(screenPanel);
+        gameContainer.add(menuPanel);
         window.pack(); // makes window fit preferred size of screen
 
         // more window settings
         window.setLocationRelativeTo(null); // open window in middle of user's device
         window.setVisible(true); // display window
-
     }
 
     public static void main(String[] args) {

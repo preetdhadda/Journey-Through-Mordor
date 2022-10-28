@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Screen extends JPanel implements ActionListener, KeyListener {
+public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     // attributes for turning screen into a grid of cells
     public static int cellSize = 45;
     public final int numColumns = 30;
@@ -30,7 +30,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
     public detectCollision collisionChecker = new detectCollision(this);
 
     // screen constructor
-    public Screen() {
+    public ScreenPanel() {
         // set size of game screen
         setPreferredSize(new Dimension(cellSize*numColumns, cellSize*numRows));
 
@@ -40,7 +40,6 @@ public class Screen extends JPanel implements ActionListener, KeyListener {
         // timer for controlling delay between moving ticks
         timer = new Timer(delay, this);
         timer.start();
-
     }
 
     // override paintComponent() in JComponent

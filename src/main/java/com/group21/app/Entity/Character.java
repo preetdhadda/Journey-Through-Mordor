@@ -1,17 +1,12 @@
 package com.group21.app.Entity;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import com.group21.app.Screen.Screen;
+import com.group21.app.Screen.ScreenPanel;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.io.IOException;
-import java.security.Key;
 
 public class Character extends Entity implements KeyListener {
     // main character attributes
@@ -20,10 +15,10 @@ public class Character extends Entity implements KeyListener {
     public Point position;
     private String imageDirection;
     private boolean keyDownFlag = false;
-    Screen screen;
+    ScreenPanel screen;
     
     // character constructor
-    public Character(Screen screen) {
+    public Character(ScreenPanel screen) {
         loadImage();
         position = new Point(1,1);
         xPos = 1; yPos = 1;
@@ -52,7 +47,7 @@ public class Character extends Entity implements KeyListener {
                 break;
         }
 
-        graphic.drawImage(img, position.x*Screen.cellSize, position.y*Screen.cellSize, null);
+        graphic.drawImage(img, position.x* ScreenPanel.cellSize, position.y* ScreenPanel.cellSize, null);
     }
 
     // have to include this method's definition, but we won't be using it

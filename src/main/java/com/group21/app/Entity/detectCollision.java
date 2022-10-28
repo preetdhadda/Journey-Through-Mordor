@@ -1,14 +1,12 @@
 package com.group21.app.Entity;
 
 import com.group21.app.Screen.*;
-import java.util.Map;
-import com.group21.app.Cell.*;
 
 public class detectCollision {
 
-    Screen screen;
+    ScreenPanel screen;
 
-    public detectCollision(Screen screen){
+    public detectCollision(ScreenPanel screen){
         this.screen = screen;
     }
 

@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 public class MenuPanel extends JPanel implements ActionListener {
-    public int score = 0;
+
+    ScreenPanel screen;
+
     private int second = 0;
     private int minute = 0;
 
@@ -23,13 +25,14 @@ public class MenuPanel extends JPanel implements ActionListener {
 
     Font myFont = new Font("Serif", Font.PLAIN, 24);
 
-    public MenuPanel() {
+    public MenuPanel(ScreenPanel screen) {
+        this.screen = screen;
         // panel settings
         setPreferredSize(new Dimension(1350, 90));
         setBackground(new Color(128, 128, 128));
 
         // create JLabel to display the score
-        scoreLabel = new JLabel("   Score: " + score + "    |    ");
+        scoreLabel = new JLabel("   Score: " + screen.character.score + "    |    ");
         scoreLabel.setFont(myFont);
         scoreLabel.setForeground(Color.BLACK);
 
@@ -104,8 +107,33 @@ public class MenuPanel extends JPanel implements ActionListener {
 
                 timeLabel.setText("Time Elapsed: " + decimalMinute + ":" + decimalSecond);
 
+                // when second is on the interval [15,30] or [45,60], bonuses disappear
+                // bonuses reappear after these intervals, unless already collected by character
+                if (second == 15) {
+                    screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 0; 
+                    screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 0;
+                }
+                if (second == 30) {
+                    if (!screen.gandalf.token) {
+                        screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 13; 
+                    }
+                    if (!screen.sam.token) {
+                        screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 14;
+                    }
+                }
+                if (second == 45) {
+                    screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 0; 
+                    screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 0;
+                }
                 // if seconds hits 60, reset to 0 and increment minutes
                 if (second == 60) {
+                    if (!screen.gandalf.token) {
+                        screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 13; 
+                    }
+                    if (!screen.sam.token) {
+                        screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 14;
+                    }
+
                     second = 0;
                     minute++;
                     decimalSecond = decimal.format(second);
@@ -113,6 +141,8 @@ public class MenuPanel extends JPanel implements ActionListener {
 
                     timeLabel.setText("Time Elapsed: " + decimalMinute + ":" + decimalSecond);
                 }
+                // update score, if character collects rewards during tick
+                scoreLabel.setText("   Score: " + screen.character.score + "    |    ");
             }
         });
     }

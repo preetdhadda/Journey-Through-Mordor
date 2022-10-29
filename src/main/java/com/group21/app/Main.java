@@ -18,7 +18,7 @@ public class Main {
 
         // instantiate screen and menu panels
         ScreenPanel screenPanel = new ScreenPanel();
-        MenuPanel menuPanel = new MenuPanel();
+        MenuPanel menuPanel = new MenuPanel(screenPanel);
 
         // create container for panels
         Container gameContainer = window.getContentPane();

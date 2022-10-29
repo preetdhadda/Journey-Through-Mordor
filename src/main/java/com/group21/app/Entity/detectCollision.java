@@ -58,5 +58,42 @@ public class detectCollision {
         if (screen.cellM.map[newPos[0]][newPos[1]] == 4){
             System.out.println("Mount DOOM");
         }
+        // if chracter moves into a cell with a bow
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 8) {
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 50;
+        }
+        // if chracter moves into a cell with bread
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 9){
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 20;
+        }
+        // if chracter moves into a cell with a dagger
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 10){
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 50;
+        }
+        // if chracter moves into a cell with a spear
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 11){
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 50;
+        }
+        // if chracter moves into a cell with water
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 12){
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 10;
+        }
+        // if chracter moves into a cell with gandalf (bonus)
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 13){
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 100;
+            screen.gandalf.token = true;
+        }
+        // if chracter moves into a cell with sam (bonus)
+        if (screen.cellM.map[newPos[0]][newPos[1]] == 14){
+            screen.cellM.map[newPos[0]][newPos[1]] = 0;
+            screen.character.score += 100;
+            screen.sam.token = true;
+        }
     }
 }

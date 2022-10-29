@@ -13,6 +13,7 @@ public class Character extends Entity implements KeyListener {
     private Image characterLeft;
     private Image characterRight;
     public Point position;
+    public int score = 0;
     private String imageDirection;
     private boolean keyDownFlag = false;
     ScreenPanel screen;
@@ -25,7 +26,7 @@ public class Character extends Entity implements KeyListener {
         this.screen = screen;
         imageDirection = "right";
     }
-
+    
     // load image method
     private void loadImage () {
         // load main character's images

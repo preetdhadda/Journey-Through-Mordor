@@ -23,29 +23,29 @@ public class detectCollision {
                 2. Mount doom logic- If player walks in mount Doom show end screen    
         */
          
-         int[] newPos = new int[2];
+        int[] newPos = new int[2];
 
-        System.out.println("("+entity.xPos+","+entity.yPos+")");
+        //System.out.println("("+entity.position.x+","+entity.position.y+")");
 
         switch(entity.direction){
             case "left":
-                newPos[0] = entity.xPos-1;
-                newPos[1] = entity.yPos;
+                newPos[0] = entity.position.x-1;
+                newPos[1] = entity.position.y;
                 break;
 
             case "right":
-                newPos[0] = entity.xPos+1;
-                newPos[1] = entity.yPos;
+                newPos[0] = entity.position.x+1;
+                newPos[1] = entity.position.y;
                 break;
 
             case "up":
-                newPos[0] = entity.xPos;
-                newPos[1] = entity.yPos-1;
+                newPos[0] = entity.position.x;
+                newPos[1] = entity.position.y-1;
                 break;
             
             case "down":
-                newPos[0] = entity.xPos;
-                newPos[1] = entity.yPos+1;
+                newPos[0] = entity.position.x;
+                newPos[1] = entity.position.y+1;
                 break;
         }
         // If character moves into a rock

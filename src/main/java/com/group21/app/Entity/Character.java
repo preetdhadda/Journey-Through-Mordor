@@ -12,7 +12,6 @@ public class Character extends Entity implements KeyListener {
     // main character attributes
     private Image characterLeft;
     private Image characterRight;
-    //public Point position;
     public int score = 0;
     private String imageDirection;
     private boolean keyDownFlag = false;
@@ -21,8 +20,8 @@ public class Character extends Entity implements KeyListener {
     // character constructor
     public Character(ScreenPanel screen) {
         loadImage();
-        //position = new Point(1,1);
-        xPos = 1; yPos = 1;
+        position = new Point(1,1);
+        //xPos = 1; yPos = 1;
         this.screen = screen;
         imageDirection = "right";
     }
@@ -48,8 +47,7 @@ public class Character extends Entity implements KeyListener {
                 break;
         }
 
-        //graphic.drawImage(img, position.x* ScreenPanel.cellSize, position.y* ScreenPanel.cellSize, null);
-        graphic.drawImage(img, xPos* ScreenPanel.cellSize, yPos* ScreenPanel.cellSize, null);
+        graphic.drawImage(img, position.x* ScreenPanel.cellSize, position.y* ScreenPanel.cellSize, null);
     }
 
     // have to include this method's definition, but we won't be using it
@@ -89,25 +87,28 @@ public class Character extends Entity implements KeyListener {
             if (collisionOn == false){
                 switch(direction){
                     case "up":
-                        yPos -= 1;
-                        //position.translate(0, -1);
+                        //xPos -= 1;
+                        position.translate(0, -1);
                         break;
                     case "down":
-                        yPos +=1;
-                        //position.translate(0, 1);
+                        //xPos +=1;
+                        position.translate(0, 1);
                         break;
                     case "left":
-                        xPos -=1;
-                        //position.translate(-1, 0);
+                        //yPos -=1;
+                        position.translate(-1, 0);
                         break;
                     case "right":
-                        xPos +=1;
-                        //position.translate(1, 0);
+                        //yPos +=1;
+                        position.translate(1, 0);
                         break;
                 }
             }
         }
         keyDownFlag = true;
+
+        System.out.println("("+position.y+","+position.x+")");
+
     }
 
     // Prevents user from holding down arrow keys

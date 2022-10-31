@@ -4,11 +4,13 @@ import javax.swing.*;
 
 import com.group21.app.Screen.MenuPanel;
 import com.group21.app.Screen.ScreenPanel;
+import com.group21.app.Screen.TitlePanel;
 
 import java.awt.*;
 
 public class Main {
-    public static void makeWindow() {
+
+    public static void makeTitleWindow(){
         // create window with JFrame
         JFrame window = new JFrame("Journey Through Mordor");
         // when the user exits the window, stop the game
@@ -16,19 +18,13 @@ public class Main {
         // don't allow the user to resize the window
         window.setResizable(false);
 
-        // instantiate screen and menu panels
-        ScreenPanel screenPanel = new ScreenPanel();
-        MenuPanel menuPanel = new MenuPanel(screenPanel);
+        TitlePanel titlePanel = new TitlePanel();
 
-        // create container for panels
         Container gameContainer = window.getContentPane();
         gameContainer.setLayout(new BoxLayout(gameContainer, BoxLayout.Y_AXIS));
 
-        // add screen and score to the container
-        gameContainer.add(screenPanel);
-        window.addKeyListener(screenPanel);
-        gameContainer.add(menuPanel);
-        window.pack(); // makes window fit preferred size of screen
+        gameContainer.add(titlePanel);
+        window.pack();
 
         // more window settings
         window.setLocationRelativeTo(null); // open window in middle of user's device
@@ -36,7 +32,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        makeWindow();
+        makeTitleWindow();
     }
 }
 

@@ -12,7 +12,7 @@ public class Main {
 
     public static void makeTitleWindow(){
         // create window with JFrame
-        JFrame window = new JFrame("Journey Through Mordor");
+        JFrame window = new JFrame("Title Window");
         // when the user exits the window, stop the game
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // don't allow the user to resize the window

@@ -115,10 +115,10 @@ public class MenuPanel extends JPanel implements ActionListener {
                 }
                 if (second == 30) {
                     if (!screen.gandalf.token) {
-                        screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 13; 
+                        screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 13;
                     }
                     if (!screen.sam.token) {
-                        screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 14;
+                        screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 14;
                     }
                 }
                 if (second == 45) {

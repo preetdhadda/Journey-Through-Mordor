@@ -28,6 +28,10 @@ public class TitlePanel extends JPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 // Go to game window if playBTN is pressed
                 makeWindow();
+
+                JComponent comp = (JComponent) e.getSource();
+                Window window = SwingUtilities.getWindowAncestor(comp);
+                window.dispose();
             }
         });
 

@@ -19,7 +19,7 @@ public class CellMap {
     public CellMap(ScreenPanel screen) {
         this.screen = screen;
         // increase number in [] as more cell types are added
-        cell = new Cell[15];
+        cell = new Cell[20];
 
         // map legend:
         //      0 = plain background
@@ -42,7 +42,7 @@ public class CellMap {
             {2 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2},
             {2 , 0 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 2},
             {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 2 , 2 , 0 , 0 , 1 , 2},
-            {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 2},
+            {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0, 0 , 17 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 1 ,  2},
             {2 , 2 , 2 , 2 , 2 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 2 , 0 , 0 , 1 , 2},
             {2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 3 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 , 0 , 2 , 2 , 2 , 1 , 2},
             {2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 2},
@@ -115,6 +115,26 @@ public class CellMap {
         cell[14].img = new ImageIcon("src/main/resources/images/sam_left.png").getImage();
         cell[14].type = "sam";
 
+        // Enemies
+        cell[15] = new Cell();
+        cell[15].img = new ImageIcon("src/main/resources/images/orc_left.png").getImage();
+        cell[15].type = "orc";
+
+        cell[16] = new Cell();
+        cell[16].img = new ImageIcon("src/main/resources/images/shelob.png").getImage();
+        cell[16].type = "shelob";
+
+        cell[17] = new Cell();
+        cell[17].img = new ImageIcon("src/main/resources/images/eye_of_sauron.png").getImage();
+        cell[17].type = "sauron";
+
+        cell[18] = new Cell();
+        cell[18].img = new ImageIcon("src/main/resources/images/witch_king_left.png").getImage();
+        cell[18].type = "witch";
+
+        cell[19] = new Cell();
+        cell[19].img = new ImageIcon("src/main/resources/images/smeagol_left.png").getImage();
+        cell[19].type = "smeagol";
     }
 
     public void draw(Graphics graphic) {

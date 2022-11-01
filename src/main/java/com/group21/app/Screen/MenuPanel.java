@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import com.group21.app.Entity.detectCollision;
 
 public class MenuPanel extends JPanel implements ActionListener {
 
@@ -14,8 +15,8 @@ public class MenuPanel extends JPanel implements ActionListener {
     private int minute = 0;
 
     // following "decimal" attributes are so the timer is in the format 00:00 rather than 0:0
-    private String decimalSecond;
-    private String decimalMinute;
+    public static String decimalSecond;
+    public static String decimalMinute;
     DecimalFormat decimal = new DecimalFormat("00");
     private Timer timer;
 
@@ -24,6 +25,7 @@ public class MenuPanel extends JPanel implements ActionListener {
     JLabel timeLabel;
 
     Font myFont = new Font("Serif", Font.PLAIN, 24);
+
 
     public MenuPanel(ScreenPanel screen) {
         this.screen = screen;

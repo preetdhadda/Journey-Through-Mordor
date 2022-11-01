@@ -5,23 +5,14 @@ import com.group21.app.Screen.*;
 public class detectCollision {
 
     ScreenPanel screen;
+    UI ui = UI.getInstance();
 
     public detectCollision(ScreenPanel screen){
         this.screen = screen;
     }
 
-    public void checkCell(Entity entity){
 
-        /* 
-            IDEA
-            GET PLAYER POSITION
-            GET CELL MAP AT PLAYER POSITION
-            IF cellmap at player position == 2 then collosionOn = true so the character cannot go in that direction
-        
-            TODO:
-                1. Lava logic- If player walks in lava show end screen
-                2. Mount doom logic- If player walks in mount Doom show end screen    
-        */
+    public void checkCell(Entity entity){
          
         int[] newPos = new int[2];
 
@@ -58,32 +49,47 @@ public class detectCollision {
         } 
         // If character moves into mount doom
         if (screen.cellM.map[newPos[1]][newPos[0]] == 4){
-            System.out.println("Mount DOOM");
+
+            // Check if character collected all 20 rewards
+            if (screen.character.rewardsCollected >= 5){ // CHANGE TO 20 LATER
+                System.out.println("WIN");
+                ui.makeWinWindow();
+                ui.disposeGameWindow();
+            }
+            else{
+                System.out.println("LOSE");
+            }
+
         }
         // if chracter moves into a cell with a bow
         if (screen.cellM.map[newPos[1]][newPos[0]] == 8) {
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 50;
+            screen.character.rewardsCollected++;
         }
         // if chracter moves into a cell with bread
         if (screen.cellM.map[newPos[1]][newPos[0]] == 9){
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 20;
+            screen.character.rewardsCollected++;
         }
         // if chracter moves into a cell with a dagger
         if (screen.cellM.map[newPos[1]][newPos[0]] == 10){
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 50;
+            screen.character.rewardsCollected++;
         }
         // if chracter moves into a cell with a spear
         if (screen.cellM.map[newPos[1]][newPos[0]] == 11){
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 50;
+            screen.character.rewardsCollected++;
         }
         // if chracter moves into a cell with water
         if (screen.cellM.map[newPos[1]][newPos[0]] == 12){
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 10;
+            screen.character.rewardsCollected++;
         }
         // if chracter moves into a cell with gandalf (bonus)
         if (screen.cellM.map[newPos[1]][newPos[0]] == 13){

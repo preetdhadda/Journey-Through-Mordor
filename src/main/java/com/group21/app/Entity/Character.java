@@ -12,7 +12,8 @@ public class Character extends Entity implements KeyListener {
     // main character attributes
     private Image characterLeft;
     private Image characterRight;
-    public int score = 0;
+    public static int score = 0;
+    public int rewardsCollected = 0;
     private String imageDirection;
     private boolean keyDownFlag = false;
     ScreenPanel screen;
@@ -105,9 +106,9 @@ public class Character extends Entity implements KeyListener {
                 }
             }
         }
-        keyDownFlag = true;
+        keyDownFlag = false;
 
-        System.out.println("("+position.y+","+position.x+")");
+        //System.out.println("("+position.y+","+position.x+")");
 
     }
 

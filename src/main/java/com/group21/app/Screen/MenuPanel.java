@@ -111,20 +111,24 @@ public class MenuPanel extends JPanel implements ActionListener {
 
                 // when second is on the interval [15,30] or [45,60], bonuses disappear
                 // bonuses reappear after these intervals, unless already collected by character
-                if (second == 15) {
+                if (second == 10) {
                     screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 0; 
                     screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 0;
                 }
-                if (second == 30) {
-                    if (!screen.gandalf.token) {
-                        screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 13;
-                    }
+                if (second == 20) {
                     if (!screen.sam.token) {
                         screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 14;
                     }
                 }
-                if (second == 45) {
+                if (second == 30) {
                     screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 0; 
+                }
+                if (second == 40) {
+                    if (!screen.gandalf.token) {
+                        screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 13; 
+                    }
+                }
+                if (second == 50) {
                     screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 0;
                 }
                 // if seconds hits 60, reset to 0 and increment minutes

@@ -51,7 +51,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public Reward water8 = new Reward(this, 12, cellM.map, 8, 27);
 
     public Bonus gandalf = new Bonus(this, 13, cellM.map, 6, 23);
-    public Bonus sam = new Bonus(this, 14, cellM.map, 1, 28);
+    public Bonus sam = new Bonus(this, 14, cellM.map, 13, 8);
 
     // timer attributes
     Timer timer;

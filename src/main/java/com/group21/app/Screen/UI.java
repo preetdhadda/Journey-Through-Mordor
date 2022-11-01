@@ -14,10 +14,7 @@ public class UI {
 
     static UI singletonInstance;
 
-    
-    private UI(){
-
-    }
+    private UI(){}
 
     public static UI getInstance(){
         if (singletonInstance == null){
@@ -27,7 +24,6 @@ public class UI {
     }
 
     // Title Panel
-    
     public void makeTitleWindow(){
         JFrame window = new JFrame("Title Window");
         // create window with JFrame
@@ -112,7 +108,6 @@ public class UI {
         gameWindow.dispose();
     }
 
-
     // Win Panel
     public void makeWinWindow(){
         // create window with JFrame
@@ -136,8 +131,30 @@ public class UI {
         window.setLocationRelativeTo(null); // open window in middle of user's device
         window.setVisible(true); // display window
     }
-    
 
+    public void makeLoseWindow(String state){
+        // create window with JFrame
+        JFrame window = new JFrame("Lose Window");
+        // when the user exits the window, stop the game
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // don't allow the user to resize the window
+        window.setResizable(false);
+        
+        // instantiate win panel
+        LosePanel losepanel = new LosePanel(state);
+    
+        // create container for panels
+        Container gameContainer = window.getContentPane();
+        gameContainer.setLayout(new BoxLayout(gameContainer, BoxLayout.Y_AXIS));
+    
+        gameContainer.add(losepanel);
+        window.pack(); // makes window fit preferred size of screen
+    
+        // more window settings
+        window.setLocationRelativeTo(null); // open window in middle of user's device
+        window.setVisible(true); // display window
+    }
+    
 }
 
 

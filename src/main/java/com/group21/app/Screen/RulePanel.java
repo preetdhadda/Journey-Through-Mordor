@@ -18,16 +18,16 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
         setPreferredSize(new Dimension(1350, 675));
 
         // create JButton for playBTN
-        JButton playBTN = new JButton(new ImageIcon("src/main/resources/images/playGame.png"));
-        playBTN.setFocusable(false); // to prevent button from taking focus in window
-        playBTN.setOpaque(true);
-        playBTN.setBorderPainted(true);
-        playBTN.setBounds(460,590, 400,70);
+        JButton continueBTN = new JButton(new ImageIcon("src/main/resources/images/continue.png"));
+        continueBTN.setFocusable(false); // to prevent button from taking focus in window
+        continueBTN.setOpaque(true);
+        continueBTN.setBorderPainted(true);
+        continueBTN.setBounds(460,590, 400,70);
         setLayout(null);
 
         // Add playBTN
-        add(playBTN);
-        playBTN.addActionListener(new ActionListener() {
+        add(continueBTN);
+        continueBTN.addActionListener(new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent e) {

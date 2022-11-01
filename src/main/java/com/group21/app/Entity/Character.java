@@ -106,10 +106,7 @@ public class Character extends Entity implements KeyListener {
                 }
             }
         }
-        keyDownFlag = false;
-
-        //System.out.println("("+position.y+","+position.x+")");
-
+        keyDownFlag = false; // CHANGE TO "true" LATER
     }
 
     // Prevents user from holding down arrow keys

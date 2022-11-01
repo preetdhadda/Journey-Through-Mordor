@@ -1,5 +1,7 @@
 package com.group21.app.Entity;
 
+import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
+
 import com.group21.app.Screen.*;
 
 public class detectCollision {
@@ -11,12 +13,9 @@ public class detectCollision {
         this.screen = screen;
     }
 
-
     public void checkCell(Entity entity){
          
         int[] newPos = new int[2];
-
-        //System.out.println("("+entity.position.x+","+entity.position.y+")");
 
         switch(entity.direction){
             case "left":
@@ -45,22 +44,22 @@ public class detectCollision {
         }
         // If character moves into lava
         if (screen.cellM.map[newPos[1]][newPos[0]] == 1){
-            System.out.println("lava");
+            screen.character.score -= 50;
         } 
         // If character moves into mount doom
         if (screen.cellM.map[newPos[1]][newPos[0]] == 4){
 
             // Check if character collected all 20 rewards
-            if (screen.character.rewardsCollected >= 5){ // CHANGE TO 20 LATER
-                System.out.println("WIN");
+            if (screen.character.rewardsCollected >= 3){ // CHANGE TO 20 LATER
                 ui.makeWinWindow();
                 ui.disposeGameWindow();
             }
             else{
-                System.out.println("LOSE");
+                ui.makeLoseWindow("rewards");
+                ui.disposeGameWindow();
             }
-
         }
+
         // if chracter moves into a cell with a bow
         if (screen.cellM.map[newPos[1]][newPos[0]] == 8) {
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
@@ -102,6 +101,11 @@ public class detectCollision {
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 100;
             screen.sam.token = true;
+        }
+
+        if (screen.character.score < 0){
+            ui.makeLoseWindow("score");
+            ui.disposeGameWindow();
         }
     }
 }

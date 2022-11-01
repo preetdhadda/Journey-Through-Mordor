@@ -37,17 +37,11 @@ public class WinPanel extends JPanel implements ActionListener {
         scoreLabel.setBounds(570,140,400,300);
         add(scoreLabel);
         
-        
-        
-        System.out.println(MenuPanel.decimalMinute);
-        System.out.println(MenuPanel.decimalSecond);
-        
         timeLabel = new JLabel("Time Elapsed: " + MenuPanel.decimalMinute + ":"+MenuPanel.decimalSecond);
         timeLabel.setFont(myFont);
         timeLabel.setForeground(Color.YELLOW);
         timeLabel.setBounds(500,200,500,300);
         add(timeLabel);
-
 
         JButton replayBTN = new JButton(new ImageIcon("src/main/resources/images/playAgain.png"));
         replayBTN.setFocusable(false); // to prevent button from taking focus in window

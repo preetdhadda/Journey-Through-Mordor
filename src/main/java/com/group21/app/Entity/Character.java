@@ -22,7 +22,6 @@ public class Character extends Entity implements KeyListener {
     public Character(ScreenPanel screen) {
         loadImage();
         position = new Point(1,1);
-        //xPos = 1; yPos = 1;
         this.screen = screen;
         imageDirection = "right";
     }
@@ -88,25 +87,21 @@ public class Character extends Entity implements KeyListener {
             if (collisionOn == false){
                 switch(direction){
                     case "up":
-                        //xPos -= 1;
                         position.translate(0, -1);
                         break;
                     case "down":
-                        //xPos +=1;
                         position.translate(0, 1);
                         break;
                     case "left":
-                        //yPos -=1;
                         position.translate(-1, 0);
                         break;
                     case "right":
-                        //yPos +=1;
                         position.translate(1, 0);
                         break;
                 }
             }
         }
-        keyDownFlag = false; // CHANGE TO "true" LATER
+        keyDownFlag = true;
     }
 
     // Prevents user from holding down arrow keys

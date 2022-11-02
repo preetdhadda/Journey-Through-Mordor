@@ -67,9 +67,12 @@ public class detectCollision {
             if (screen.character.rewardsCollected >= 3) { // CHANGE TO 20 LATER
                 ui.makeWinWindow();
                 ui.disposeGameWindow();
+                ScreenPanel.deleteInstance();
+                Enemy.playerFound = true;
             } else {
                 ui.makeLoseWindow("rewards");
                 ui.disposeGameWindow();
+                ScreenPanel.deleteInstance();
             }
         }
 

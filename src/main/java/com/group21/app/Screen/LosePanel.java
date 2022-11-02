@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import com.group21.app.Entity.Character;
+import com.group21.app.Entity.Enemy;
+
 import java.text.DecimalFormat;
 
 public class LosePanel extends JPanel implements ActionListener {
@@ -33,7 +35,9 @@ public class LosePanel extends JPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
 
                 // Go to game window if playBTN is pressed
+                Enemy.playerFound = true;
                 ui.makeGameWindow();
+
                 JComponent comp = (JComponent) e.getSource();
                 Window window = SwingUtilities.getWindowAncestor(comp);
                 window.dispose();

@@ -62,7 +62,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
 
     // timer attributes
     public static Timer timer;
-    private static int delay = 800; // in milliseconds
+    private static int delay = 1000; // in milliseconds
 
     // Collision Detection
     public detectCollision collisionChecker = new detectCollision(this);

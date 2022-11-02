@@ -106,6 +106,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     }
 
     public static void deleteInstance(){
+        timer = null;
         character = null;
         ork = null;
         shelob = null;

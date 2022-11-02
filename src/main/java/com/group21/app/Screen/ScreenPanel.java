@@ -77,11 +77,12 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         // render main character
         character = new Character(this);
 
-        ork = new Enemy(this, "src/main/resources/images/orc_left.png", "src/main/resources/images/orc_right.png", 1,13, "left", 15, cellM.map);
-        shelob = new Enemy(this, "src/main/resources/images/shelob.png", "src/main/resources/images/shelob.png", 6, 4,"right", 16, cellM.map);
-        witch_king = new Enemy(this, "src/main/resources/images/witch_king_left.png","src/main/resources/images/witch_king_right.png", 26, 2, "right", 18, cellM.map);
-        gollum = new Enemy(this, "src/main/resources/images/smeagol_left.png","src/main/resources/images/smeagol_right.png", 24, 11, "left", 19, cellM.map);
-
+        // render enemies
+        ork = new Enemy(this,"orc",1,13,15,cellM.map);
+        shelob = new Enemy(this,"shelob",6, 4,16,cellM.map);
+        witch_king = new Enemy(this,"witch_king",26, 2, 18, cellM.map);
+        gollum = new Enemy(this, "gollum", 24, 11, 19, cellM.map);
+ 
         timer = new Timer(delay, this);
         timer.start();
     }
@@ -91,20 +92,20 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         // render the main character on the screen by calling draw in character
         cellM.draw(graphic);
         character.draw(graphic);
-        gollum.draw(graphic);
         ork.draw(graphic);
         shelob.draw(graphic);
         witch_king.draw(graphic);
+        gollum.draw(graphic);
     }
 
     // called in timer method, redraws the character after its been moved
     @Override
     public void actionPerformed(ActionEvent e) {
         if(Enemy.playerFound == false){
-            gollum.moveToPlayer(character);
             ork.moveToPlayer(character);
             shelob.moveToPlayer(character);
             witch_king.moveToPlayer(character);
+            gollum.moveToPlayer(character);
         }
         repaint(); // this will recall paintComponent to redraw the character
     }

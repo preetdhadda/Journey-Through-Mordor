@@ -8,6 +8,7 @@ import com.group21.app.Screen.UI;
 import java.awt.*;
 
 public class Enemy extends Entity {
+    UI ui = UI.getInstance();
     private Image characterLeft;
     private Image characterRight;
     private String imageDirection;
@@ -15,16 +16,36 @@ public class Enemy extends Entity {
     public static boolean playerFound = false;
     private int id;
 
-    public Enemy(ScreenPanel screen, String img_left, String img_Right, int x, int y, String imageDirection, int id,
-            int[][] map) {
-        this.characterLeft = new ImageIcon(img_left).getImage();
-        this.characterRight = new ImageIcon(img_Right).getImage();
-        position = new Point(x, y);
+    public Enemy(ScreenPanel screen, String type, int x, int y, int id, int[][] map){
+        loadImage(type);
+        position = new Point(x,y);
         this.screen = screen;
-        this.imageDirection = imageDirection;
-        this.id = id;
+        imageDirection = "right";
+    }
 
-        screen.cellM.map[y][x] = id;
+    // load image method
+    private void loadImage(String type) {
+        // load main character's images
+        switch(type){
+            case "orc":
+                characterLeft = new ImageIcon("src/main/resources/images/orc_left.png").getImage();
+                characterRight = new ImageIcon("src/main/resources/images/orc_right.png").getImage();         
+                break;
+            case "shelob":
+                characterLeft = new ImageIcon("src/main/resources/images/shelob.png").getImage();
+                characterRight = new ImageIcon("src/main/resources/images/shelob.png").getImage();         
+                break;   
+            case "witch_king":
+                characterLeft = new ImageIcon("src/main/resources/images/witch_king_left.png").getImage();
+                characterRight = new ImageIcon("src/main/resources/images/witch_king_right.png").getImage();
+                imageDirection = "left";
+                break;
+            case "gollum":
+                characterLeft = new ImageIcon("src/main/resources/images/smeagol_left.png").getImage();
+                characterRight = new ImageIcon("src/main/resources/images/smeagol_right.png").getImage();
+                imageDirection = "left";
+                break;
+        }
     }
 
     // draw image method
@@ -76,7 +97,6 @@ public class Enemy extends Entity {
             }
         } else if (Math.abs((directionToPlayer.x)) == Math.abs(0) && (directionToPlayer.y) == Math.abs(0)) {
             playerFound = true;
-            UI ui = UI.getInstance();
             ui.makeLoseWindow("enemy");
             ui.disposeGameWindow();
 

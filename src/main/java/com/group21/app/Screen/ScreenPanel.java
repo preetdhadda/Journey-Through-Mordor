@@ -72,6 +72,8 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         // set size of game screen
         setPreferredSize(new Dimension(cellSize * numColumns, cellSize * numRows));
 
+        setBackground(new Color(54,54,54));
+
         // render main character
         character = new Character(this);
 

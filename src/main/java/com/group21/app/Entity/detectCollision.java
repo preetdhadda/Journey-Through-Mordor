@@ -46,8 +46,20 @@ public class detectCollision {
         }
         // If character moves into lava
         if (screen.cellM.map[newPos[1]][newPos[0]] == 1) {
-            screen.character.score -= 10;
+            screen.character.score -= 50;
         }
+
+        // If character moves into spider web
+        if (screen.cellM.map[newPos[1]][newPos[0]] == 24) {
+            screen.character.score -= 50;
+        }
+
+        // if character walks into eye of sauron cells
+        if ((screen.cellM.map[newPos[1]][newPos[0]] == 20) || (screen.cellM.map[newPos[1]][newPos[0]] == 21)
+                || (screen.cellM.map[newPos[1]][newPos[0]] == 22) || (screen.cellM.map[newPos[1]][newPos[0]] == 23)) {
+            screen.character.score -= 100;
+        }
+
         // If character moves into mount doom
         if (screen.cellM.map[newPos[1]][newPos[0]] == 4) {
 
@@ -102,10 +114,6 @@ public class detectCollision {
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             screen.character.score += 100;
             screen.sam.token = true;
-        }
-        // Eye of sauron
-        if (screen.cellM.map[newPos[1]][newPos[0]] == 17) {
-            screen.character.score -= 20;
         }
 
         if (screen.character.score < 0) {

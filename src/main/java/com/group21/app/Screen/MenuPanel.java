@@ -8,7 +8,6 @@ import java.text.DecimalFormat;
 import com.group21.app.Entity.detectCollision;
 
 public class MenuPanel extends JPanel implements ActionListener {
-
     ScreenPanel screen;
 
     private int second = 0;
@@ -43,51 +42,15 @@ public class MenuPanel extends JPanel implements ActionListener {
         timeLabel.setFont(myFont);
         timeLabel.setForeground(Color.BLACK);
 
-        // create JButton for stop
-        JButton stop = new JButton(new ImageIcon("src/main/resources/images/stop.png"));
-        stop.setFocusable(false); // to prevent button from taking focus in window
-        stop.setBackground(new Color(128, 128, 128));
-        stop.setOpaque(true);
-        stop.setBorderPainted(false);
-
-        // create JButton for play/pause
-        JButton playPause = new JButton(new ImageIcon("src/main/resources/images/play_pause.png"));
-        playPause.setFocusable(false); // to prevent button from taking focus in window
-        playPause.setBackground(new Color(128, 128, 128));
-        playPause.setOpaque(true);
-        playPause.setBorderPainted(false);
-
         // create JLabel's for sword images
         JLabel stingLeft = new JLabel(new ImageIcon("src/main/resources/images/stingLeft.png"));
         JLabel stingRight = new JLabel(new ImageIcon("src/main/resources/images/stingRight.png"));
 
-        // ADD LABELS AND BUTTONS TO PANEL (IN ORDER AS SEEN):
-        // left sword
-        add(stingLeft);
-
-        // stop button
-        add(stop);
-        stop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-
-        // play/pause button
-        add(playPause);
-        playPause.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("playing/pausing game");
-            }
-        });
-
-        // score and time labels
-        add(scoreLabel);
-        add(timeLabel);
-        // right sword
-        add(stingRight);
+        // add labels to panel (in order as seen):
+        add(stingLeft); // left sword
+        add(scoreLabel); // score label
+        add(timeLabel); // time label
+        add(stingRight); // right sword
 
         setLayout(new FlowLayout(FlowLayout.CENTER));
         setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));

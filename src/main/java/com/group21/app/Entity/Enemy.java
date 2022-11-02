@@ -127,7 +127,10 @@ public class Enemy extends Entity {
         if (screen.cellM.map[yPos][xPos] == 1    || screen.cellM.map[yPos][xPos] == 2 
            || screen.cellM.map[yPos][xPos] == 3  ||screen.cellM.map[yPos][xPos] == 15 
            || screen.cellM.map[yPos][xPos] == 16 || screen.cellM.map[yPos][xPos] == 17
-           || screen.cellM.map[yPos][xPos] == 18 || screen.cellM.map[yPos][xPos] == 19) {
+           || screen.cellM.map[yPos][xPos] == 18 || screen.cellM.map[yPos][xPos] == 19
+            || screen.cellM.map[yPos][xPos] == 20 || screen.cellM.map[yPos][xPos] == 21
+            || screen.cellM.map[yPos][xPos] == 22 || screen.cellM.map[yPos][xPos] == 23
+            || screen.cellM.map[yPos][xPos] == 24) {
             collisionOn = true;
         }
         return collisionOn;

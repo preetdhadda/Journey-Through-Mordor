@@ -8,6 +8,12 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * This class creates an entity for the game's main character (Frodo).
+ * This class handles the rendering of the character on the screen, as well
+ * as its movement across the screen according to user input.
+ */
+
 public class Character extends Entity implements KeyListener {
     // main character attributes
     private Image characterLeft;
@@ -17,24 +23,45 @@ public class Character extends Entity implements KeyListener {
     private String imageDirection;
     private boolean keyDownFlag = false;
     ScreenPanel screen;
-    
-    // character constructor
+
+    /**
+     * Character's constructor loads character's image and sets its initial position and direction on the screen.
+     *
+     * @param screen an instance of ScreenPanel in which to load Frodo's image
+     * @return instance of Character
+     * @see ScreenPanel
+     * @author preetdhadda
+     */
     public Character(ScreenPanel screen) {
         loadImage();
         position = new Point(1,1);
         this.screen = screen;
         imageDirection = "right";
     }
-    
-    // load image method
+
+    /**
+     * This method loads the left and right images for character.
+     * In later methods, the left and right images will be rendered according to which direction
+     * Frodo is moving in.
+     * <p>
+     * This method creates instances of ImageIcon from the javax.swing library.
+     *
+     * @author preetdhadda
+     */
     private void loadImage () {
-        // load main character's images
         characterLeft = new ImageIcon("src/main/resources/images/frodo_left.png").getImage();
         characterRight = new ImageIcon("src/main/resources/images/frodo_right.png").getImage();
     }
 
-    // draw image method
-    // checks the direction of the character and draws the appropriate image
+    /**
+     * This method draws character's images onto the ScreenPanel.
+     * <p>
+     * Checks to see which direction the character is facing, then chooses the image facing that direction.
+     * Uses drawImage() from the java.awt library to render the image onto the screen.
+     *
+     * @param graphic an instance of Graphics from java.awt, which allows rendering of images onto a screen
+     * @author preetdhadda
+     */
     public void draw(Graphics graphic) {
         Image img = null;
 
@@ -50,19 +77,35 @@ public class Character extends Entity implements KeyListener {
         graphic.drawImage(img, position.x* ScreenPanel.cellSize, position.y* ScreenPanel.cellSize, null);
     }
 
-    // have to include this method's definition, but we won't be using it
+    /**
+     * This method's override is required in order to implement KeyListener.
+     * However, it isn't use in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author preetdhadda
+     */
     @Override
     public void keyTyped(KeyEvent e) {}
 
-    // move character along x and y axes depending on user input
-    // move character 1 cell at a time
-    // for left and right keys, update the direction of the character
+    /**
+     * Overriding keyPressed in KeyListener to read the user's keyboard input and moves character accordingly.
+     * <p>
+     * Takes keyboard input on arrow keys and checks the direction of the character. Then checks to see if the
+     * adjacent cell can be entered by character. If no collision is detected, character's position is translated by
+     * one cell and redrawn on the screen in actionPerformed() in the ScreenPanel class.
+     *
+     * @param e the event to be processed
+     * @see ScreenPanel
+     * @see detectCollision
+     * @author preetdhadda
+     * @author jimmy
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         
         if (keyDownFlag == false){
 
-            int key = e.getKeyCode(); // for reading keyboard input from user
+            int key = e.getKeyCode();
 
             if(key == KeyEvent.VK_UP) {
                 direction = "up";
@@ -104,7 +147,13 @@ public class Character extends Entity implements KeyListener {
         keyDownFlag = true;
     }
 
-    // Prevents user from holding down arrow keys
+    /**
+     * Override keyReleased in KeyListener to prevent the user from holding down arrow keys
+     * and having character run across screen.
+     *
+     * @param e the event to be processed
+     * @author jimmy
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         keyDownFlag = false;

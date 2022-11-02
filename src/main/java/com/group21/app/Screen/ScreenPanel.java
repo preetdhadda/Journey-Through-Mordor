@@ -58,7 +58,6 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public static Enemy ork;
     public static Enemy shelob;
     public static Enemy witch_king;
-    //public static Enemy eye_of_sauron;
 
     // timer attributes
     public static Timer timer;

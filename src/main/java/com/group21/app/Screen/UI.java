@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 import com.group21.app.Entity.Enemy;
 import com.group21.app.Screen.RulePanel;
 import com.group21.app.Screen.ScreenPanel;
+import com.group21.app.Entity.Character;
 
 public class UI {
 
@@ -92,9 +93,9 @@ public class UI {
         ScreenPanel screenPanel = ScreenPanel.getInstance(); 
         screenPanel.deleteInstance();
         screenPanel = ScreenPanel.getInstance();
+        Character.score = 0;
 
         Enemy.playerFound = false;
-
         MenuPanel menuPanel = new MenuPanel(screenPanel);
         
         

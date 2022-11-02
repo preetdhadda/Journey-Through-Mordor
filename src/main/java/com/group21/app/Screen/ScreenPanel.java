@@ -21,7 +21,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public final int numRows = 15;
 
     // instantiate main character
-    public Character character;
+    public static Character character;
 
     public CellMap cellM = new CellMap(this);
 
@@ -54,27 +54,35 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public Bonus gandalf = new Bonus(this, 13, cellM.map, 6, 23);
     public Bonus sam = new Bonus(this, 14, cellM.map, 13, 8);
 
-    public Enemy gollum;
-    public Enemy ork;
-    public Enemy shelob;
-    public Enemy witch_king;
-    public Enemy eye_of_sauron;
+    public static Enemy gollum;
+    public static Enemy ork;
+    public static Enemy shelob;
+    public static Enemy witch_king;
+    public static Enemy eye_of_sauron;
 
     // timer attributes
-    Timer timer;
-    private int delay = 400; // in milliseconds
+    public static Timer timer;
+    private static int delay = 800; // in milliseconds
 
     // Collision Detection
     public detectCollision collisionChecker = new detectCollision(this);
 
+    static ScreenPanel singletonInstance;
+
     // screen constructor
-    public ScreenPanel() {
+    private ScreenPanel() {
         // set size of game screen
         setPreferredSize(new Dimension(cellSize * numColumns, cellSize * numRows));
 
         setBackground(new Color(54,54,54));
 
         // render main character
+        character = null;
+        ork = null;
+        shelob = null;
+        witch_king = null;
+        gollum = null;
+        
         character = new Character(this);
 
         // render enemies
@@ -82,10 +90,30 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         shelob = new Enemy(this,"shelob",6, 4,16,cellM.map);
         witch_king = new Enemy(this,"witch_king",26, 2, 18, cellM.map);
         gollum = new Enemy(this, "gollum", 24, 11, 19, cellM.map);
- 
+        
+        timer = null;
         timer = new Timer(delay, this);
         timer.start();
     }
+
+    public static ScreenPanel getInstance(){
+        if (singletonInstance == null){
+            return singletonInstance = new ScreenPanel();
+        }
+        else{
+            return singletonInstance;
+        }
+    }
+
+    public static void deleteInstance(){
+        character = null;
+        ork = null;
+        shelob = null;
+        witch_king = null;
+        gollum = null;
+        singletonInstance = null;
+    }
+
 
     // override paintComponent() in JComponent
     public void paintComponent(Graphics graphic) {
@@ -101,6 +129,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     // called in timer method, redraws the character after its been moved
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println(Enemy.playerFound);
         if(Enemy.playerFound == false){
             ork.moveToPlayer(character);
             shelob.moveToPlayer(character);

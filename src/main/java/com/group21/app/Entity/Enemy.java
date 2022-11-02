@@ -15,12 +15,14 @@ public class Enemy extends Entity {
     ScreenPanel screen;
     public static boolean playerFound = false;
     private int id;
+    String type;
 
     public Enemy(ScreenPanel screen, String type, int x, int y, int id, int[][] map){
         loadImage(type);
         position = new Point(x,y);
         this.screen = screen;
         imageDirection = "right";
+        this.type = type;
     }
 
     // load image method
@@ -96,9 +98,13 @@ public class Enemy extends Entity {
 
             }
         } else if (Math.abs((directionToPlayer.x)) == Math.abs(0) && (directionToPlayer.y) == Math.abs(0)) {
+            System.out.println(ownCurrentLocation);
             playerFound = true;
             ui.makeLoseWindow("enemy");
             ui.disposeGameWindow();
+            ScreenPanel.timer.stop();
+
+            System.out.println(type);
 
         } else {
             if (directionToPlayer.y > 0 && checkCollision(position.x, position.y + 1) == false) {

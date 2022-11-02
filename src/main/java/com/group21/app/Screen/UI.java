@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import com.group21.app.Entity.Enemy;
 import com.group21.app.Screen.RulePanel;
+import com.group21.app.Screen.ScreenPanel;
 
 public class UI {
 
@@ -74,7 +76,7 @@ public class UI {
     // Game Panel
     
     JFrame gameWindow = new JFrame("Journey Through Mordor");
-    //ScreenPanel screenPanel = new ScreenPanel();
+
 
     public void makeGameWindow() {
         // create window with JFrame
@@ -85,9 +87,16 @@ public class UI {
         // don't allow the user to resize the window
         gameWindow.setResizable(false);
         
+
         // instantiate screen and menu panels
-        ScreenPanel screenPanel = new ScreenPanel();
+        ScreenPanel screenPanel = ScreenPanel.getInstance(); 
+        screenPanel.deleteInstance();
+        screenPanel = ScreenPanel.getInstance();
+
+        Enemy.playerFound = false;
+
         MenuPanel menuPanel = new MenuPanel(screenPanel);
+        
         
         // create container for panels
         Container gameContainer = gameWindow.getContentPane();

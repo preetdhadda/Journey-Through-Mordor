@@ -103,7 +103,7 @@ public class detectCollision {
             screen.character.score += 100;
             screen.sam.token = true;
         }
-
+        // Eye of sauron
         if (screen.cellM.map[newPos[1]][newPos[0]] == 17) {
             screen.character.score -= 20;
         }

@@ -98,13 +98,10 @@ public class Enemy extends Entity {
 
             }
         } else if (Math.abs((directionToPlayer.x)) == Math.abs(0) && (directionToPlayer.y) == Math.abs(0)) {
-            System.out.println(ownCurrentLocation);
             playerFound = true;
             ui.makeLoseWindow("enemy");
             ui.disposeGameWindow();
             ScreenPanel.timer.stop();
-
-            System.out.println(type);
 
         } else {
             if (directionToPlayer.y > 0 && checkCollision(position.x, position.y + 1) == false) {

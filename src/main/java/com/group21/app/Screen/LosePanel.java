@@ -11,11 +11,23 @@ import com.group21.app.Entity.Enemy;
 
 import java.text.DecimalFormat;
 
+/**
+ * This class creates instantiates the lose panel and positions
+ * all the images in it
+ * 
+ * @author Jimmy
+ */
 public class LosePanel extends JPanel implements ActionListener {
 
     UI ui = UI.getInstance();
     String state;
-
+    
+    /**
+     * The constructor creates the buttons on the lose panel
+     * that connect back to the game window
+     * @param state
+     * @author Jimmy 
+     */
     public LosePanel(String state){
         setPreferredSize(new Dimension(1350, 675));
         this.state = state;
@@ -45,6 +57,14 @@ public class LosePanel extends JPanel implements ActionListener {
         });
     }
 
+    
+    /** 
+     * Paints the different types of lose panel
+     * depending on how the character lost
+     * 
+     * @param graphic
+     * @author Jimmy
+     */
     @Override
     public void paintComponent(Graphics graphic) {
 

@@ -5,10 +5,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This class creates the images and and buttons 
+ * for TitlePanel
+ * 
+ * @author Jimmy
+ */
 public class TitlePanel extends JPanel implements ActionListener {
 
     UI ui = UI.getInstance();
 
+    /**
+     * The constructor sets up the window with the play game button and 
+     * sets dimension and layout of images
+     * 
+     * @author Jimmy
+     */
     public TitlePanel(){
         // Set size of screen
         setPreferredSize(new Dimension(1350, 675));
@@ -38,6 +50,13 @@ public class TitlePanel extends JPanel implements ActionListener {
 
     }
     
+    /** 
+     * Paints the background image and game title
+     * onto the panel
+     * 
+     * @param graphic
+     * @author Jimmy
+     */
     @Override
     public void paintComponent(Graphics graphic) {
 

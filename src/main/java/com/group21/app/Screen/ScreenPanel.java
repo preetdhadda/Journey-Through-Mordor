@@ -107,6 +107,14 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         timer.start();
     }
 
+    
+    /** 
+     * Use the singleton design pattern to only allow
+     * for one instance of ScreenPanel to exist
+     * 
+     * @return ScreenPanel
+     * @author Jimmy
+     */
     public static ScreenPanel getInstance(){
         if (singletonInstance == null){
             return singletonInstance = new ScreenPanel();
@@ -116,6 +124,12 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         }
     }
 
+    /**
+     * Resets every object in ScreenPanel by 
+     * setting it to null
+     * 
+     * @author Jimmy
+     */
     public static void deleteInstance(){
         timer = null;
         character = null;
@@ -156,7 +170,6 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(Enemy.playerFound);
         if(Enemy.playerFound == false){
             ork.moveToPlayer(character);
             shelob.moveToPlayer(character);

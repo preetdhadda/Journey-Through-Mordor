@@ -4,20 +4,45 @@ import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
 
 import com.group21.app.Screen.*;
 
+/**
+ * This class creates the detect collision logic for the character
+ * This class is called everytime the character moves and contains
+ * if statements for detecting collision with enemies, barriers, and punishments.
+ * It also contains the logic for decrementing the character score and displaying the 
+ * lose and win screen upon win and lose conditions
+ */
+
 public class detectCollision {
 
     ScreenPanel screen;
     UI ui = UI.getInstance();
 
+    /** 
+     * This method passes in the screen to the detectCollision
+     * class so it can access screen attributes like delete instance
+     * 
+     * @param screen
+     * @author Jimmy
+     */    
     public detectCollision(ScreenPanel screen) {
         this.screen = screen;
     }
 
+    
+    /** 
+     * This class contains the main logic for detecting every collision
+     * with the character. It also includes incrementing or decrementing the 
+     * character's health and calling the lose and win screen
+     * 
+     * @param entity
+     * @see ScreenPanel
+     * @see UI
+     * @author Jimmy
+     * @author Jeffrey
+     */
     public void checkCell(Entity entity) {
 
         int[] newPos = new int[2];
-
-        // System.out.println("("+entity.position.x+","+entity.position.y+")");
 
         switch (entity.direction) {
             case "left":
@@ -64,7 +89,7 @@ public class detectCollision {
         if (screen.cellM.map[newPos[1]][newPos[0]] == 4) {
 
             // Check if character collected all 20 rewards
-            if (screen.character.rewardsCollected >= 3) { // CHANGE TO 20 LATER
+            if (screen.character.rewardsCollected >= 20) {
                 ui.makeWinWindow();
                 ui.disposeGameWindow();
                 ScreenPanel.deleteInstance();
@@ -119,6 +144,7 @@ public class detectCollision {
             screen.sam.token = true;
         }
 
+        // if character score drops below 0
         if (screen.character.score < 0) {
             ui.makeLoseWindow("score");
             ui.disposeGameWindow();

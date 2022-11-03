@@ -13,7 +13,6 @@ import java.awt.event.KeyListener;
  * This class handles the rendering of the character on the screen, as well
  * as its movement across the screen according to user input.
  */
-
 public class Character extends Entity implements KeyListener {
     // main character attributes
     private Image characterLeft;
@@ -97,7 +96,7 @@ public class Character extends Entity implements KeyListener {
      * @see ScreenPanel
      * @see detectCollision
      * @author preetdhadda
-     * @author jimmy
+     * @author Jimmy
      */
     @Override
     public void keyPressed(KeyEvent e) {
@@ -151,7 +150,7 @@ public class Character extends Entity implements KeyListener {
      * and having character run across screen.
      *
      * @param e the event to be processed
-     * @author jimmy
+     * @author Jimmy
      */
     @Override
     public void keyReleased(KeyEvent e) {

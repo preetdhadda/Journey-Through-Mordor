@@ -13,9 +13,14 @@ import com.group21.app.Entity.Character;
 public class UI {
 
     static UI singletonInstance;
-
     private UI(){}
 
+    /**
+     * Uses the singleton design pattern
+     * to ensure only one instance of UI is created 
+     * @return UI
+     * @author jimmy
+     */
     public static UI getInstance(){
         if (singletonInstance == null){
             singletonInstance = new UI();
@@ -23,6 +28,19 @@ public class UI {
         return singletonInstance;
     }
 
+    /**
+     * This constructor creates a JFrame for the game.
+     * <p>
+     * Instantiates TitlePanel and adds them to a Container to
+     * display it in the JFrame. Includes the following settings:
+     * <p>
+     *     - stop the game when user exits the window
+     *     - don't allow user to resize the window
+     *     - open window in middle of user's screen
+     *
+     * @see TitlePanel
+     * @author Jimmy
+     */
     public void makeTitleWindow(){
         JFrame window = new JFrame("Title Window");
         // create window with JFrame
@@ -31,6 +49,7 @@ public class UI {
         // don't allow the user to resize the window
         window.setResizable(false);
 
+        // instantiate TitlePanel
         TitlePanel titlePanel = new TitlePanel();
 
         Container gameContainer = window.getContentPane();
@@ -44,7 +63,19 @@ public class UI {
         window.setVisible(true); // display window
     }
 
-    // Rule Panel
+    /**
+     * This constructor creates a JFrame for the game.
+     * <p>
+     * Instantiates RulePanel and adds them to a Container to
+     * display it in the JFrame. Includes the following settings:
+     * <p>
+     *     - stop the game when user exits the window
+     *     - don't allow user to resize the window
+     *     - open window in middle of user's screen
+     *
+     * @see RulePanel
+     * @author Jimmy
+     */
     public void makeRuleWindow() {
         
         // create window with JFrame
@@ -71,7 +102,6 @@ public class UI {
     }
 
     // Game Panel
-    
     JFrame gameWindow = new JFrame("Journey Through Mordor");
 
     /**
@@ -117,11 +147,29 @@ public class UI {
         gameWindow.setVisible(true);
     }
 
+    /**
+     * Deletes the instance of game Window when the player won or lost
+     * 
+     * @see ScreenPanel
+     * @author Jimmy
+     */
     public void disposeGameWindow(){
         gameWindow.dispose();
     }
 
-    // Win Panel
+    /**
+     * This constructor creates a JFrame for the game.
+     * <p>
+     * Instantiates WinPanel and adds them to a Container to
+     * display it in the JFrame. Includes the following settings:
+     * <p>
+     *     - stop the game when user exits the window
+     *     - don't allow user to resize the window
+     *     - open window in middle of user's screen
+     *
+     * @see WinPanel
+     * @author Jimmy
+     */
     public void makeWinWindow(){
         // create window with JFrame
         JFrame window = new JFrame("Win Window");
@@ -145,6 +193,19 @@ public class UI {
         window.setVisible(true); // display window
     }
 
+    /**
+     * This constructor creates a JFrame for the game.
+     * <p>
+     * Instantiates LosePanel and adds them to a Container to
+     * display it in the JFrame. Includes the following settings:
+     * <p>
+     *     - stop the game when user exits the window
+     *     - don't allow user to resize the window
+     *     - open window in middle of user's screen
+     *
+     * @see LosePanel
+     * @author Jimmy
+     */
     public void makeLoseWindow(String state){
         // create window with JFrame
         JFrame window = new JFrame("Lose Window");
@@ -169,10 +230,3 @@ public class UI {
     }
     
 }
-
-
-/*
- * 
- * 
- * javax.swing.JFrame[frame0,0,25,0x0,invalid,hidden,layout=java.awt.BorderLayout,title=Journey Through Mordor,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPane=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=,preferredSize=],rootPaneCheckingEnabled=true]
- */

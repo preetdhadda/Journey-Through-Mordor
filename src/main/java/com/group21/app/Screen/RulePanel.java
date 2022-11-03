@@ -6,13 +6,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+/**
+ * This class creates instantiates the rule panel and positions
+ * all the images in it
+ * 
+ * @author Jimmy
+ */
 public class RulePanel extends JPanel implements ActionListener,KeyListener {
 
     UI ui = UI.getInstance();
-    
     public static JFrame gameWindow;
 
+    /**
+     * The constructor creates the images on the rule panel
+     * and connects the continue button to the game window
+     * 
+     * @param window
+     * @author Jimmy
+     */
     public RulePanel(JFrame window){
         // Set size of screen
         setPreferredSize(new Dimension(1350, 675));
@@ -41,6 +52,13 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
         });
     }
     
+    
+    /** 
+     * Paints the background image onto the rule screen
+     * 
+     * @param graphic
+     * @author Jimmy
+     */
     @Override
     public void paintComponent(Graphics graphic) {
 

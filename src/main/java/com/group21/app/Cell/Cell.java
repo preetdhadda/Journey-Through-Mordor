@@ -2,9 +2,19 @@ package com.group21.app.Cell;
 
 import java.awt.*;
 
-// class to store attributes for each cell
+/**
+ * This class holds attributes for each cell in CellMap.
+ * <p>
+ * Values for Cell.type:
+ * <p>
+ *      "empty", "rock", "lava", "mount doom", "bow", "bread", "dagger", "spear",
+ *      "water", "gandalf", "sam", "orc", "shelob", "witch", "smeagol", "sauron", "web"
+ *
+ * @see CellMap
+ * @author preetdhadda
+ */
 public class Cell {
     public Image img;
-    public String type; // values: "empty", "rock", "lava", "mount doom"
+    public String type;
     public boolean collision  = false;
 }

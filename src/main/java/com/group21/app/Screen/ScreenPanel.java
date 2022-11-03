@@ -14,6 +14,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * This class builds a JPanel to create the game board.
+ * It renders the character, rewards, bonuses, and enemies onto the screen.
+ * <p>
+ * Implements ActionListener and KeyListener from java.awt so user interaction with the screen can be read.
+ */
 public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     // attributes for turning screen into a grid of cells
     public static int cellSize = 45;
@@ -22,10 +28,10 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
 
     // instantiate main character
     public static Character character;
-
+    // instantiate cell map
     public CellMap cellM = new CellMap(this);
 
-    // instantitate rewarads and bonuses
+    // instantiate rewards and bonuses
     public Reward bow = new Reward(this, 8, cellM.map, 13, 1);
 
     public Reward bread1 = new Reward(this, 9, cellM.map, 7, 1);
@@ -65,17 +71,25 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
 
     // Collision Detection
     public detectCollision collisionChecker = new detectCollision(this);
-
     static ScreenPanel singletonInstance;
 
-    // screen constructor
+    /**
+     * This constructor builds a JPanel to display the game board.
+     * <p>
+     * It sets the size of the panel and default background colour. It also creates instances of character and
+     * enemies to later be drawn on the screen in PaintComponent(). Finally, it creates a timer with javax.Swing
+     * to create a delay when moving character between cells.
+     *
+     * @see Character
+     * @see Enemy
+     * @author preetdhadda
+     * @author jsc48
+     */
     private ScreenPanel() {
-        // set size of game screen
         setPreferredSize(new Dimension(cellSize * numColumns, cellSize * numRows));
 
         setBackground(new Color(54,54,54));
 
-        // render main character
         character = null;
         ork = null;
         shelob = null;
@@ -83,8 +97,6 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         gollum = null;
         
         character = new Character(this);
-
-        // render enemies
         ork = new Enemy(this,"orc",1,13,15,cellM.map);
         shelob = new Enemy(this,"shelob",6, 4,16,cellM.map);
         witch_king = new Enemy(this,"witch_king",26, 2, 18, cellM.map);
@@ -114,10 +126,17 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         singletonInstance = null;
     }
 
-
-    // override paintComponent() in JComponent
+    /**
+     * Override paintComponent() in JComponent to draw entities to the screen.
+     *
+     * @param graphic the Graphics object to render
+     * @see CellMap
+     * @see Character
+     * @see Enemy
+     * @author preetdhadda
+     * @author jsc48
+     */
     public void paintComponent(Graphics graphic) {
-        // render the main character on the screen by calling draw in character
         cellM.draw(graphic);
         character.draw(graphic);
         ork.draw(graphic);
@@ -126,7 +145,15 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         gollum.draw(graphic);
     }
 
-    // called in timer method, redraws the character after its been moved
+    /**
+     * Override actionPerformed in ActionEvent to move entities across the board and
+     * repaint the screen after each move.
+     *
+     * @param e the event to be processed
+     * @see Enemy
+     * @author jsc48
+     * @author preetdhadda
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(Enemy.playerFound);
@@ -136,19 +163,41 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
             witch_king.moveToPlayer(character);
             gollum.moveToPlayer(character);
         }
-        repaint(); // this will recall paintComponent to redraw the character
+        repaint();
     }
 
-    // the following 3 key listener methods are overridden in the character class
+    /**
+     * This method's override is required in order to implement KeyListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author preetdhadda
+     */
     @Override
     public void keyTyped(KeyEvent e) {
     }
 
+    /**
+     * Overriding keyPressed in KeyListener to read the user's keyboard input and moves character accordingly.
+     * Overridden and implemented in Character.
+     *
+     * @param e the event to be processed
+     * @see Character
+     * @author preetdhadda
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         character.keyPressed(e);
     }
 
+    /**
+     * Override keyReleased in KeyListener to prevent the user from holding down arrow keys.
+     * Overridden and implemented in Character.
+     *
+     * @param e the event to be processed
+     * @see Character
+     * @author jimmy
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         character.keyReleased(e);

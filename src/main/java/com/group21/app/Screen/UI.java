@@ -1,18 +1,15 @@
 package com.group21.app.Screen;
 
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import com.group21.app.Entity.Enemy;
-import com.group21.app.Screen.RulePanel;
-import com.group21.app.Screen.ScreenPanel;
 import com.group21.app.Entity.Character;
 
+/**
+ * This class builds the UI for the game. It creates windows for the game,
+ * win, and lose screens.
+ */
 public class UI {
 
     static UI singletonInstance;
@@ -26,7 +23,6 @@ public class UI {
         return singletonInstance;
     }
 
-    // Title Panel
     public void makeTitleWindow(){
         JFrame window = new JFrame("Title Window");
         // create window with JFrame
@@ -78,39 +74,46 @@ public class UI {
     
     JFrame gameWindow = new JFrame("Journey Through Mordor");
 
-
+    /**
+     * This constructor creates a JFrame for the game.
+     * <p>
+     * Instantiates ScreenPanel and MenuPanel and adds them to a Container to
+     * display them both in the JFrame. Includes the following settings:
+     * <p>
+     *     - stop the game when user exits the window
+     *     - don't allow user to resize the window
+     *     - add screen and menu panels to window in a BoxLayout (to have one on top of the other)
+     *     - open window in middle of user's screen
+     *
+     * @see ScreenPanel
+     * @see MenuPanel
+     * @author preetdhadda
+     */
     public void makeGameWindow() {
-        // create window with JFrame
         gameWindow = new JFrame("Journey Through Mordor");
 
-        // when the user exits the window, stop the game
+        // window settings
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // don't allow the user to resize the window
         gameWindow.setResizable(false);
-        
 
         // instantiate screen and menu panels
         ScreenPanel screenPanel = ScreenPanel.getInstance(); 
         screenPanel.deleteInstance();
         screenPanel = ScreenPanel.getInstance();
         Character.score = 0;
-
         Enemy.playerFound = false;
         MenuPanel menuPanel = new MenuPanel(screenPanel);
-        
-        
-        // create container for panels
+
+        // instantiate container and add panels
         Container gameContainer = gameWindow.getContentPane();
         gameContainer.setLayout(new BoxLayout(gameContainer, BoxLayout.Y_AXIS));
-        
-        // add screen and score to the container
         gameContainer.add(screenPanel);
         gameWindow.addKeyListener(screenPanel);
         gameContainer.add(menuPanel);
         gameWindow.pack(); // makes window fit preferred size of screen
         
         // more window settings
-        gameWindow.setLocationRelativeTo(null); // open window in middle of user's device
+        gameWindow.setLocationRelativeTo(null);
         gameWindow.setVisible(true);
     }
 

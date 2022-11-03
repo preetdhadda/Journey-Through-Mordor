@@ -6,40 +6,35 @@ import com.group21.app.Screen.ScreenPanel;
 
 import java.awt.*;
 
-// this call creates a map of objects from the Cell class
+/**
+ * This class creates a map of cells. This is what is used to render the map
+ * on the screen.
+ */
 public class CellMap {
-
     ScreenPanel screen;
-    // array of cells
-    public Cell cell[];
+    public Cell cell[]; // array of cells
+    public int map[][]; // 2d array to map the cells
 
-    // 2d array to map the cells
-    public int map[][];
-
+    /**
+     * This constructor sets the cell type in each cell in the 2d array.
+     * <p>
+     * Map legend:
+     * <p>
+     *     0 = plain background     10 = dagger       16 = shelob
+     *     1 = lava                 11 = spear        18 = witch king
+     *     2, 3 = rock              12 = water        19 = gollum
+     *     4, 5, 6, 7 = volcano     13 = gandalf      20, 21, 22, 23 = eye of sauron
+     *     8 = bow                  14 = sam          24 = spider web
+     *     9 = bread                15 = orc
+     *
+     * @param screen the instance of ScreenPanel to display the map on
+     * @see ScreenPanel
+     * @author preetdhadda
+     */
     public CellMap(ScreenPanel screen) {
         this.screen = screen;
-        // increase number in [] as more cell types are added
         cell = new Cell[25];
 
-        // map legend:
-        //      0 = plain background
-        //      1 = lava
-        //      2 = rock
-        //      3 = rock + lava
-        //      4, 5, 6, 7 = volcano (split into 4 pics so it can span 4 cells)
-        //      8 = bow
-        //      9 = bread
-        //      10 = dagger
-        //      11 = spear
-        //      12 = water
-        //      13 = gandalf
-        //      14 = sam
-        //      15 = orc
-        //      16 = shelob
-        //      18 = witch king
-        //      19 = gollum
-        //      20, 21, 22, 23 = eye of sauron
-        //      24 = spider web
         map = new int[][] {
             {2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2},
             {2 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 0 , 24 , 0 , 2 , 0 , 0 , 0 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 , 2},
@@ -61,6 +56,15 @@ public class CellMap {
         loadCellImage();
     }
 
+    /**
+     * This class loads the images for each of the cells to be displayed on the screen.
+     * It uses ImageIcon from javax.swing to get the images.
+     *
+     * @see Cell
+     * @author preetdhadda
+     * @author jwa334
+     * @author jsc48
+     */
     public void loadCellImage() {
         // plain background cell
         cell[0] = new Cell();
@@ -171,12 +175,18 @@ public class CellMap {
         cell[24].type = "web";
     }
 
+    /**
+     * This class draws the cells in the cell map onto the screen.
+     * Loops through 2d array, and displays the appropriate cell image.
+     * Uses drawImage() from java.awt to do the rendering.
+     *
+     * @param graphic image to be rendered on screen
+     * @author preetdhadda
+     */
     public void draw(Graphics graphic) {
-        // x and y will act as coordinates for cell on map
         int x = 0;
         int y = 0;
 
-        // loop through every element in 2d map array, and display appropriate cell image
         for (int row = 0; row < screen.numRows; row++) {
             for (int col = 0; col < screen.numColumns; col++) {
                 int num = map[row][col];
@@ -184,8 +194,7 @@ public class CellMap {
                 // iterate x coordinate by size of cell
                 x += screen.cellSize;
             }
-            // if we have reached here, the current column is complete
-            // reset x coordinate and iterate y coordinate by size of cell
+            // current column is complete - reset x coordinate and iterate y coordinate by size of cell
             x = 0;
             y += screen.cellSize;
         }

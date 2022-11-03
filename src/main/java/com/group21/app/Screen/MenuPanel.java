@@ -1,12 +1,20 @@
 package com.group21.app.Screen;
 
+import com.group21.app.Entity.Character;
+import com.group21.app.Entity.Enemy;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
-import com.group21.app.Entity.detectCollision;
 
+/**
+ * This class builds a JPanel to create the menu panel below the game screen.
+ * It renders the character, rewards, bonuses, and enemies onto the screen.
+ * <p>
+ * Implements ActionListener from java.awt to allow bonuses to appear and reappear randomly.
+ */
 public class MenuPanel extends JPanel implements ActionListener {
     ScreenPanel screen;
 
@@ -19,13 +27,21 @@ public class MenuPanel extends JPanel implements ActionListener {
     DecimalFormat decimal = new DecimalFormat("00");
     private Timer timer;
 
-    // JLabels to display score and time
-    JLabel scoreLabel;
-    JLabel timeLabel;
+    JLabel scoreLabel; // display score
+    JLabel timeLabel; // display time
 
     Font myFont = new Font("Serif", Font.PLAIN, 24);
 
-
+    /**
+     * This constructor builds a JPanel to display the score board.
+     * <p>
+     * It sets the size of the panel and background colour. It creates JLabels for displaying the score
+     * and time attributes and sword images. And it adds the JLabels to the JPanel
+     *
+     * @param screen instance of ScreenPanel to attach MenuPanel to
+     * @see ScreenPanel
+     * @author preetdhadda
+     */
     public MenuPanel(ScreenPanel screen) {
         this.screen = screen;
         // panel settings
@@ -46,11 +62,10 @@ public class MenuPanel extends JPanel implements ActionListener {
         JLabel stingLeft = new JLabel(new ImageIcon("src/main/resources/images/stingLeft.png"));
         JLabel stingRight = new JLabel(new ImageIcon("src/main/resources/images/stingRight.png"));
 
-        // add labels to panel (in order as seen):
-        add(stingLeft); // left sword
-        add(scoreLabel); // score label
-        add(timeLabel); // time label
-        add(stingRight); // right sword
+        add(stingLeft);
+        add(scoreLabel);
+        add(timeLabel);
+        add(stingRight);
 
         setLayout(new FlowLayout(FlowLayout.CENTER));
         setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
@@ -116,7 +131,13 @@ public class MenuPanel extends JPanel implements ActionListener {
         });
     }
 
-    // won't be implementing this
+    /**
+     * This method's override is required in order to implement ActionListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author preetdhadda
+     */
     @Override
     public void actionPerformed(ActionEvent e) {}
 }

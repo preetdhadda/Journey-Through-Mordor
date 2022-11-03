@@ -25,10 +25,9 @@ public class Character extends Entity implements KeyListener {
     ScreenPanel screen;
 
     /**
-     * Character's constructor loads character's image and sets its initial position and direction on the screen.
+     * This constructor loads character's image and sets its initial position and direction on the screen.
      *
-     * @param screen an instance of ScreenPanel in which to load Frodo's image
-     * @return instance of Character
+     * @param screen instance of ScreenPanel in which to load Frodo's image
      * @see ScreenPanel
      * @author preetdhadda
      */
@@ -42,7 +41,7 @@ public class Character extends Entity implements KeyListener {
     /**
      * This method loads the left and right images for character.
      * In later methods, the left and right images will be rendered according to which direction
-     * Frodo is moving in.
+     * character is moving in.
      * <p>
      * This method creates instances of ImageIcon from the javax.swing library.
      *
@@ -79,7 +78,7 @@ public class Character extends Entity implements KeyListener {
 
     /**
      * This method's override is required in order to implement KeyListener.
-     * However, it isn't use in the program, and therefore isn't implemented.
+     * However, it isn't used in the program, and therefore isn't implemented.
      *
      * @param e the event to be processed
      * @author preetdhadda

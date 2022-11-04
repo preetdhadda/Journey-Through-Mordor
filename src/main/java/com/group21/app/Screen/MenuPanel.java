@@ -1,8 +1,5 @@
 package com.group21.app.Screen;
 
-import com.group21.app.Entity.Character;
-import com.group21.app.Entity.Enemy;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -75,6 +72,17 @@ public class MenuPanel extends JPanel implements ActionListener {
         timer.start();
     }
 
+    /**
+     * This method uses the Timer object in javax.swing to display a timer on the screen
+     * and for facilitating the random appearances/disappearances of the bonuses.
+     * <p>
+     * Overrides actionPerformed in ActionListener. Uses the DecimalFormat class from java.text
+     * to format the on screen timer as 00:00, as opposed to 0:0 if it just used Ints. Manually
+     * increments the seconds and minutes displayed in the timer.
+     *
+     * @author preetdhadda
+     * @author jwa334
+     */
     public void timeElapsed() {
         // update the timer every 1000 milliseconds (1 second)
         timer = new Timer(1000, new ActionListener() {
@@ -109,6 +117,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                 if (second == 50) {
                     screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 0;
                 }
+
                 // if seconds hits 60, reset to 0 and increment minutes
                 if (second == 60) {
                     if (!screen.gandalf.token) {

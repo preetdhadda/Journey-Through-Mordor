@@ -16,8 +16,7 @@ public class UI {
     private UI(){}
 
     /**
-     * Uses the singleton design pattern
-     * to ensure only one instance of UI is created 
+     * Uses the singleton design pattern to ensure only one instance of UI is created
      * @return UI
      * @author jimmy
      */
@@ -29,7 +28,7 @@ public class UI {
     }
 
     /**
-     * This constructor creates a JFrame for the game.
+     * This constructor creates a JFrame for the title screen.
      * <p>
      * Instantiates TitlePanel and adds them to a Container to
      * display it in the JFrame. Includes the following settings:
@@ -64,7 +63,7 @@ public class UI {
     }
 
     /**
-     * This constructor creates a JFrame for the game.
+     * This constructor creates a JFrame for the rules screen.
      * <p>
      * Instantiates RulePanel and adds them to a Container to
      * display it in the JFrame. Includes the following settings:
@@ -158,7 +157,7 @@ public class UI {
     }
 
     /**
-     * This constructor creates a JFrame for the game.
+     * This constructor creates a JFrame for the winning screen.
      * <p>
      * Instantiates WinPanel and adds them to a Container to
      * display it in the JFrame. Includes the following settings:
@@ -194,7 +193,7 @@ public class UI {
     }
 
     /**
-     * This constructor creates a JFrame for the game.
+     * This constructor creates a JFrame for the losing screen.
      * <p>
      * Instantiates LosePanel and adds them to a Container to
      * display it in the JFrame. Includes the following settings:

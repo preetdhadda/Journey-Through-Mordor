@@ -2,12 +2,20 @@ package com.group21.app;
 import com.group21.app.Screen.UI;
 import com.group21.app.Entity.Music;
 
+import javax.swing.*;
+
 
 public class Main {
 
     public static void main(String[] args) {
         UI ui = UI.getInstance();
-        ui.makeTitleWindow();
+        //ui.makeTitleWindow();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                ui.makeTitleWindow();
+            }
+        });
         Music.Music("src/main/resources/music/airtone_-_brokencloud_1.wav");
     }
 }

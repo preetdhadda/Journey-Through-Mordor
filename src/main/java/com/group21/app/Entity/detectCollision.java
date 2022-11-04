@@ -38,7 +38,7 @@ public class detectCollision {
      * @see ScreenPanel
      * @see UI
      * @author Jimmy
-     * @author Jeffrey
+     * @author jeffreywong
      */
     public void checkCell(Entity entity) {
 

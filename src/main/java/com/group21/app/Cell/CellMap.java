@@ -62,7 +62,7 @@ public class CellMap {
      *
      * @see Cell
      * @author preetdhadda
-     * @author jwa334
+     * @author jeffreywong
      * @author jsc48
      */
     public void loadCellImage() {

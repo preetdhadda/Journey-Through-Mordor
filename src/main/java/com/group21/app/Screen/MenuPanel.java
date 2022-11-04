@@ -79,9 +79,18 @@ public class MenuPanel extends JPanel implements ActionListener {
      * Overrides actionPerformed in ActionListener. Uses the DecimalFormat class from java.text
      * to format the on screen timer as 00:00, as opposed to 0:0 if it just used Ints. Manually
      * increments the seconds and minutes displayed in the timer.
+     * 
+     * Additionally, it is used to manage the availability of bonuses
+     * For every minute: 
+     * during the 0-10th second, both bonuses will spawn (if not collected) in their respective positions
+     * during the 10-20th second, both bonuses will be inactive
+     * during the 20-30th second, Sam will spawn (if not collected) in Gandalf's position
+     * during the 30-40th second, both bonuses will be inactive
+     * during the 40-50th second, Gandalf will spawn (if not collected) in Sam's position
+     * during the 50-60th second, both bonuses will be inactive
      *
      * @author preetdhadda
-     * @author jwa334
+     * @author jeffreywong
      */
     public void timeElapsed() {
         // update the timer every 1000 milliseconds (1 second)
@@ -95,8 +104,6 @@ public class MenuPanel extends JPanel implements ActionListener {
 
                 timeLabel.setText("Time Elapsed: " + decimalMinute + ":" + decimalSecond);
 
-                // when second is on the interval [15,30] or [45,60], bonuses disappear
-                // bonuses reappear after these intervals, unless already collected by character
                 if (second == 10) {
                     screen.cellM.map[screen.gandalf.xPos][screen.gandalf.yPos] = 0; 
                     screen.cellM.map[screen.sam.xPos][screen.sam.yPos] = 0;

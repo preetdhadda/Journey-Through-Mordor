@@ -11,7 +11,7 @@ import com.group21.app.Entity.Enemy;
 import java.text.DecimalFormat;
 
 /**
- * This class creates the images and and buttons 
+ * This class creates the images and buttons
  * for WinPanel
  */
 public class WinPanel extends JPanel implements ActionListener {
@@ -82,7 +82,7 @@ public class WinPanel extends JPanel implements ActionListener {
     /** 
      * Paints the background image onto the panel
      * 
-     * @param graphic
+     * @param graphic instance of Graphics to display on screen
      * @author Jimmy
      */
     @Override
@@ -95,7 +95,13 @@ public class WinPanel extends JPanel implements ActionListener {
         graphic.drawImage(background,0, 0, this.getWidth(), this.getHeight(), null);
     }
 
-    // won't be implementing this
+    /**
+     * This method's override is required in order to implement ActionListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author Jimmy
+     */
     @Override
     public void actionPerformed(ActionEvent e) {}
     

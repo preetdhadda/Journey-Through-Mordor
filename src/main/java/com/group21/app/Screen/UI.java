@@ -18,7 +18,7 @@ public class UI {
     /**
      * Uses the singleton design pattern to ensure only one instance of UI is created
      * @return UI
-     * @author jimmy
+     * @author Jimmy
      */
     public static UI getInstance(){
         if (singletonInstance == null){
@@ -34,14 +34,16 @@ public class UI {
      * display it in the JFrame. Includes the following settings:
      * <p>
      *     - stop the game when user exits the window
+     * <p>
      *     - don't allow user to resize the window
+     * <p>
      *     - open window in middle of user's screen
      *
      * @see TitlePanel
      * @author Jimmy
      */
     public void makeTitleWindow(){
-        JFrame window = new JFrame("Title Window");
+        JFrame window = new JFrame("Journey Through Mordor");
         // create window with JFrame
         // when the user exits the window, stop the game
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +71,9 @@ public class UI {
      * display it in the JFrame. Includes the following settings:
      * <p>
      *     - stop the game when user exits the window
+     * <p>
      *     - don't allow user to resize the window
+     * <p>
      *     - open window in middle of user's screen
      *
      * @see RulePanel
@@ -78,7 +82,7 @@ public class UI {
     public void makeRuleWindow() {
         
         // create window with JFrame
-        JFrame window = new JFrame("Rule Window");
+        JFrame window = new JFrame("Journey Through Mordor");
         // when the user exits the window, stop the game
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // don't allow the user to resize the window
@@ -110,13 +114,16 @@ public class UI {
      * display them both in the JFrame. Includes the following settings:
      * <p>
      *     - stop the game when user exits the window
+     * <p>
      *     - don't allow user to resize the window
+     * <p>
      *     - add screen and menu panels to window in a BoxLayout (to have one on top of the other)
+     * <p>
      *     - open window in middle of user's screen
      *
      * @see ScreenPanel
      * @see MenuPanel
-     * @author preetdhadda
+     * @author Preet
      */
     public void makeGameWindow() {
         gameWindow = new JFrame("Journey Through Mordor");
@@ -163,7 +170,9 @@ public class UI {
      * display it in the JFrame. Includes the following settings:
      * <p>
      *     - stop the game when user exits the window
+     * <p>
      *     - don't allow user to resize the window
+     * <p>
      *     - open window in middle of user's screen
      *
      * @see WinPanel
@@ -171,7 +180,7 @@ public class UI {
      */
     public void makeWinWindow(){
         // create window with JFrame
-        JFrame window = new JFrame("Win Window");
+        JFrame window = new JFrame("Journey Through Mordor");
         // when the user exits the window, stop the game
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // don't allow the user to resize the window
@@ -199,7 +208,9 @@ public class UI {
      * display it in the JFrame. Includes the following settings:
      * <p>
      *     - stop the game when user exits the window
+     * <p>
      *     - don't allow user to resize the window
+     * <p>
      *     - open window in middle of user's screen
      *
      * @see LosePanel
@@ -207,7 +218,7 @@ public class UI {
      */
     public void makeLoseWindow(String state){
         // create window with JFrame
-        JFrame window = new JFrame("Lose Window");
+        JFrame window = new JFrame("Journey Through Mordor");
         // when the user exits the window, stop the game
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // don't allow the user to resize the window

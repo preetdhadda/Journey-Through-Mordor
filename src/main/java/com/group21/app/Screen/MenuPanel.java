@@ -37,7 +37,7 @@ public class MenuPanel extends JPanel implements ActionListener {
      *
      * @param screen instance of ScreenPanel to attach MenuPanel to
      * @see ScreenPanel
-     * @author preetdhadda
+     * @author Preet
      */
     public MenuPanel(ScreenPanel screen) {
         this.screen = screen;
@@ -79,18 +79,24 @@ public class MenuPanel extends JPanel implements ActionListener {
      * Overrides actionPerformed in ActionListener. Uses the DecimalFormat class from java.text
      * to format the on screen timer as 00:00, as opposed to 0:0 if it just used Ints. Manually
      * increments the seconds and minutes displayed in the timer.
-     * 
+     *<p>
      * Additionally, it is used to manage the availability of bonuses
-     * For every minute: 
+     * For every minute:
+     * <p>
      * during the 0-10th second, both bonuses will spawn (if not collected) in their respective positions
+     * <p>
      * during the 10-20th second, both bonuses will be inactive
+     * <p>
      * during the 20-30th second, Sam will spawn (if not collected) in Gandalf's position
+     * <p>
      * during the 30-40th second, both bonuses will be inactive
+     * <p>
      * during the 40-50th second, Gandalf will spawn (if not collected) in Sam's position
+     * <p>
      * during the 50-60th second, both bonuses will be inactive
      *
-     * @author preetdhadda
-     * @author jeffreywong
+     * @author Preet
+     * @author Jeffrey
      */
     public void timeElapsed() {
         // update the timer every 1000 milliseconds (1 second)
@@ -152,7 +158,7 @@ public class MenuPanel extends JPanel implements ActionListener {
      * However, it isn't used in the program, and therefore isn't implemented.
      *
      * @param e the event to be processed
-     * @author preetdhadda
+     * @author Preet
      */
     @Override
     public void actionPerformed(ActionEvent e) {}

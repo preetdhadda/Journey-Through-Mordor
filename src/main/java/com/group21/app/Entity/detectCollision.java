@@ -5,7 +5,8 @@ import javax.swing.plaf.metal.MetalBorders.ScrollPaneBorder;
 import com.group21.app.Screen.*;
 
 /**
- * This class creates the detect collision logic for the character
+ * This class creates the detect collision logic for the character.
+ * <p>
  * This class is called everytime the character moves and contains
  * if statements for detecting collision with enemies, barriers, and punishments.
  * It also contains the logic for decrementing the character score and displaying the 
@@ -21,7 +22,7 @@ public class detectCollision {
      * This method passes in the screen to the detectCollision
      * class so it can access screen attributes like delete instance
      * 
-     * @param screen
+     * @param screen instance of ScreenPanel where the collision is to be detected
      * @author Jimmy
      */    
     public detectCollision(ScreenPanel screen) {
@@ -30,15 +31,15 @@ public class detectCollision {
 
     
     /** 
-     * This class contains the main logic for detecting every collision
-     * with the character. It also includes incrementing or decrementing the 
+     * This class contains the main logic for detecting every collision with the character.
+     * It also includes incrementing or decrementing the
      * character's health and calling the lose and win screen
      * 
-     * @param entity
+     * @param entity instance of Entity to detect collision for
      * @see ScreenPanel
      * @see UI
      * @author Jimmy
-     * @author jeffreywong
+     * @author Jeffrey
      */
     public void checkCell(Entity entity) {
 

@@ -11,7 +11,7 @@ import java.awt.*;
  *      "water", "gandalf", "sam", "orc", "shelob", "witch", "smeagol", "sauron", "web"
  *
  * @see CellMap
- * @author preetdhadda
+ * @author Preet
  */
 public class Cell {
     public Image img;

@@ -21,7 +21,7 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
      * The constructor creates the images on the rule panel
      * and connects the continue button to the game window
      * 
-     * @param window
+     * @param window to display RulePanel in
      * @author Jimmy
      */
     public RulePanel(JFrame window){
@@ -56,7 +56,7 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
     /** 
      * Paints the background image onto the rule screen
      * 
-     * @param graphic
+     * @param graphic instance of Graphics to display on screen
      * @author Jimmy
      */
     @Override
@@ -67,16 +67,43 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
         graphic.drawImage(background,0, 0, this.getWidth(), this.getHeight(), null);
     }
 
-    // won't be implementing this
+    /**
+     * This method's override is required in order to implement KeyListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author Jimmy
+     */
     @Override
     public void keyPressed(KeyEvent e) {}
 
+    /**
+     * This method's override is required in order to implement ActionListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author Jimmy
+     */
     @Override
     public void actionPerformed(ActionEvent e) {}
 
+    /**
+     * This method's override is required in order to implement KeyListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author Jimmy
+     */
     @Override
     public void keyTyped(KeyEvent e) {}
 
+    /**
+     * This method's override is required in order to implement KeyListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author Jimmy
+     */
     @Override
     public void keyReleased(KeyEvent e) {}
 }

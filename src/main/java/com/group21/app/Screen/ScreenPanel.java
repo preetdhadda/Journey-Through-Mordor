@@ -82,8 +82,8 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      *
      * @see Character
      * @see Enemy
-     * @author preetdhadda
-     * @author jsc48
+     * @author Preet
+     * @author Jessy
      */
     private ScreenPanel() {
         setPreferredSize(new Dimension(cellSize * numColumns, cellSize * numRows));
@@ -152,8 +152,8 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      * @see CellMap
      * @see Character
      * @see Enemy
-     * @author preetdhadda
-     * @author jsc48
+     * @author Preet
+     * @author Jessy
      */
     public void paintComponent(Graphics graphic) {
         cellM.draw(graphic);
@@ -170,8 +170,8 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      *
      * @param e the event to be processed
      * @see Enemy
-     * @author jsc48
-     * @author preetdhadda
+     * @author Jessy
+     * @author Preet
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -191,7 +191,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      * However, it isn't used in the program, and therefore isn't implemented.
      *
      * @param e the event to be processed
-     * @author preetdhadda
+     * @author Preet
      */
     @Override
     public void keyTyped(KeyEvent e) {
@@ -203,7 +203,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      *
      * @param e the event to be processed
      * @see Character
-     * @author preetdhadda
+     * @author Preet
      */
     @Override
     public void keyPressed(KeyEvent e) {
@@ -216,7 +216,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      *
      * @param e the event to be processed
      * @see Character
-     * @author jimmy
+     * @author Jimmy
      */
     @Override
     public void keyReleased(KeyEvent e) {

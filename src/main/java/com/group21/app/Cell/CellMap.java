@@ -20,16 +20,21 @@ public class CellMap {
      * <p>
      * Map legend:
      * <p>
-     *     0 = plain background     10 = dagger       16 = shelob
-     *     1 = lava                 11 = spear        18 = witch king
-     *     2, 3 = rock              12 = water        19 = gollum
-     *     4, 5, 6, 7 = volcano     13 = gandalf      20, 21, 22, 23 = eye of sauron
-     *     8 = bow                  14 = sam          24 = spider web
-     *     9 = bread                15 = orc
+     *     0 = plain background   |  10 = dagger    |   16 = shelob
+     * <p>
+     *     1 = lava       |          11 = spear    |    18 = witch king
+     * <p>
+     *     2, 3 = rock       |       12 = water    |    19 = gollum
+     * <p>
+     *     4, 5, 6, 7 = volcano   |  13 = gandalf   |   20, 21, 22, 23 = eye of sauron
+     * <p>
+     *     8 = bow          |        14 = sam      |    24 = spider web
+     * <p>
+     *     9 = bread         |       15 = orc
      *
      * @param screen the instance of ScreenPanel to display the map on
      * @see ScreenPanel
-     * @author preetdhadda
+     * @author Preet
      */
     public CellMap(ScreenPanel screen) {
         this.screen = screen;
@@ -61,9 +66,9 @@ public class CellMap {
      * It uses ImageIcon from javax.swing to get the images.
      *
      * @see Cell
-     * @author preetdhadda
-     * @author jeffreywong
-     * @author jsc48
+     * @author Preet
+     * @author Jeffrey
+     * @author Jessy
      */
     public void loadCellImage() {
         // plain background cell
@@ -177,11 +182,12 @@ public class CellMap {
 
     /**
      * This class draws the cells in the cell map onto the screen.
+     * <p>
      * Loops through 2d array, and displays the appropriate cell image.
      * Uses drawImage() from java.awt to do the rendering.
      *
      * @param graphic image to be rendered on screen
-     * @author preetdhadda
+     * @author Preet
      */
     public void draw(Graphics graphic) {
         int x = 0;

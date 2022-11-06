@@ -54,7 +54,7 @@ public class TitlePanel extends JPanel implements ActionListener {
      * Paints the background image and game title
      * onto the panel
      * 
-     * @param graphic
+     * @param graphic instance of Graphics to diplay on the screen
      * @author Jimmy
      */
     @Override
@@ -70,7 +70,13 @@ public class TitlePanel extends JPanel implements ActionListener {
         graphic.drawImage(gameTitle,250,250,800,100,null);
     }
 
-    // won't be implementing this
+    /**
+     * This method's override is required in order to implement ActionListener.
+     * However, it isn't used in the program, and therefore isn't implemented.
+     *
+     * @param e the event to be processed
+     * @author Jimmy
+     */
     @Override
     public void actionPerformed(ActionEvent e) {}
 }

@@ -15,13 +15,13 @@ public class Reward extends Entity {
     /**
      * This constructor loads reward's image and sets its initial position on the screen.
      *
-     * @param screen instance of ScreenPanel in which to load the reward
-     * @see ScreenPanel
+     * @param s instance of ScreenPanel in which to load the reward
      * @param id the specific type of reward
      * @param m cell map of the game
      * @param x x-coordinate of the reward on the map
      * @param y y-coordinate of the reward on the map
-     * @author jeffreywong
+     * @see ScreenPanel
+     * @author Jeffrey
      */
     public Reward(ScreenPanel s, int id, int[][] m, int x, int y) {
         screen = s;
@@ -34,5 +34,4 @@ public class Reward extends Entity {
     // public void spawnReward(int[][] map, int id) {
     //     screen.cellM.map[xPos][yPos] = id;
     // }
-
 }

@@ -7,9 +7,14 @@ import javax.swing.*;
 
 public class Main {
 
+    /**
+     * Main method runs the game.
+     * Creates an instance of UI and runs it with the Runnable interface.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         UI ui = UI.getInstance();
-        //ui.makeTitleWindow();
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 
 /**
  * This class creates an entity for the game's main character (Frodo).
+ * <p>
  * This class handles the rendering of the character on the screen, as well
  * as its movement across the screen according to user input.
  */
@@ -28,7 +29,7 @@ public class Character extends Entity implements KeyListener {
      *
      * @param screen instance of ScreenPanel in which to load Frodo's image
      * @see ScreenPanel
-     * @author preetdhadda
+     * @author Preet
      */
     public Character(ScreenPanel screen) {
         loadImage();
@@ -44,7 +45,7 @@ public class Character extends Entity implements KeyListener {
      * <p>
      * This method creates instances of ImageIcon from the javax.swing library.
      *
-     * @author preetdhadda
+     * @author Preet
      */
     private void loadImage () {
         characterLeft = new ImageIcon("src/main/resources/images/frodo_left.png").getImage();
@@ -57,8 +58,8 @@ public class Character extends Entity implements KeyListener {
      * Checks to see which direction the character is facing, then chooses the image facing that direction.
      * Uses drawImage() from the java.awt library to render the image onto the screen.
      *
-     * @param graphic an instance of Graphics from java.awt, which allows rendering of images onto a screen
-     * @author preetdhadda
+     * @param graphic an instance of Graphics from java.awt, which allows rendering of images onto screen
+     * @author Preet
      */
     public void draw(Graphics graphic) {
         Image img = null;
@@ -80,7 +81,7 @@ public class Character extends Entity implements KeyListener {
      * However, it isn't used in the program, and therefore isn't implemented.
      *
      * @param e the event to be processed
-     * @author preetdhadda
+     * @author Preet
      */
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -95,7 +96,7 @@ public class Character extends Entity implements KeyListener {
      * @param e the event to be processed
      * @see ScreenPanel
      * @see detectCollision
-     * @author preetdhadda
+     * @author Preet
      * @author Jimmy
      */
     @Override

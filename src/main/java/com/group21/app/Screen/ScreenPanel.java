@@ -101,6 +101,11 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         shelob = new Enemy(this,"shelob",6, 4,16,cellM.map);
         witch_king = new Enemy(this,"witch_king",26, 2, 18, cellM.map);
         gollum = new Enemy(this, "gollum", 24, 11, 19, cellM.map);
+
+        Enemy.EnemyArray.add(ork);
+        Enemy.EnemyArray.add(shelob);
+        Enemy.EnemyArray.add(witch_king);
+        Enemy.EnemyArray.add(gollum);
         
         timer = null;
         timer = new Timer(delay, this);
@@ -170,7 +175,9 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(Enemy.playerFound == false){
+        if(Enemy.playerFound == false && timer != null && character != null 
+           && ork != null && shelob != null && witch_king != null 
+           && gollum != null && singletonInstance != null){
             ork.moveToPlayer(character);
             shelob.moveToPlayer(character);
             witch_king.moveToPlayer(character);

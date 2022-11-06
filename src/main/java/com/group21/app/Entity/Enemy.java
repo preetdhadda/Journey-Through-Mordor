@@ -6,6 +6,7 @@ import com.group21.app.Screen.ScreenPanel;
 import com.group21.app.Screen.UI;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Enemy extends Entity {
     UI ui = UI.getInstance();
@@ -15,6 +16,7 @@ public class Enemy extends Entity {
     ScreenPanel screen;
     public static boolean playerFound = false;
     private int id;
+    public static ArrayList<Enemy> EnemyArray = new ArrayList<Enemy>();
     String type;
 
     public Enemy(ScreenPanel screen, String type, int x, int y, int id, int[][] map){
@@ -73,23 +75,22 @@ public class Enemy extends Entity {
         Point enemyCurrentLocation = position;
         Point playersLocation = player.position;
 
-        Point pathToPlayer = new Point((player.position.x - enemyCurrentLocation.x),
-                (playersLocation.y - enemyCurrentLocation.y));
+        Point pathToPlayer = new Point((player.position.x - enemyCurrentLocation.x),(playersLocation.y - enemyCurrentLocation.y));
 
         if (Math.abs((pathToPlayer.x)) > Math.abs((pathToPlayer.y))) {
-            if (pathToPlayer.x > 0 && checkCollision(position.x + 1, position.y) == false) {
+            if (pathToPlayer.x > 0 && checkCollision(position.x + 1, position.y, player) == false) {
                 imageDirection = "right";
                 position.translate(1, 0);
 
-            } else if (pathToPlayer.x < 0 && checkCollision(position.x - 1, position.y) == false) {
+            } else if (pathToPlayer.x < 0 && checkCollision(position.x - 1, position.y, player) == false) {
                 imageDirection = "left";
                 position.translate(-1, 0);
             }
         } else if (Math.abs((pathToPlayer.x)) < Math.abs((pathToPlayer.y))) {
-            if (pathToPlayer.y > 0 && checkCollision(position.x, position.y + 1) == false) {
+            if (pathToPlayer.y > 0 && checkCollision(position.x, position.y + 1, player) == false) {
                 position.translate(0, 1); // Down
 
-            } else if (pathToPlayer.y < 0 && checkCollision(position.x, position.y - 1) == false) {
+            } else if (pathToPlayer.y < 0 && checkCollision(position.x, position.y - 1, player) == false) {
                 position.translate(0, -1); // Up
 
             }
@@ -100,25 +101,36 @@ public class Enemy extends Entity {
             ScreenPanel.timer.stop();
 
         } else {
-            if (pathToPlayer.y > 0 && checkCollision(position.x, position.y + 1) == false) {
+            if (pathToPlayer.y > 0 && checkCollision(position.x, position.y + 1, player) == false) {
                 position.translate(0, 1);
 
             }
-            if (pathToPlayer.y < 0 && checkCollision(position.x, position.y - 1) == false) {
+            if (pathToPlayer.y < 0 && checkCollision(position.x, position.y - 1, player) == false) {
                 position.translate(0, -1);
 
             }
         }
     }
 
-    Boolean checkCollision(int xPos, int yPos) {
+    Boolean checkCollision(int xPos, int yPos, Character player) {
         collisionOn = false;
-        if (screen.cellM.map[yPos][xPos] == 1    || screen.cellM.map[yPos][xPos] == 2 
-           || screen.cellM.map[yPos][xPos] == 3  ||screen.cellM.map[yPos][xPos] == 15 
-           || screen.cellM.map[yPos][xPos] == 16 || screen.cellM.map[yPos][xPos] == 18 
-           || screen.cellM.map[yPos][xPos] == 19 || screen.cellM.map[yPos][xPos] == 20 
-           || screen.cellM.map[yPos][xPos] == 21 || screen.cellM.map[yPos][xPos] == 22 
-           || screen.cellM.map[yPos][xPos] == 23 || screen.cellM.map[yPos][xPos] == 24) {
+
+        Point newPos = new Point(xPos, yPos);
+        for(int i = 0; i < EnemyArray.size(); i++){
+            Point coordinates = EnemyArray.get(i).position;
+            if (newPos.equals(coordinates) && newPos.equals(player.position) == false){
+                collisionOn = true;
+                return collisionOn;
+            }
+        }
+
+        if (screen.cellM.map[yPos][xPos] == 1     || screen.cellM.map[yPos][xPos] == 2 
+           || screen.cellM.map[yPos][xPos] == 3   || screen.cellM.map[yPos][xPos] == 4
+           || screen.cellM.map[yPos][xPos] == 5   || screen.cellM.map[yPos][xPos] == 6
+           || screen.cellM.map[yPos][xPos] == 7   ||screen.cellM.map[yPos][xPos] == 15 
+           || screen.cellM.map[yPos][xPos] == 20  || screen.cellM.map[yPos][xPos] == 21 
+           || screen.cellM.map[yPos][xPos] == 22  || screen.cellM.map[yPos][xPos] == 23 
+           || screen.cellM.map[yPos][xPos] == 24){
             collisionOn = true;
         }
         return collisionOn;

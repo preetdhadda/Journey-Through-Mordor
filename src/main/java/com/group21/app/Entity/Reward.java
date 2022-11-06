@@ -29,9 +29,5 @@ public class Reward extends Entity {
         xPos = x;
         yPos = y;
         screen.cellM.map[xPos][yPos] = id;
-        //spawnReward(map, id);
     }
-    // public void spawnReward(int[][] map, int id) {
-    //     screen.cellM.map[xPos][yPos] = id;
-    // }
 }

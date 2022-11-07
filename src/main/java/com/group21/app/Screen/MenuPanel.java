@@ -1,6 +1,9 @@
 package com.group21.app.Screen;
 
 import javax.swing.*;
+
+import com.group21.app.Entity.Character;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,7 +49,7 @@ public class MenuPanel extends JPanel implements ActionListener {
         setBackground(new Color(128, 128, 128));
 
         // create JLabel to display the score
-        scoreLabel = new JLabel("   Score: " + screen.character.score + "    |    ");
+        scoreLabel = new JLabel("   Score: " + Character.score + "    |    ");
         scoreLabel.setFont(myFont);
         scoreLabel.setForeground(Color.BLACK);
 
@@ -148,7 +151,7 @@ public class MenuPanel extends JPanel implements ActionListener {
                     timeLabel.setText("Time Elapsed: " + decimalMinute + ":" + decimalSecond);
                 }
                 // update score, if character collects rewards during tick
-                scoreLabel.setText("   Score: " + screen.character.score + "    |    ");
+                scoreLabel.setText("   Score: " + Character.score + "    |    ");
             }
         });
     }

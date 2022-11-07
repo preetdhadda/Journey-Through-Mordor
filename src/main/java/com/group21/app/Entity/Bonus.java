@@ -17,14 +17,13 @@ public class Bonus extends Reward {
      * @param s instance of ScreenPanel in which to load the reward
      * @see ScreenPanel
      * @param id the specific type of reward
-     * @param m cell map of the game
      * @param x x-coordinate of the reward on the map
      * @param y y-coordinate of the reward on the map
      * @author Jeffrey
      */
-    public Bonus(ScreenPanel s, int id, int[][] m, int x, int y) {
+    public Bonus(ScreenPanel s, int id, int x, int y) {
         // inherited from superclass Reward
-        super(s, id, m, x, y);
+        super(s, id, x, y);
     }
     
 }

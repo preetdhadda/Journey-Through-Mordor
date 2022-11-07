@@ -15,7 +15,7 @@ public class Music {
      * @param filepath represents the relative path to the audio clip
      * @author jsc48
      */
-    public static void Music(String filePath){
+    public static void setMusic(String filePath){
         File musicPathRelative = new File(filePath);
          try {
             Clip audioClip = AudioSystem.getClip();

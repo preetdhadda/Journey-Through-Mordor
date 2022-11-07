@@ -134,7 +134,7 @@ public class UI {
 
         // instantiate screen and menu panels
         ScreenPanel screenPanel = ScreenPanel.getInstance(); 
-        screenPanel.deleteInstance();
+        ScreenPanel.deleteInstance();
         screenPanel = ScreenPanel.getInstance();
         Character.score = 0;
         Enemy.playerFound = false;

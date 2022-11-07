@@ -8,7 +8,6 @@ import com.group21.app.Screen.ScreenPanel;
  */
 public class Reward extends Entity {
     ScreenPanel screen;
-    private int[][] map;
     public int xPos;
     public int yPos;
 
@@ -17,15 +16,13 @@ public class Reward extends Entity {
      *
      * @param s instance of ScreenPanel in which to load the reward
      * @param id the specific type of reward
-     * @param m cell map of the game
      * @param x x-coordinate of the reward on the map
      * @param y y-coordinate of the reward on the map
      * @see ScreenPanel
      * @author Jeffrey
      */
-    public Reward(ScreenPanel s, int id, int[][] m, int x, int y) {
+    public Reward(ScreenPanel s, int id, int x, int y) {
         screen = s;
-        map = m;
         xPos = x;
         yPos = y;
         screen.cellM.map[xPos][yPos] = id;

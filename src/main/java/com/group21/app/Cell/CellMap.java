@@ -196,13 +196,13 @@ public class CellMap {
         for (int row = 0; row < screen.numRows; row++) {
             for (int col = 0; col < screen.numColumns; col++) {
                 int num = map[row][col];
-                graphic.drawImage(cell[num].img, x, y, screen.cellSize, screen.cellSize, null);
+                graphic.drawImage(cell[num].img, x, y, ScreenPanel.cellSize, ScreenPanel.cellSize, null);
                 // iterate x coordinate by size of cell
-                x += screen.cellSize;
+                x += ScreenPanel.cellSize;
             }
             // current column is complete - reset x coordinate and iterate y coordinate by size of cell
             x = 0;
-            y += screen.cellSize;
+            y += ScreenPanel.cellSize;
         }
     }
 }

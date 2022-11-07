@@ -29,8 +29,9 @@ public class Enemy extends Entity {
      *
      * @param screen instance of ScreenPanel in which to load enemies image
      * @param type type of enemy that is being passed in
-     * @param x,y coordinates where the enemy will start off at
-     * @author jsc48
+     * @param x x coordinate where the enemy will start off at
+      * @param y y coordinate where the enemy will start off at
+     * @author Jessy
      */
     public Enemy(ScreenPanel screen, String type, int x, int y){
         loadImage(type);
@@ -46,7 +47,7 @@ public class Enemy extends Entity {
      * character is moving in.
      * <p>
      * @param type represent the type of enemy we are rendering
-     * @author jimmy
+     * @author Jimmy
      */
     private void loadImage(String type) {
         // load main character's images
@@ -101,7 +102,7 @@ public class Enemy extends Entity {
      * This method determines which x,y coordinate the enemy should move towards inorder to reach the player.
      * If the x coordinate is greater then y, then move in the x direction else move in y direction
      * @param player takes in the user entity
-     * @author jsc48
+     * @author Jessy
      */
     public void moveToPlayer(Character player) {
 
@@ -147,9 +148,10 @@ public class Enemy extends Entity {
     /**
      * This method determines if there is an obstacle in the enemies path, and if so do not move into it.
      * Additionally, this method keeps track of all enemies and makes sure they do not enter into the same cell.
-     * 
+     *
+     * @return true/false checking if enemy collided with something
      * @param player takes in the user entity 
-     * @author jsc48
+     * @author Jessy
      */
     Boolean checkCollision(int xPos, int yPos, Character player) {
         collisionOn = false;

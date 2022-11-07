@@ -9,7 +9,8 @@ public class Main {
 
     /**
      * Main method runs the game.
-     * Creates an instance of UI and runs it with the Runnable interface.
+     * Creates an instance of UI and runs it with the Runnable interface and
+     * plays the background music.
      *
      * @param args
      */

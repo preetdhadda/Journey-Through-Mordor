@@ -4,8 +4,17 @@ import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+/**
+ * This class creates an entity for the game's background music.
+ * @author jsc48
+ */
 public class Music {
 
+    /**
+     * This method reads the audio clip and loops continuously
+     * @param filepath represents the relative path to the audio clip
+     * @author jsc48
+     */
     public static void Music(String filePath){
         File musicPathRelative = new File(filePath);
          try {

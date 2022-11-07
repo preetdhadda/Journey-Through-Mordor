@@ -8,6 +8,12 @@ import com.group21.app.Screen.UI;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * This class creates an entity for the game's moving enemies.
+ * <p>
+ * This class handles the rendering of the enemies on the screen, as well
+ * as its movement across the screen and collision detection.
+ */
 public class Enemy extends Entity {
     UI ui = UI.getInstance();
     private Image characterLeft;
@@ -15,11 +21,18 @@ public class Enemy extends Entity {
     private String imageDirection;
     ScreenPanel screen;
     public static boolean playerFound = false;
-    private int id;
     public static ArrayList<Enemy> EnemyArray = new ArrayList<Enemy>();
     String type;
 
-    public Enemy(ScreenPanel screen, String type, int x, int y, int id, int[][] map){
+     /**
+     * This constructor loads the enemies images and sets its initial position and direction on the screen.
+     *
+     * @param screen instance of ScreenPanel in which to load enemies image
+     * @param type type of enemy that is being passed in
+     * @param x,y coordinates where the enemy will start off at
+     * @author jsc48
+     */
+    public Enemy(ScreenPanel screen, String type, int x, int y){
         loadImage(type);
         position = new Point(x,y);
         this.screen = screen;
@@ -27,7 +40,14 @@ public class Enemy extends Entity {
         this.type = type;
     }
 
-    // load image method
+    /**
+     * This method loads the left and right images for enemy.
+     * In later methods, the left and right images will be rendered according to which direction
+     * character is moving in.
+     * <p>
+     * @param type represent the type of enemy we are rendering
+     * @author jimmy
+     */
     private void loadImage(String type) {
         // load main character's images
         switch(type){
@@ -52,8 +72,15 @@ public class Enemy extends Entity {
         }
     }
 
-    // draw image method
-    // checks the direction of the character and draws the appropriate image
+    /**
+     * This method draws character's images onto the ScreenPanel.
+     * <p>
+     * Checks to see which direction the character is facing, then chooses the image facing that direction.
+     * Uses drawImage() from the java.awt library to render the image onto the screen.
+     *
+     * @param graphic an instance of Graphics from java.awt, which allows rendering of images onto screen
+     * @author Preet
+     */
     public void draw(Graphics graphic) {
         Image img = null;
 
@@ -70,6 +97,12 @@ public class Enemy extends Entity {
         screen.repaint();
     }
 
+    /**
+     * This method determines which x,y coordinate the enemy should move towards inorder to reach the player.
+     * If the x coordinate is greater then y, then move in the x direction else move in y direction
+     * @param player takes in the user entity
+     * @author jsc48
+     */
     public void moveToPlayer(Character player) {
 
         Point enemyCurrentLocation = position;
@@ -111,7 +144,13 @@ public class Enemy extends Entity {
             }
         }
     }
-
+    /**
+     * This method determines if there is an obstacle in the enemies path, and if so do not move into it.
+     * Additionally, this method keeps track of all enemies and makes sure they do not enter into the same cell.
+     * 
+     * @param player takes in the user entity 
+     * @author jsc48
+     */
     Boolean checkCollision(int xPos, int yPos, Character player) {
         collisionOn = false;
 

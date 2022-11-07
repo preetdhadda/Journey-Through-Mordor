@@ -97,10 +97,10 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         gollum = null;
         
         character = new Character(this);
-        ork = new Enemy(this,"orc",1,13,15,cellM.map);
-        shelob = new Enemy(this,"shelob",6, 4,16,cellM.map);
-        witch_king = new Enemy(this,"witch_king",26, 2, 18, cellM.map);
-        gollum = new Enemy(this, "gollum", 24, 11, 19, cellM.map);
+        ork = new Enemy(this,"orc",1,13);
+        shelob = new Enemy(this,"shelob",6, 4);
+        witch_king = new Enemy(this,"witch_king",26, 2);
+        gollum = new Enemy(this, "gollum", 24, 11);
 
         Enemy.EnemyArray.add(ork);
         Enemy.EnemyArray.add(shelob);

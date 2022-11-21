@@ -87,16 +87,13 @@ public class detectCollision {
         }
 
         // if character walks into eye of sauron cells
-        if ((screen.cellM.map[newPos[1]][newPos[0]] == 20) || (screen.cellM.map[newPos[1]][newPos[0]] == 21)
-                || (screen.cellM.map[newPos[1]][newPos[0]] == 22) || (screen.cellM.map[newPos[1]][newPos[0]] == 23)) {
-            Character.score += 100;
-        }
-        
-        if (screen.cellM.map[newPos[1]][newPos[0]] == 20) {
+        if ((screen.cellM.map[newPos[1]][newPos[0]] == 20) 
+         || (screen.cellM.map[newPos[1]][newPos[0]] == 21)
+         || (screen.cellM.map[newPos[1]][newPos[0]] == 22) 
+         || (screen.cellM.map[newPos[1]][newPos[0]] == 23)) {
             Character.score -= 100;
         }
-
-
+        
         // If character moves into mount doom
         if (screen.cellM.map[newPos[1]][newPos[0]] == 4) {
 
@@ -119,7 +116,7 @@ public class detectCollision {
             Character.score += 50;
             ScreenPanel.character.rewardsCollected++;
         }
-        // if chracter moves into a cell with bread
+        //if chracter moves into a cell with bread
         if (screen.cellM.map[newPos[1]][newPos[0]] == 9) {
             screen.cellM.map[newPos[1]][newPos[0]] = 0;
             Character.score += 20;

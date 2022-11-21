@@ -1,5 +1,7 @@
 package com.group21.app.Entity;
 
+import static org.junit.Assert.assertEquals;
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import org.junit.Before;
@@ -101,6 +103,31 @@ public class detectCollisionTest {
        character.keyPressed(down);
        assert(character.position.x == 12 && character.position.y == 6 && Character.score == 100);
    }
+
+
+    /**
+     * This class tests the character's
+     * collision detection with Mount Doom
+     * when score >= 0 and collectAllRewards is true
+     */
+   @Test
+   public void characterIntoMountDoomAndRewardsCollected(){
+        Character.score = 100;
+        character.position.x = 27;
+        character.position.y = 11;
+        //character.keyPressed(down);
+        //assert(character.position.x == 27 && character.position.y == 12);
+   }
+
+    /**
+     * This class tests the character's
+     * collision detection with Mount Doom
+     * when score >= 0 and collectAllRewards is false
+     */
+    @Test
+    public void characterIntoMountDoomAndRewardsNotCollected(){
+ 
+    }
 
 
 }

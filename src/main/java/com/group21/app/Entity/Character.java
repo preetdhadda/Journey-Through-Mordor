@@ -19,7 +19,7 @@ public class Character extends Entity implements KeyListener {
     private Image characterLeft;
     private Image characterRight;
     public static int score = 0;
-    public int rewardsCollected = 0;
+    public static int rewardsCollected = 0;
     private String imageDirection;
     private boolean keyDownFlag = false;
     ScreenPanel screen;

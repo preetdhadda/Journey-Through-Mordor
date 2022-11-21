@@ -22,7 +22,7 @@ public class Main {
                 ui.makeTitleWindow();
             }
         });
-        Music.setMusic("src/main/resources/music/airtone_-_brokencloud_1.wav");
+        //Music.setMusic("src/main/resources/music/airtone_-_brokencloud_1.wav");
     }
 }
 

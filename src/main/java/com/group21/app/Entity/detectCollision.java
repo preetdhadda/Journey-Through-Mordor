@@ -42,27 +42,35 @@ public class detectCollision {
     public void checkCell(Entity entity) {
 
         int[] newPos = new int[2];
+        
+        if (entity.direction == null){
+            newPos[0] = entity.position.x;
+            newPos[1] = entity.position.y;
+        }
+        else{
+            switch (entity.direction) {
+                case "left":
+                    newPos[0] = entity.position.x - 1;
+                    newPos[1] = entity.position.y;
+                    break;
 
-        switch (entity.direction) {
-            case "left":
-                newPos[0] = entity.position.x - 1;
-                newPos[1] = entity.position.y;
-                break;
+                case "right":
+                    newPos[0] = entity.position.x + 1;
+                    newPos[1] = entity.position.y;
+                    break;
 
-            case "right":
-                newPos[0] = entity.position.x + 1;
-                newPos[1] = entity.position.y;
-                break;
+                case "up":
+                    newPos[0] = entity.position.x;
+                    newPos[1] = entity.position.y - 1;
+                    break;
 
-            case "up":
-                newPos[0] = entity.position.x;
-                newPos[1] = entity.position.y - 1;
-                break;
-
-            case "down":
-                newPos[0] = entity.position.x;
-                newPos[1] = entity.position.y + 1;
-                break;
+                case "down":
+                    newPos[0] = entity.position.x;
+                    newPos[1] = entity.position.y + 1;
+                    break;
+                default: 
+                    break;
+            }
         }
         // If character moves into a rock
         if (screen.cellM.map[newPos[1]][newPos[0]] == 2 || screen.cellM.map[newPos[1]][newPos[0]] == 3) {

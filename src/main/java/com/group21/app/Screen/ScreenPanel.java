@@ -32,33 +32,33 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public CellMap cellM = new CellMap(this);
 
     // instantiate rewards and bonuses
-    public Reward bow = new Reward(this, 8,13, 1);
+    public Reward bow = new Reward(this, 8,13, 1,50);
 
-    public Reward bread1 = new Reward(this, 9,  7, 1);
-    public Reward bread2 = new Reward(this, 9,  4, 3);
-    public Reward bread3 = new Reward(this, 9,  8, 7);
-    public Reward bread4 = new Reward(this, 9,  7, 11);
-    public Reward bread5 = new Reward(this, 9,  13, 13);
-    public Reward bread6 = new Reward(this, 9,  10, 14);
-    public Reward bread7 = new Reward(this, 9,  2, 19);
-    public Reward bread8 = new Reward(this, 9,  9, 24);
-    public Reward bread9 = new Reward(this, 9,  6, 26);
+    public Reward bread1 = new Reward(this, 9,  7, 1,20);
+    public Reward bread2 = new Reward(this, 9,  4, 3,20);
+    public Reward bread3 = new Reward(this, 9,  8, 7,20);
+    public Reward bread4 = new Reward(this, 9,  7, 11,20);
+    public Reward bread5 = new Reward(this, 9,  13, 13,20);
+    public Reward bread6 = new Reward(this, 9,  10, 14,20);
+    public Reward bread7 = new Reward(this, 9,  2, 19,20);
+    public Reward bread8 = new Reward(this, 9,  9, 24,20);
+    public Reward bread9 = new Reward(this, 9,  6, 26,20);
 
-    public Reward dagger = new Reward(this, 10,  4, 28);
+    public Reward dagger = new Reward(this, 10,  4, 28,50);
 
-    public Reward spear = new Reward(this, 11,  1, 13);
+    public Reward spear = new Reward(this, 11,  1, 13,50);
 
-    public Reward water1 = new Reward(this, 12,  1, 4);
-    public Reward water2 = new Reward(this, 12,  6, 5);
-    public Reward water3 = new Reward(this, 12,  13, 6);
-    public Reward water4 = new Reward(this, 12,  7, 14);
-    public Reward water5 = new Reward(this, 12,  10, 16);
-    public Reward water6 = new Reward(this, 12,  8, 21);
-    public Reward water7 = new Reward(this, 12,  11, 26);
-    public Reward water8 = new Reward(this, 12,  8, 27);
+    public Reward water1 = new Reward(this, 12,  1, 4,10);
+    public Reward water2 = new Reward(this, 12,  6, 5,10);
+    public Reward water3 = new Reward(this, 12,  13, 6,10);
+    public Reward water4 = new Reward(this, 12,  7, 14,10);
+    public Reward water5 = new Reward(this, 12,  10, 16,10);
+    public Reward water6 = new Reward(this, 12,  8, 21,10);
+    public Reward water7 = new Reward(this, 12,  11, 26,10);
+    public Reward water8 = new Reward(this, 12,  8, 27,10);
 
-    public Bonus gandalf = new Bonus(this, 13, 6, 23);
-    public Bonus sam = new Bonus(this, 14, 13, 8);
+    public Bonus gandalf = new Bonus(this, 13, 6, 23,100);
+    public Bonus sam = new Bonus(this, 14, 13, 8,100);
 
     public static Enemy gollum;
     public static Enemy ork;

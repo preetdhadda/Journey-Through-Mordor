@@ -1,5 +1,8 @@
 package com.group21.app.Entity;
 
+import java.util.ArrayList;
+
+
 import com.group21.app.Screen.ScreenPanel;
 
 /**
@@ -10,6 +13,9 @@ public class Reward extends Entity {
     ScreenPanel screen;
     public int xPos;
     public int yPos;
+    public int rewardScore;
+
+    public static ArrayList<Reward> rewardList = new ArrayList<Reward>();
 
     /**
      * This constructor loads reward's image and sets its initial position on the screen.
@@ -21,10 +27,12 @@ public class Reward extends Entity {
      * @see ScreenPanel
      * @author Jeffrey
      */
-    public Reward(ScreenPanel s, int id, int x, int y) {
+    public Reward(ScreenPanel s, int id, int x, int y, int rs) {
         screen = s;
         xPos = x;
         yPos = y;
+        rewardScore = rs;
         screen.cellM.map[xPos][yPos] = id;
+        rewardList.add(this);
     }
 }

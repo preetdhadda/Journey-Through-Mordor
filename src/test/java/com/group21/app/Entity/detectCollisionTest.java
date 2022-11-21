@@ -70,20 +70,20 @@ public class detectCollisionTest {
         assert(character.position.x == 9 && character.position.y == 9 && Character.score == 50);
     }
 
-        /**
+    /**
      * This class tests the character's
-     * collision detection with lava
+     * collision detection with spider webs
      * and ensures that the character's score is decremented by
      * 50 by initializing the score to 100 and checking if the final score
-     * after walking into lava is 50
+     * after walking into spider webs is 50
      */
     @Test
     public void characterIntoSpiderWeb(){
         Character.score = 100;
-        character.position.x = 9;
-        character.position.y = 8;
-        character.keyPressed(down);
-        assert(character.position.x == 9 && character.position.y == 9 && Character.score == 50);
+        character.position.x = 8;
+        character.position.y = 3;
+        character.keyPressed(left);
+        assert(character.position.x == 7 && character.position.y == 3  && Character.score == 50);
     }
   
     /**

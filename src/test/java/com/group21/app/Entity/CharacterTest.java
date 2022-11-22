@@ -15,6 +15,8 @@ import com.group21.app.Screen.UI;
  * This class tests character movement from 
  * keyboard input, and win/lose conditions
  * when the character reaches the end (Mount Doom)
+ * 
+ * @author Jimmy Hui
  */
 public class CharacterTest {
     ScreenPanel screenpanel = ScreenPanel.getInstance();
@@ -36,6 +38,45 @@ public class CharacterTest {
         Character.score = 0;
         character.position.x = 1;
         character.position.y = 1;
+    }
+
+    /**
+     * This tests the keyboard movement for the up key
+     * 
+     */
+    @Test
+    public void characterMovesUp(){
+        character.position.x = 1;
+        character.position.y = 2;
+        character.keyPressed(up);
+        assertEquals("Character's up key is incorrect", 1, character.position.y);
+    }
+
+    /**
+     * This tests the keyboard movement for the right key
+     * 
+     */
+    @Test
+    public void characterMovesRight(){
+        character.position.x = 1;
+        character.position.y = 1;
+        character.keyPressed(right);
+        assertEquals("Character's right key is incorrect", 2, character.position.x);
+    }
+
+    @Test
+    public void characterMovesDown(){
+        character.position.x = 1;
+        character.position.y = 1;
+        character.keyPressed(down);
+        assertEquals("Character's down key is incorrect", 2, character.position.y);
+    }
+    @Test
+    public void characterMovesLeft(){
+        character.position.x = 2;
+        character.position.y = 1;
+        character.keyPressed(left);
+        assertEquals("Character's left key is incorrect", 1, character.position.x);
     }
 
     /**
@@ -72,8 +113,4 @@ public class CharacterTest {
         assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
     }
 
-    @After
-    public void deleteScreen() {
-        screenpanel.deleteInstance();
-    }
 }

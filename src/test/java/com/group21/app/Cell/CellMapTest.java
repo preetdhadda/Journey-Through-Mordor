@@ -49,8 +49,4 @@ public class CellMapTest {
         }
     }
 
-    @After
-    public void deleteScreen() {
-        screen.deleteInstance();
-    }
 }

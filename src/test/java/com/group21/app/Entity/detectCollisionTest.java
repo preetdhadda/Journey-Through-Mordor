@@ -15,6 +15,8 @@ import com.group21.app.Entity.Enemy;
  * This class tests player collision with
  * regular rewards, bonus rewards, obstacles,
  * and punishment cells 
+ * 
+ * @author Jimmy Hui
  */
 public class detectCollisionTest {
 
@@ -41,26 +43,101 @@ public class detectCollisionTest {
     }
 
     /**
-     * This class iterates through an ArrayList
-     * with all the rewards and sets the character's position ontop of the
-     * reward. It then makes an assertion to check whether or not the character's position
-     * and score is correctly incremented
-     *
-     * @see Reward
-     * @see ScreenPanel
-     * @see Character
+     * This test the character collision with water
      */
     @Test
-    public void characterCollectsReward(){
-        for (int i = 0;i<rewardList.size();i++){
-            Character.score = 0;
-            character.position.x = rewardList.get(i).yPos;
-            character.position.y =  rewardList.get(i).xPos;
-            screenpanel.collisionChecker.checkCell(character);
-            assertEquals("Character's x position not the same as Reward's x position",character.position.x, rewardList.get(i).yPos);
-            assertEquals("Character's y position not the same as Reward's y position",character.position.y, rewardList.get(i).xPos);
-            //assertEquals("Character's score not incremented correctly", rewardList.get(i).rewardScore,Character.score);
-        }
+    public void characterIntoWater(){
+        Character.score = 0;
+        character.position.x = 3;
+        character.position.y = 1;
+        character.keyPressed(right);
+        assertEquals("Character's x position is incorrect",4,character.position.x);
+        assertEquals("Character's y position is incorrect",1,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 10, Character.score);
+    }
+
+    /**
+     * This test the character collision with bread
+     */
+    @Test
+    public void characterIntoBread(){
+        Character.score = 0;
+        character.position.x = 1;
+        character.position.y = 6;
+        character.keyPressed(down);
+        assertEquals("Character's x position is incorrect",1,character.position.x);
+        assertEquals("Character's y position is incorrect",7,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 20, Character.score);
+    }
+
+    /**
+     * This test the character collision with the bow
+     */
+    @Test
+    public void characterIntoBow(){
+        Character.score = 0;
+        character.position.x = 1;
+        character.position.y = 12;
+        character.keyPressed(down);
+        assertEquals("Character's x position is incorrect",1,character.position.x);
+        assertEquals("Character's y position is incorrect",13,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 50, Character.score);
+    }
+
+    /**
+     * This test the character collision with dagger
+     */
+    @Test
+    public void characterIntoDagger(){
+        Character.score = 0;
+        character.position.x = 27;
+        character.position.y = 4;
+        character.keyPressed(right);
+        assertEquals("Character's x position is incorrect",28,character.position.x);
+        assertEquals("Character's y position is incorrect",4,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 50, Character.score);
+    }
+
+    /**
+     * This test the character collision with spear
+     */
+    @Test
+    public void characterIntoSpear(){
+        Character.score = 0;
+        character.position.x = 14;
+        character.position.y = 1;
+        character.keyPressed(left);
+        assertEquals("Character's x position is incorrect",13,character.position.x);
+        assertEquals("Character's y position is incorrect",1,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 50, Character.score);
+    }
+
+    /**
+     * This test the character collision with Gandalf
+     */
+    @Test
+    public void characterIntoGandalf(){
+        Character.score = 0;
+        character.position.x = 23;
+        character.position.y = 7;
+        character.keyPressed(up);
+        assertEquals("Character's x position is incorrect",23,character.position.x);
+        assertEquals("Character's y position is incorrect",6,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 100, Character.score);
+    }
+
+    /**
+     * This test the character collision with Sam
+     */
+    @Test
+    public void characterIntoSam(){
+        Character.score = 0;
+        character.position.x = 8;
+        character.position.y = 12;
+        character.keyPressed(down);
+        assertEquals("Character's x position is incorrect",8,character.position.x);
+        assertEquals("Character's y position is incorrect",13,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 100, Character.score);
     }
 
     /**
@@ -75,8 +152,8 @@ public class detectCollisionTest {
         character.position.x = 1;
         character.position.y = 1;
         character.keyPressed(left);
-        assertEquals("Character's x position is incorrect (did not detect rock)",character.position.x,1);
-        assertEquals("Character's y position is incorrect (did not detect rock)",character.position.y,1);
+        assertEquals("Character's x position is incorrect (did not detect rock)",1,character.position.x);
+        assertEquals("Character's y position is incorrect (did not detect rock)",1,character.position.y);
     }
 
     /**
@@ -92,9 +169,9 @@ public class detectCollisionTest {
         character.position.x = 9;
         character.position.y = 8;
         character.keyPressed(down);
-        assertEquals("Character's x position is incorrect (did not detect lava)",character.position.x,9);
-        assertEquals("Character's y position is incorrect (did not detect lava)",character.position.y,9);
-        assertEquals("Character's score is not decremented correctly", Character.score, 50);
+        assertEquals("Character's x position is incorrect (did not detect lava)",9,character.position.x);
+        assertEquals("Character's y position is incorrect (did not detect lava)",9,character.position.y);
+        assertEquals("Character's score is not decremented correctly", 50, Character.score);
     }
 
     /**
@@ -110,9 +187,9 @@ public class detectCollisionTest {
         character.position.x = 8;
         character.position.y = 3;
         character.keyPressed(left);
-        assertEquals("Character's x position is incorrect (did not detect spider web)",character.position.x,7);
-        assertEquals("Character's y position is incorrect (did not detect spider web)",character.position.y,3);
-        assertEquals("Character's score is not decremented correctly", Character.score, 50);
+        assertEquals("Character's x position is incorrect (did not detect spider web)",7,character.position.x);
+        assertEquals("Character's y position is incorrect (did not detect spider web)",3,character.position.y);
+        assertEquals("Character's score is not decremented correctly",50, Character.score);
     }
 
     /**
@@ -128,14 +205,10 @@ public class detectCollisionTest {
        character.position.x = 12;
        character.position.y = 5;
        character.keyPressed(down);
-       assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",character.position.x,12);
-       assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",character.position.y,6);
-       assertEquals("Character's score is not decremented correctly", Character.score, 100);
+       assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",12,character.position.x);
+       assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",6,character.position.y);
+       assertEquals("Character's score is not decremented correctly", 100, Character.score);
    }
 
-    @After
-    public void deleteScreen() {
-        screenpanel.deleteInstance();
-    }
 
 }

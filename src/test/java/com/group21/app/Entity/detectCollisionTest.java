@@ -10,16 +10,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.group21.app.Screen.ScreenPanel;
+import com.group21.app.Screen.UI;
 import com.group21.app.Entity.Enemy;
 /**
  * This class tests player collision with
  * regular rewards, bonus rewards, obstacles,
- * and punishment cells 
+ * punishment cells. It also checks the collision
+ * with the end goal (Mount Doom) with different values of 
+ * rewardsCollected. In addition, it also checks
+ * whether the correct screen is shown after the 
+ * replay button is pressed.
  * 
  * @author Jimmy Hui
  */
 public class detectCollisionTest {
 
+    UI ui;
     ScreenPanel screenpanel = ScreenPanel.getInstance();
     Character character = new Character(screenpanel);
     ArrayList<Reward> rewardList = Reward.rewardList;
@@ -40,6 +46,7 @@ public class detectCollisionTest {
         Character.score = 0;
         character.position.x = 1;
         character.position.y = 1;
+        ui = UI.getInstance();
     }
 
     /**
@@ -210,5 +217,79 @@ public class detectCollisionTest {
        assertEquals("Character's score is not decremented correctly", 100, Character.score);
    }
 
+       /**
+     * This class tests the character's
+     * collision detection with Mount Doom
+     * when score >= 0 and collectAllRewards is 20 (true)
+     */
+    @Test
+    public void characterIntoMountDoomAndRewardsCollected(){
+         Character.score = 100;
+         character.position.x = 27;
+         character.position.y = 11;
+         Character.rewardsCollected = 20;
+         character.keyPressed(down);
+         assertEquals("Character's x position is not correct", 27, character.position.x);
+         assertEquals("Character's y position is not correct", 12, character.position.y);
+         assertEquals("Incorrect game screen is shown", "winPanel", UI.gameState);
+         ui.winpanel.replayBTN.doClick();
+         assertEquals("Incorrect game screen is shown", "menupanel",UI.gameState);
+    }
+ 
+    /**
+     * This class tests the character's
+     * collision detection with Mount Doom
+     * when score >= 0 and collectAllRewards is 0 (false)
+     */
+    @Test
+    public void characterIntoMountDoomAndRewardsNotCollected(){
+        Character.score = 100;
+        character.position.x = 27;
+        character.position.y = 11;
+        Character.rewardsCollected = 0;
+        character.keyPressed(down);
+        assertEquals("Character's x position is not correct", 27, character.position.x);
+        assertEquals("Character's y position is not correct", 12, character.position.y);
+        assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
+        ui.losepanel.replayBTN.doClick();
+        assertEquals("Incorrect game screen is shown", "menupanel",UI.gameState);
+    }
+ 
+    /**
+     * This class tests the character's
+     * collision detection with Mount Doom
+     * when score >= 0 and collectAllRewards is 19 (false)
+     */
+    @Test
+    public void characterIntoMountDoomAndNineTeenRewardsCollected(){
+        Character.score = 100;
+        character.position.x = 27;
+        character.position.y = 11;
+        Character.rewardsCollected = 19;
+        character.keyPressed(down);
+        assertEquals("Character's x position is not correct", 27, character.position.x);
+        assertEquals("Character's y position is not correct", 12, character.position.y);
+        assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
+        ui.losepanel.replayBTN.doClick();
+        assertEquals("Incorrect game screen is shown", "menupanel",UI.gameState);
+    }
 
+    /**
+    * This class tests the character's
+    * collision detection with Mount Doom
+    * when score >= 0 and collectAllRewards is 25 (true)
+    */
+    @Test
+    public void characterIntoMountDoomAndTwentyFiveRewardsCollected(){
+         Character.score = 100;
+         character.position.x = 27;
+         character.position.y = 11;
+         Character.rewardsCollected = 25;
+         character.keyPressed(down);
+         assertEquals("Character's x position is not correct", 27, character.position.x);
+         assertEquals("Character's y position is not correct", 12, character.position.y);
+         assertEquals("Incorrect game screen is shown", "winPanel", UI.gameState);
+         ui.losepanel.replayBTN.doClick();
+         assertEquals("Incorrect game screen is shown", "menupanel",UI.gameState);
+    }
 }

@@ -19,8 +19,8 @@ public class UI {
     TitlePanel titlePanel;
     RulePanel rulepanel;
     ScreenPanel screenPanel;
-    WinPanel winpanel;
-    LosePanel losepanel;
+    public WinPanel winpanel;
+    public LosePanel losepanel;
 
     /**
      * Uses the singleton design pattern to ensure only one instance of UI is created

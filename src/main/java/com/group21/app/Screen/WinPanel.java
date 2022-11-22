@@ -20,6 +20,7 @@ public class WinPanel extends JPanel implements ActionListener {
     UI ui = UI.getInstance();
     JLabel scoreLabel;
     JLabel timeLabel;
+    public JButton replayBTN;
 
     Font myFont = new Font("Serif", Font.PLAIN, 40);
 
@@ -49,7 +50,7 @@ public class WinPanel extends JPanel implements ActionListener {
         timeLabel.setBounds(500,200,500,300);
         add(timeLabel);
 
-        JButton replayBTN = new JButton(new ImageIcon("src/main/resources/images/playAgain.png"));
+        replayBTN = new JButton(new ImageIcon("src/main/resources/images/playAgain.png"));
         replayBTN.setFocusable(false); // to prevent button from taking focus in window
         replayBTN.setOpaque(true);
         replayBTN.setBorderPainted(true);

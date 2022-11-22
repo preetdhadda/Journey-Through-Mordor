@@ -12,9 +12,8 @@ import com.group21.app.Screen.ScreenPanel;
 import com.group21.app.Screen.UI;
 
 /**
- * This class tests character movement from 
- * keyboard input, and win/lose conditions
- * when the character reaches the end (Mount Doom)
+ * This class tests character movement 
+ * from keyboard input
  * 
  * @author Jimmy Hui
  */
@@ -78,39 +77,4 @@ public class CharacterTest {
         character.keyPressed(left);
         assertEquals("Character's left key is incorrect", 1, character.position.x);
     }
-
-    /**
-     * This class tests the character's
-     * collision detection with Mount Doom
-     * when score >= 0 and collectAllRewards is true
-     */
-   @Test
-   public void characterIntoMountDoomAndRewardsCollected(){
-        Character.score = 100;
-        character.position.x = 27;
-        character.position.y = 11;
-        Character.rewardsCollected = 20;
-        character.keyPressed(down);
-        assertEquals("Character's x position is not correct", 27, character.position.x);
-        assertEquals("Character's y position is not correct", 12, character.position.y);
-        assertEquals("Incorrect game screen is shown", "winPanel", UI.gameState);
-   }
-
-    /**
-     * This class tests the character's
-     * collision detection with Mount Doom
-     * when score >= 0 and collectAllRewards is false
-     */
-    @Test
-    public void characterIntoMountDoomAndRewardsNotCollected(){
-        Character.score = 100;
-        character.position.x = 27;
-        character.position.y = 11;
-        Character.rewardsCollected = 0;
-        character.keyPressed(down);
-        assertEquals("Character's x position is not correct", 27, character.position.x);
-        assertEquals("Character's y position is not correct", 12, character.position.y);
-        assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
-    }
-
 }

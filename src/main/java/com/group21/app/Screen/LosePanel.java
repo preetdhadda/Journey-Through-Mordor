@@ -17,6 +17,7 @@ public class LosePanel extends JPanel implements ActionListener {
 
     UI ui = UI.getInstance();
     String state;
+    public JButton replayBTN;
     
     /**
      * The constructor creates the buttons on the lose panel
@@ -31,7 +32,7 @@ public class LosePanel extends JPanel implements ActionListener {
         // Set state of game
         UI.gameState = "losePanel";
 
-        JButton replayBTN = new JButton(new ImageIcon("src/main/resources/images/playAgain.png"));
+        replayBTN = new JButton(new ImageIcon("src/main/resources/images/playAgain.png"));
         replayBTN.setFocusable(false); // to prevent button from taking focus in window
         replayBTN.setOpaque(true);
         replayBTN.setBorderPainted(true);

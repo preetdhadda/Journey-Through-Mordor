@@ -90,7 +90,7 @@ public class UI {
         window.setResizable(false);
         
         // instantiate rule panel
-        RulePanel rulepanel = new RulePanel(window);
+        RulePanel rulepanel = new RulePanel();
 
         // create container for panels
         Container gameContainer = window.getContentPane();

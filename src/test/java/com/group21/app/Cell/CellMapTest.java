@@ -1,11 +1,8 @@
 package com.group21.app.Cell;
 
 import com.group21.app.Screen.ScreenPanel;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.awt.*;
 
 import static org.junit.Assert.assertEquals;
 

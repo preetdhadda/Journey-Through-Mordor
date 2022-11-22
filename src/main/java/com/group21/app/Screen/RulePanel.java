@@ -20,11 +20,10 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
     /**
      * The constructor creates the images on the rule panel
      * and connects the continue button to the game window
-     * 
-     * @param window to display RulePanel in
+     *
      * @author Jimmy
      */
-    public RulePanel(JFrame window){
+    public RulePanel(){
         // Set size of screen
         setPreferredSize(new Dimension(1350, 675));
 

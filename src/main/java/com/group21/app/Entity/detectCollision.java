@@ -82,15 +82,15 @@ public class detectCollision {
         }
 
         // If character moves into spider web
-        if (screen.cellM.map[newPos[1]][newPos[0]] == 24) {
+        if (screen.cellM.map[newPos[1]][newPos[0]] == 23) {
             Character.score -= 50;
         }
 
         // if character walks into eye of sauron cells
-        if ((screen.cellM.map[newPos[1]][newPos[0]] == 20) 
+        if ((screen.cellM.map[newPos[1]][newPos[0]] == 19)
+         || (screen.cellM.map[newPos[1]][newPos[0]] == 20)
          || (screen.cellM.map[newPos[1]][newPos[0]] == 21)
-         || (screen.cellM.map[newPos[1]][newPos[0]] == 22) 
-         || (screen.cellM.map[newPos[1]][newPos[0]] == 23)) {
+         || (screen.cellM.map[newPos[1]][newPos[0]] == 22)) {
             Character.score -= 100;
         }
         

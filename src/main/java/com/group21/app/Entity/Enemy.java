@@ -169,9 +169,9 @@ public class Enemy extends Entity {
            || screen.cellM.map[yPos][xPos] == 3   || screen.cellM.map[yPos][xPos] == 4
            || screen.cellM.map[yPos][xPos] == 5   || screen.cellM.map[yPos][xPos] == 6
            || screen.cellM.map[yPos][xPos] == 7   ||screen.cellM.map[yPos][xPos] == 15 
-           || screen.cellM.map[yPos][xPos] == 20  || screen.cellM.map[yPos][xPos] == 21 
-           || screen.cellM.map[yPos][xPos] == 22  || screen.cellM.map[yPos][xPos] == 23 
-           || screen.cellM.map[yPos][xPos] == 24){
+           || screen.cellM.map[yPos][xPos] == 19  || screen.cellM.map[yPos][xPos] == 20
+           || screen.cellM.map[yPos][xPos] == 21  || screen.cellM.map[yPos][xPos] == 22
+           || screen.cellM.map[yPos][xPos] == 23){
             collisionOn = true;
         }
         return collisionOn;

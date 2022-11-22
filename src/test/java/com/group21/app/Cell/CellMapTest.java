@@ -18,7 +18,7 @@ public class CellMapTest {
 
     String cellTypeCheck[] = {"empty", "lava", "rock", "rock", "mount doom", "mount doom",
             "mount doom", "mount doom", "bow", "bread", "dagger", "spear", "water",
-            "gandalf", "sam", "orc", "shelob", "", "witch", "smeagol", "sauron", "sauron",
+            "gandalf", "sam", "orc", "shelob", "witch", "smeagol", "sauron", "sauron",
             "sauron", "sauron", "web"};
 
     /**

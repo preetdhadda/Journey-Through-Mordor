@@ -38,17 +38,17 @@ public class CellMap {
      */
     public CellMap(ScreenPanel screen) {
         this.screen = screen;
-        cell = new Cell[25];
+        cell = new Cell[24];
 
         map = new int[][] {
             {2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2},
-            {2 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 0 , 24 , 0 , 2 , 0 , 0 , 0 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 , 2},
+            {2 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 0 , 23 , 0 , 2 , 0 , 0 , 0 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 , 2},
             {2 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2},
-            {2 , 0 , 2 , 0 , 0 , 0 , 0 , 24 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 1 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 2},
-            {2 , 0 , 2 , 0 , 24 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 1 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2},
+            {2 , 0 , 2 , 0 , 0 , 0 , 0 , 23 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 1 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 2 , 2 , 2},
+            {2 , 0 , 2 , 0 , 23 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 1 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2},
             {2 , 0 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 2 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 1 , 1 , 0 , 0 , 0 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 2},
-            {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 24 , 0 , 0 , 20 , 21 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 , 2 , 2 , 0 , 0 , 1 , 2},
-            {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 22 , 23 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 2},
+            {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 23 , 0 , 0 , 19 , 20 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 1 , 0 , 2 , 2 , 0 , 0 , 1 , 2},
+            {2 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 21 , 22 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 0 , 1 , 2},
             {2 , 2 , 2 , 2 , 2 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 2 , 0 , 0 , 1 , 2},
             {2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1 , 0 , 0 , 0 , 0 , 3 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 0 , 0 , 2 , 2 , 2 , 1 , 2},
             {2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 0 , 0 , 0 , 0 , 2 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 2},
@@ -151,33 +151,33 @@ public class CellMap {
         cell[16].type = "shelob";
 
         // witch king (enemy)
-        cell[18] = new Cell();
-        cell[18].img = new ImageIcon("src/main/resources/images/witch_king_left.png").getImage();
-        cell[18].type = "witch";
+        cell[17] = new Cell();
+        cell[17].img = new ImageIcon("src/main/resources/images/witch_king_left.png").getImage();
+        cell[17].type = "witch";
 
         // smeagol (enemy)
-        cell[19] = new Cell();
-        cell[19].img = new ImageIcon("src/main/resources/images/smeagol_left.png").getImage();
-        cell[19].type = "smeagol";
+        cell[18] = new Cell();
+        cell[18].img = new ImageIcon("src/main/resources/images/smeagol_left.png").getImage();
+        cell[18].type = "smeagol";
 
         // eye of sauron cells (punishment cells)
+        cell[19] = new Cell();
+        cell[19].img = new ImageIcon("src/main/resources/images/eye_of_sauron_00.png").getImage();
+        cell[19].type = "sauron";
         cell[20] = new Cell();
-        cell[20].img = new ImageIcon("src/main/resources/images/eye_of_sauron_00.png").getImage();
+        cell[20].img = new ImageIcon("src/main/resources/images/eye_of_sauron_01.png").getImage();
         cell[20].type = "sauron";
         cell[21] = new Cell();
-        cell[21].img = new ImageIcon("src/main/resources/images/eye_of_sauron_01.png").getImage();
+        cell[21].img = new ImageIcon("src/main/resources/images/eye_of_sauron_10.png").getImage();
         cell[21].type = "sauron";
         cell[22] = new Cell();
-        cell[22].img = new ImageIcon("src/main/resources/images/eye_of_sauron_10.png").getImage();
+        cell[22].img = new ImageIcon("src/main/resources/images/eye_of_sauron_11.png").getImage();
         cell[22].type = "sauron";
-        cell[23] = new Cell();
-        cell[23].img = new ImageIcon("src/main/resources/images/eye_of_sauron_11.png").getImage();
-        cell[23].type = "sauron";
 
         // spider web (punishment cells)
-        cell[24] = new Cell();
-        cell[24].img = new ImageIcon("src/main/resources/images/web.png").getImage();
-        cell[24].type = "web";
+        cell[23] = new Cell();
+        cell[23].img = new ImageIcon("src/main/resources/images/web.png").getImage();
+        cell[23].type = "web";
     }
 
     /**

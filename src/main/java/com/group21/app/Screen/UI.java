@@ -16,6 +16,12 @@ public class UI {
     private UI(){}
     public static String gameState = "";
 
+    TitlePanel titlePanel;
+    RulePanel rulepanel;
+    ScreenPanel screenPanel;
+    WinPanel winpanel;
+    LosePanel losepanel;
+
     /**
      * Uses the singleton design pattern to ensure only one instance of UI is created
      * @return UI
@@ -52,11 +58,10 @@ public class UI {
         window.setResizable(false);
 
         // instantiate TitlePanel
-        TitlePanel titlePanel = new TitlePanel();
+        titlePanel = new TitlePanel();
 
         Container gameContainer = window.getContentPane();
         gameContainer.setLayout(new BoxLayout(gameContainer, BoxLayout.Y_AXIS));
-
         gameContainer.add(titlePanel);
         window.pack();
 
@@ -81,7 +86,6 @@ public class UI {
      * @author Jimmy
      */
     public void makeRuleWindow() {
-        
         // create window with JFrame
         JFrame window = new JFrame("Journey Through Mordor");
         // when the user exits the window, stop the game
@@ -90,7 +94,7 @@ public class UI {
         window.setResizable(false);
         
         // instantiate rule panel
-        RulePanel rulepanel = new RulePanel();
+        rulepanel = new RulePanel();
 
         // create container for panels
         Container gameContainer = window.getContentPane();
@@ -134,7 +138,6 @@ public class UI {
         gameWindow.setResizable(false);
 
         // instantiate screen and menu panels
-        ScreenPanel screenPanel = ScreenPanel.getInstance(); 
         ScreenPanel.deleteInstance();
         screenPanel = ScreenPanel.getInstance();
         Character.score = 0;
@@ -188,7 +191,7 @@ public class UI {
         window.setResizable(false);
         
         // instantiate win panel
-        WinPanel winpanel = new WinPanel();
+        winpanel = new WinPanel();
     
         // create container for panels
         Container gameContainer = window.getContentPane();
@@ -225,8 +228,8 @@ public class UI {
         // don't allow the user to resize the window
         window.setResizable(false);
         
-        // instantiate win panel
-        LosePanel losepanel = new LosePanel(state);
+        // instantiate lose panel
+        losepanel = new LosePanel(state);
     
         // create container for panels
         Container gameContainer = window.getContentPane();

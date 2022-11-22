@@ -16,6 +16,7 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
 
     UI ui = UI.getInstance();
     public static JFrame gameWindow;
+    JButton continueBTN;
 
     /**
      * The constructor creates the images on the rule panel
@@ -31,7 +32,7 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
         UI.gameState = "rulePanel";
 
         // create JButton for playBTN
-        JButton continueBTN = new JButton(new ImageIcon("src/main/resources/images/continue.png"));
+        continueBTN = new JButton(new ImageIcon("src/main/resources/images/continue.png"));
         continueBTN.setFocusable(false); // to prevent button from taking focus in window
         continueBTN.setOpaque(true);
         continueBTN.setBorderPainted(true);

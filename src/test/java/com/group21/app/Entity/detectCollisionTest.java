@@ -17,7 +17,7 @@ import com.group21.app.Entity.Enemy;
  * and punishment cells 
  */
 public class detectCollisionTest {
-    
+
     ScreenPanel screenpanel = ScreenPanel.getInstance();
     Character character = new Character(screenpanel);
     ArrayList<Reward> rewardList = Reward.rewardList;
@@ -27,8 +27,8 @@ public class detectCollisionTest {
     KeyEvent left = new KeyEvent(screenpanel, 1, 20, 1, 37, 'l');
 
     /**
-     * This class initializes the test 
-     * conditinos and resets the character 
+     * This class initializes the test
+     * conditinos and resets the character
      * before every test case
      */
     @Before
@@ -44,8 +44,8 @@ public class detectCollisionTest {
      * This class iterates through an ArrayList
      * with all the rewards and sets the character's position ontop of the
      * reward. It then makes an assertion to check whether or not the character's position
-     * and score is correctly incremented  
-     * 
+     * and score is correctly incremented
+     *
      * @see Reward
      * @see ScreenPanel
      * @see Character
@@ -64,11 +64,11 @@ public class detectCollisionTest {
     }
 
     /**
-     * This class tests the 
-     * character's collision detection 
+     * This class tests the
+     * character's collision detection
      * with a rock by simulating the left arrow key press
-     * when the character has a rock to its left and then checking 
-     * to make sure its origin position is still (1,1) 
+     * when the character has a rock to its left and then checking
+     * to make sure its origin position is still (1,1)
      */
     @Test
     public void characterIntoRock(){
@@ -114,7 +114,7 @@ public class detectCollisionTest {
         assertEquals("Character's y position is incorrect (did not detect spider web)",character.position.y,3);
         assertEquals("Character's score is not decremented correctly", Character.score, 50);
     }
-  
+
     /**
      * This class tests the character's
      * collision detection with the Eye of Sauron
@@ -137,4 +137,5 @@ public class detectCollisionTest {
     public void deleteScreen() {
         screenpanel.deleteInstance();
     }
+
 }

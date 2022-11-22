@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  * This class creates the images and and buttons 
@@ -14,6 +16,7 @@ import java.awt.event.ActionListener;
 public class TitlePanel extends JPanel implements ActionListener {
 
     UI ui = UI.getInstance();
+    public JButton playBTN;
 
     /**
      * The constructor sets up the window with the play game button and 
@@ -29,7 +32,7 @@ public class TitlePanel extends JPanel implements ActionListener {
         UI.gameState = "titlePanel";
     
         // create JButton for playBTN
-        JButton playBTN = new JButton(new ImageIcon("src/main/resources/images/playGame.png"));
+        playBTN = new JButton(new ImageIcon("src/main/resources/images/playGame.png"));
         playBTN.setFocusable(false); // to prevent button from taking focus in window
         playBTN.setOpaque(true);
         playBTN.setBorderPainted(true);

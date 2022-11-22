@@ -25,8 +25,8 @@ public class CharacterTest {
     KeyEvent up = new KeyEvent(screenpanel, 1, 20, 1, 38, 'u');
 
     /**
-     * This class initializes the test 
-     * conditinos and resets the character 
+     * This class initializes the test
+     * conditinos and resets the character
      * before every test case
      */
     @Before

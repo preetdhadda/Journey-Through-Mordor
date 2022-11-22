@@ -9,13 +9,18 @@ import org.junit.Test;
 import com.group21.app.Screen.ScreenPanel;
 import com.group21.app.Screen.UI;
 
+/**
+ * This class tests character movement from 
+ * keyboard input, and win/lose conditions
+ * when the character reaches the end (Mount Doom)
+ */
 public class CharacterTest {
     ScreenPanel screenpanel = ScreenPanel.getInstance();
     Character character = new Character(screenpanel);
     KeyEvent down = new KeyEvent(screenpanel, 1, 20, 1, 40, 'd');
     KeyEvent right = new KeyEvent(screenpanel, 1, 20, 1, 39, 'r');
-    KeyEvent left = new KeyEvent(screenpanel, 1, 20, 1, 37, 'r');
-    KeyEvent up = new KeyEvent(screenpanel, 1, 20, 1, 38, 'r');
+    KeyEvent left = new KeyEvent(screenpanel, 1, 20, 1, 37, 'l');
+    KeyEvent up = new KeyEvent(screenpanel, 1, 20, 1, 38, 'u');
 
     /**
      * This class initializes the test 

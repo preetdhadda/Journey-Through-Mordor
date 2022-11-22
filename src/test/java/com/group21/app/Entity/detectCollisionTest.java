@@ -11,7 +11,11 @@ import org.junit.Test;
 
 import com.group21.app.Screen.ScreenPanel;
 import com.group21.app.Entity.Enemy;
-
+/**
+ * This class tests player collision with
+ * regular rewards, bonus rewards, obstacles,
+ * and punishment cells 
+ */
 public class detectCollisionTest {
     
     ScreenPanel screenpanel = ScreenPanel.getInstance();

@@ -3,6 +3,8 @@ package com.group21.app.Entity;
 import static org.junit.Assert.assertEquals;
 
 import java.awt.event.KeyEvent;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -70,4 +72,8 @@ public class CharacterTest {
         assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
     }
 
+    @After
+    public void deleteScreen() {
+        screenpanel.deleteInstance();
+    }
 }

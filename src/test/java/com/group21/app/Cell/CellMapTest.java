@@ -1,6 +1,7 @@
 package com.group21.app.Cell;
 
 import com.group21.app.Screen.ScreenPanel;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,5 +47,10 @@ public class CellMapTest {
                 assertEquals("Incorrect cell type", cellMap.cell[num].type, cellTypeCheck[num]);
             }
         }
+    }
+
+    @After
+    public void deleteScreen() {
+        screen.deleteInstance();
     }
 }

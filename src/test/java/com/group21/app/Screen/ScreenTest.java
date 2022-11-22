@@ -12,20 +12,16 @@ import static org.junit.Assert.assertEquals;
  * @author Preet
  */
 public class ScreenTest {
-    TitlePanel titlePanel;
-    RulePanel rulePanel;
-    ScreenPanel screenPanel;
+    UI ui;
 
-//    @Before
-//    public void init() {
-//        titlePanel = new TitlePanel();
-//        rulePanel = new RulePanel();
-//        screenPanel = ScreenPanel.getInstance();
-//    }
-//
-//    @Test
-//    public void testTitlePanel() {
-//        assertEquals("Incorrect panel shown", "titlePanel", UI.gameState);
-//    }
+    @Before
+    public void init() {
+        ui = UI.getInstance();
+    }
+
+    @Test
+    public void testUIPanels() {
+        assertEquals("Incorrect panel shown", "titlePanel", UI.gameState);
+    }
 
 }

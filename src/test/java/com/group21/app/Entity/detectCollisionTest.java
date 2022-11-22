@@ -132,4 +132,9 @@ public class detectCollisionTest {
        assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",character.position.y,6);
        assertEquals("Character's score is not decremented correctly", Character.score, 100);
    }
+
+    @After
+    public void deleteScreen() {
+        screenpanel.deleteInstance();
+    }
 }

@@ -20,7 +20,7 @@ public class CellMap {
      * <p>
      * Map legend:
      * <p>
-     *     0 = plain background   |  10 = dagger    |   16 = shelob
+     *     0 = plain background   |  10 =a dagger    |   16 = shelob
      * <p>
      *     1 = lava       |          11 = spear    |    18 = witch king
      * <p>

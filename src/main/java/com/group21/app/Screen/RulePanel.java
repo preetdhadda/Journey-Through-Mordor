@@ -28,6 +28,9 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
         // Set size of screen
         setPreferredSize(new Dimension(1350, 675));
 
+        // Set state of game
+        UI.gameState = "rulePanel";
+
         // create JButton for playBTN
         JButton continueBTN = new JButton(new ImageIcon("src/main/resources/images/continue.png"));
         continueBTN.setFocusable(false); // to prevent button from taking focus in window

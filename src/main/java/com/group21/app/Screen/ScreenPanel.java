@@ -90,6 +90,9 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
 
         setBackground(new Color(54,54,54));
 
+        // Set state of game
+        UI.gameState = "screenPanel";
+
         character = null;
         ork = null;
         shelob = null;

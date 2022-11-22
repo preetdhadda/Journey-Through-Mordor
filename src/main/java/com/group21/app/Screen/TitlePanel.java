@@ -24,6 +24,9 @@ public class TitlePanel extends JPanel implements ActionListener {
     public TitlePanel(){
         // Set size of screen
         setPreferredSize(new Dimension(1350, 675));
+
+        // Set state of game
+        UI.gameState = "titlePanel";
     
         // create JButton for playBTN
         JButton playBTN = new JButton(new ImageIcon("src/main/resources/images/playGame.png"));

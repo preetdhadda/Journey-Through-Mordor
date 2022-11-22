@@ -48,6 +48,9 @@ public class MenuPanel extends JPanel implements ActionListener {
         setPreferredSize(new Dimension(1350, 90));
         setBackground(new Color(128, 128, 128));
 
+        // Set state of game
+        UI.gameState = "menupanel";
+
         // create JLabel to display the score
         scoreLabel = new JLabel("   Score: " + Character.score + "    |    ");
         scoreLabel.setFont(myFont);

@@ -34,6 +34,9 @@ public class WinPanel extends JPanel implements ActionListener {
         // Set size of screen
         setPreferredSize(new Dimension(1350, 675));
 
+        // Set state of game
+        UI.gameState = "winPanel";
+
         scoreLabel = new JLabel("   Score: " + Character.score);
         scoreLabel.setFont(myFont);
         scoreLabel.setForeground(Color.YELLOW);

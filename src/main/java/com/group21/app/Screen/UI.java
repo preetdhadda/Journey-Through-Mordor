@@ -14,6 +14,7 @@ public class UI {
 
     static UI singletonInstance;
     private UI(){}
+    public static String gameState = "";
 
     /**
      * Uses the singleton design pattern to ensure only one instance of UI is created

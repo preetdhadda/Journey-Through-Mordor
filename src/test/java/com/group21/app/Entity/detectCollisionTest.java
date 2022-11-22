@@ -20,6 +20,19 @@ public class detectCollisionTest {
     KeyEvent up = new KeyEvent(screenpanel, 1, 20, 1, 38, 'u');
     KeyEvent left = new KeyEvent(screenpanel, 1, 20, 1, 37, 'l');
 
+
+    /**
+     * This class initializes the test 
+     * conditinos and resets the character 
+     * before every test case
+     */
+    @Before
+    public void init(){
+        Character.score = 0;
+        character.position.x = 1;
+        character.position.y = 1;
+    }
+
     /**
      * This class iterates through an ArrayList
      * with all the rewards and sets the character's position ontop of the
@@ -37,7 +50,9 @@ public class detectCollisionTest {
             character.position.x = rewardList.get(i).yPos;
             character.position.y =  rewardList.get(i).xPos;
             screenpanel.collisionChecker.checkCell(character);
-            assert(character.position.x == rewardList.get(i).yPos && character.position.y == rewardList.get(i).xPos  && Character.score == rewardList.get(i).rewardScore);
+            assertEquals("Character's x position not the same as Reward's x position",character.position.x, rewardList.get(i).yPos);
+            assertEquals("Character's y position not the same as Reward's y position",character.position.y, rewardList.get(i).xPos);
+            assertEquals("Character's score not incremented correctly",Character.score, rewardList.get(i).rewardScore);
         }
     }
 
@@ -53,7 +68,8 @@ public class detectCollisionTest {
         character.position.x = 1;
         character.position.y = 1;
         character.keyPressed(left);
-        assert(character.position.x == 1 && character.position.y == 1);
+        assertEquals("Character's x position is incorrect (did not detect rock)",character.position.x,1);
+        assertEquals("Character's y position is incorrect (did not detect rock)",character.position.y,1);
     }
 
     /**
@@ -69,7 +85,9 @@ public class detectCollisionTest {
         character.position.x = 9;
         character.position.y = 8;
         character.keyPressed(down);
-        assert(character.position.x == 9 && character.position.y == 9 && Character.score == 50);
+        assertEquals("Character's x position is incorrect (did not detect lava)",character.position.x,9);
+        assertEquals("Character's y position is incorrect (did not detect lava)",character.position.y,9);
+        assertEquals("Character's score is not decremented correctly", Character.score, 50);
     }
 
     /**
@@ -85,7 +103,9 @@ public class detectCollisionTest {
         character.position.x = 8;
         character.position.y = 3;
         character.keyPressed(left);
-        assert(character.position.x == 7 && character.position.y == 3  && Character.score == 50);
+        assertEquals("Character's x position is incorrect (did not detect spider web)",character.position.x,7);
+        assertEquals("Character's y position is incorrect (did not detect spider web)",character.position.y,3);
+        assertEquals("Character's score is not decremented correctly", Character.score, 50);
     }
   
     /**
@@ -101,9 +121,10 @@ public class detectCollisionTest {
        character.position.x = 12;
        character.position.y = 5;
        character.keyPressed(down);
-       assert(character.position.x == 12 && character.position.y == 6 && Character.score == 100);
+       assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",character.position.x,12);
+       assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",character.position.y,6);
+       assertEquals("Character's score is not decremented correctly", Character.score, 100);
    }
-
 
     /**
      * This class tests the character's

@@ -23,5 +23,17 @@ mvn compile
 mvn test
 ```
 
+<br>
+
+# Line Coverage
+To check the line coverage, type in the terminal:
+```
+mvn package
+```
+
+Navigate to target->site->jacoco and open the index.html file
+
+
+
 
 

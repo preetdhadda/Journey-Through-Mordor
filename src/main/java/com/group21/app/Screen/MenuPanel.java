@@ -18,8 +18,8 @@ import java.text.DecimalFormat;
 public class MenuPanel extends JPanel implements ActionListener {
     ScreenPanel screen;
 
-    private int second = 0;
-    private int minute = 0;
+    public int second = 0;
+    public int minute = 0;
 
     // following "decimal" attributes are so the timer is in the format 00:00 rather than 0:0
     public static String decimalSecond;

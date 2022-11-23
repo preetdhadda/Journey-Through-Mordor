@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Timer;
+
 /**
  * This class tests the construction of the cell map.
  */

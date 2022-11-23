@@ -217,10 +217,46 @@ public class detectCollisionTest {
        assertEquals("Character's score is not decremented correctly", 100, Character.score);
    }
 
+    /**
+     * This class is designed to test if the lose screen is shown when
+     * the character's score becomes negative. To do this, we will start
+     * of 99, walking into the Eye of Sauron will give a score of -1,
+     * and the lose screen should be displayed.
+     */
+    @Test
+    public void characterHasNegativeOneScore(){
+        Character.score = 99;
+        character.position.x = 12;
+        character.position.y = 5;
+        character.keyPressed(down);
+        assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",12,character.position.x);
+        assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",6,character.position.y);
+        assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
+    }
+
+    /**
+     * This class is designed to test if the lose screen is shown when
+     * the character's score becomes negative. To do this, we will start
+     * of 0, walking into the Eye of Sauron will give a score of -100, and
+     * the lose screen should be displayed.
+     */
+    @Test
+    public void characterHasNegative100Score(){
+        Character.score = 0;
+        character.position.x = 12;
+        character.position.y = 5;
+        character.keyPressed(down);
+        assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",12,character.position.x);
+        assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",6,character.position.y);
+        assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
+    }
+
        /**
      * This class tests the character's
      * collision detection with Mount Doom
-     * when score >= 0 and collectAllRewards is 20 (true)
+     * when score >= 0 and collectAllRewards is 20 (true).
+        * It also tests that the win screen is shown and the
+        * replay button on the win screen works.
      */
     @Test
     public void characterIntoMountDoomAndRewardsCollected(){
@@ -239,7 +275,9 @@ public class detectCollisionTest {
     /**
      * This class tests the character's
      * collision detection with Mount Doom
-     * when score >= 0 and collectAllRewards is 0 (false)
+     * when score >= 0 and collectAllRewards is 0 (false).
+     * It also tests that the lose screen is shown and the
+     * replay button on the lose screen works.
      */
     @Test
     public void characterIntoMountDoomAndRewardsNotCollected(){

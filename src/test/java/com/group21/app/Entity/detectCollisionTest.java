@@ -222,6 +222,8 @@ public class detectCollisionTest {
      * the character's score becomes negative. To do this, we will start
      * of 99, walking into the Eye of Sauron will give a score of -1,
      * and the lose screen should be displayed.
+     *
+     * @author Preet
      */
     @Test
     public void characterHasNegativeOneScore(){
@@ -239,6 +241,8 @@ public class detectCollisionTest {
      * the character's score becomes negative. To do this, we will start
      * of 0, walking into the Eye of Sauron will give a score of -100, and
      * the lose screen should be displayed.
+     *
+     * @author Preet
      */
     @Test
     public void characterHasNegative100Score(){

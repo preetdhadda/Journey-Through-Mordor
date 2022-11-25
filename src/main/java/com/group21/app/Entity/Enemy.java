@@ -18,7 +18,7 @@ public class Enemy extends Entity {
     UI ui = UI.getInstance();
     private Image characterLeft;
     private Image characterRight;
-    private String imageDirection;
+    protected String imageDirection;
     ScreenPanel screen;
     public static boolean playerFound = false;
     public static ArrayList<Enemy> EnemyArray = new ArrayList<Enemy>();

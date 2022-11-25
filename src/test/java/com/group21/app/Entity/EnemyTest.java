@@ -186,5 +186,32 @@ public class EnemyTest {
          assertEquals("Incorrect game screen is shown", "losePanel", UI.gameState);
     }
 
-    // enemy vs enemy && 
+    @Test
+    public void EnemyMovement(){
+        ork = new Enemy(screenpanel,"orc",2,3);
+        ork.imageDirection = "right";
+        ork.position.translate(1, 0);
+        assertEquals(ork.position.x, 3);
+        assertEquals(ork.position.y, 3);
+        assertEquals(ork.imageDirection, "right");
+
+        ork = new Enemy(screenpanel,"orc",2,3);
+        ork.imageDirection = "left";
+        ork.position.translate(-1, 0);
+        assertEquals(ork.position.x, 1);
+        assertEquals(ork.position.y, 3);
+        assertEquals(ork.imageDirection, "left");
+
+        // up
+        ork = new Enemy(screenpanel,"orc",2,3);
+        ork.position.translate(0, -1);
+        assertEquals(ork.position.y, 2);
+        assertEquals(ork.position.x, 2);
+
+        // down
+        ork = new Enemy(screenpanel,"orc",2,3);
+        ork.position.translate(0, 1);
+        assertEquals(ork.position.y, 4);
+        assertEquals(ork.position.x, 2);
+    }
 }

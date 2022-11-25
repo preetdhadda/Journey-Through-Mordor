@@ -156,6 +156,7 @@ public class Enemy extends Entity {
     Boolean checkCollision(int xPos, int yPos, Character player) {
         collisionOn = false;
 
+        // Check if new Position is enemy position
         Point newPos = new Point(xPos, yPos);
         for(int i = 0; i < EnemyArray.size(); i++){
             Point coordinates = EnemyArray.get(i).position;
@@ -165,15 +166,28 @@ public class Enemy extends Entity {
             }
         }
 
+        return checkObjectCollision(xPos, yPos);
+    }
+
+     /**
+     * This method determines if there is an obstacle in the enemies path, and if so do not move into it.
+     * Additionally, this method keeps track of all enemies and makes sure they do not enter into the same cell.
+     *
+     * @return true/false checking if enemy collided with something
+     * @param xPos new xPosition enemy moving to
+     * @param yPos new yPosition enemy moving to
+     * @author Jessy
+     */
+    public Boolean checkObjectCollision(int xPos, int yPos){
         if (screen.cellM.map[yPos][xPos] == 1     || screen.cellM.map[yPos][xPos] == 2 
-           || screen.cellM.map[yPos][xPos] == 3   || screen.cellM.map[yPos][xPos] == 4
-           || screen.cellM.map[yPos][xPos] == 5   || screen.cellM.map[yPos][xPos] == 6
-           || screen.cellM.map[yPos][xPos] == 7   ||screen.cellM.map[yPos][xPos] == 15 
-           || screen.cellM.map[yPos][xPos] == 19  || screen.cellM.map[yPos][xPos] == 20
-           || screen.cellM.map[yPos][xPos] == 21  || screen.cellM.map[yPos][xPos] == 22
-           || screen.cellM.map[yPos][xPos] == 23){
-            collisionOn = true;
-        }
-        return collisionOn;
+        || screen.cellM.map[yPos][xPos] == 3   || screen.cellM.map[yPos][xPos] == 4
+        || screen.cellM.map[yPos][xPos] == 5   || screen.cellM.map[yPos][xPos] == 6
+        || screen.cellM.map[yPos][xPos] == 7   ||screen.cellM.map[yPos][xPos] == 15 
+        || screen.cellM.map[yPos][xPos] == 19  || screen.cellM.map[yPos][xPos] == 20
+        || screen.cellM.map[yPos][xPos] == 21  || screen.cellM.map[yPos][xPos] == 22
+        || screen.cellM.map[yPos][xPos] == 23){
+         collisionOn = true;
+     }
+     return collisionOn;
     }
 }

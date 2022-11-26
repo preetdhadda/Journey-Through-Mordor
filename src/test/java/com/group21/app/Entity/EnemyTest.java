@@ -13,7 +13,7 @@ import com.group21.app.Screen.UI;
 public class EnemyTest {
 
     ScreenPanel screenpanel = ScreenPanel.getInstance();
-    Character character = new Character(screenpanel);
+    Character character = new Character(screenpanel,"left");
 
     public static Enemy gollum;
     public static Enemy ork;
@@ -28,7 +28,7 @@ public class EnemyTest {
     @Before
     public void init(){
         ScreenPanel screenpanel = ScreenPanel.getInstance();
-        Character character = new Character(screenpanel);
+        Character character = new Character(screenpanel,"left");
         Character.score = 0;
         character.position.x = 1;
         character.position.y = 1;

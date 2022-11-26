@@ -99,7 +99,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         witch_king = null;
         gollum = null;
         
-        character = new Character(this);
+        character = new Character(this,"left");
         ork = new Enemy(this,"orc",1,13);
         shelob = new Enemy(this,"shelob",6, 4);
         witch_king = new Enemy(this,"witch_king",26, 2);
@@ -197,8 +197,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
      * @author Preet
      */
     @Override
-    public void keyTyped(KeyEvent e) {
-    }
+    public void keyTyped(KeyEvent e) {}
 
     /**
      * Overriding keyPressed in KeyListener to read the user's keyboard input and moves character accordingly.

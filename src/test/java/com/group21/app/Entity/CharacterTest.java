@@ -19,7 +19,7 @@ import com.group21.app.Screen.UI;
  */
 public class CharacterTest {
     ScreenPanel screenpanel = ScreenPanel.getInstance();
-    Character character = new Character(screenpanel);
+    Character character = new Character(screenpanel,"left");
     KeyEvent down = new KeyEvent(screenpanel, 1, 20, 1, 40, 'd');
     KeyEvent right = new KeyEvent(screenpanel, 1, 20, 1, 39, 'r');
     KeyEvent left = new KeyEvent(screenpanel, 1, 20, 1, 37, 'l');
@@ -33,7 +33,7 @@ public class CharacterTest {
     @Before
     public void init(){
         ScreenPanel screenpanel = ScreenPanel.getInstance();
-        Character character = new Character(screenpanel);
+        Character character = new Character(screenpanel,"left");
         Character.score = 0;
         character.position.x = 1;
         character.position.y = 1;
@@ -77,4 +77,29 @@ public class CharacterTest {
         character.keyPressed(left);
         assertEquals("Character's left key is incorrect", 1, character.position.x);
     }
+
+    @Test
+    public void characterKeyReleaseAndKeyPressed(){
+        character.position.x = 2;
+        character.position.y = 1;
+        character.keyReleased(left);
+        assertEquals("Character's left key is incorrect", 2, character.position.x);
+        character.keyPressed(left);
+        assertEquals("Character's left key is incorrect", 1, character.position.x);
+    }
+
+    @Test
+    public void screenPanelKeyListeners(){
+        character.position.x = 2;
+        character.position.y = 1;
+        screenpanel.keyPressed(left);
+        screenpanel.keyTyped(left);
+        assertEquals("Character's left key is incorrect", 2, character.position.x);
+    }
+
+    @Test 
+    public void characterKeyTyped(){
+        character.keyTyped(left);
+    }
+
 }

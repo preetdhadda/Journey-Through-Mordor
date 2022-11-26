@@ -27,7 +27,7 @@ public class detectCollisionTest {
 
     UI ui;
     ScreenPanel screenpanel = ScreenPanel.getInstance();
-    Character character = new Character(screenpanel);
+    Character character = new Character(screenpanel,"left");
     ArrayList<Reward> rewardList = Reward.rewardList;
     KeyEvent down = new KeyEvent(screenpanel, 1, 20, 1, 40, 'd');
     KeyEvent right = new KeyEvent(screenpanel, 1, 20, 1, 39, 'r');
@@ -42,7 +42,7 @@ public class detectCollisionTest {
     @Before
     public void init(){
         ScreenPanel screenpanel = ScreenPanel.getInstance();
-        Character character = new Character(screenpanel);
+        Character character = new Character(screenpanel,"left");
         Character.score = 0;
         character.position.x = 1;
         character.position.y = 1;
@@ -163,6 +163,22 @@ public class detectCollisionTest {
         assertEquals("Character's y position is incorrect (did not detect rock)",1,character.position.y);
     }
 
+        /**
+     * This class tests the
+     * character's collision detection
+     * with a rock by simulating the left arrow key press
+     * when the character has a rock to its left and then checking
+     * to make sure its origin position is still (1,1)
+     */
+    @Test
+    public void characterIntoLavaRock(){
+        character.position.x = 14;
+        character.position.y = 9;
+        character.keyPressed(right);
+        assertEquals("Character's x position is incorrect (did not detect rock)",14,character.position.x);
+        assertEquals("Character's y position is incorrect (did not detect rock)",9,character.position.y);
+    }
+
     /**
      * This class tests the character's
      * collision detection with lava
@@ -207,13 +223,67 @@ public class detectCollisionTest {
      * after walking into the Eye of Suaron is 100
      */
     @Test
-    public void characterIntoEyeOfSauron(){
+    public void characterIntoEyeOfSauronTopLeft(){
        Character.score = 200;
        character.position.x = 12;
        character.position.y = 5;
        character.keyPressed(down);
        assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",12,character.position.x);
        assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",6,character.position.y);
+       assertEquals("Character's score is not decremented correctly", 100, Character.score);
+   }
+
+    /**
+     * This class tests the character's
+     * collision detection with the Eye of Sauron
+     * and ensures that the character's score is decremented by
+     * 100 by initializing the score to 200 and checking if the final score
+     * after walking into the Eye of Suaron is 100
+     */
+    @Test
+    public void characterIntoEyeOfSauronTopRight(){
+       Character.score = 200;
+       character.position.x = 13;
+       character.position.y = 5;
+       character.keyPressed(down);
+       assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",13,character.position.x);
+       assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",6,character.position.y);
+       assertEquals("Character's score is not decremented correctly", 100, Character.score);
+   }
+
+       /**
+     * This class tests the character's
+     * collision detection with the Eye of Sauron
+     * and ensures that the character's score is decremented by
+     * 100 by initializing the score to 200 and checking if the final score
+     * after walking into the Eye of Suaron is 100
+     */
+    @Test
+    public void characterIntoEyeOfSauronBotLeft(){
+       Character.score = 200;
+       character.position.x = 12;
+       character.position.y = 8;
+       character.keyPressed(up);
+       assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",12,character.position.x);
+       assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",7,character.position.y);
+       assertEquals("Character's score is not decremented correctly", 100, Character.score);
+   }
+
+       /**
+     * This class tests the character's
+     * collision detection with the Eye of Sauron
+     * and ensures that the character's score is decremented by
+     * 100 by initializing the score to 200 and checking if the final score
+     * after walking into the Eye of Suaron is 100
+     */
+    @Test
+    public void characterIntoEyeOfSauronBotRight(){
+       Character.score = 200;
+       character.position.x = 13;
+       character.position.y = 8;
+       character.keyPressed(up);
+       assertEquals("Character's x position is incorrect (did not detect Eye Of Sauron)",13,character.position.x);
+       assertEquals("Character's y position is incorrect (did not detect Eye Of Sauron)",7,character.position.y);
        assertEquals("Character's score is not decremented correctly", 100, Character.score);
    }
 

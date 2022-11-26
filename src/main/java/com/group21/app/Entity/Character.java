@@ -20,7 +20,7 @@ public class Character extends Entity implements KeyListener {
     private Image characterRight;
     public static int score = 0;
     public static int rewardsCollected = 0;
-    private String imageDirection;
+    public String imageDirection;
     private boolean keyDownFlag = false;
     ScreenPanel screen;
 
@@ -31,11 +31,11 @@ public class Character extends Entity implements KeyListener {
      * @see ScreenPanel
      * @author Preet
      */
-    public Character(ScreenPanel screen) {
+    public Character(ScreenPanel screen, String imgD) {
         loadImage();
         position = new Point(1,1);
         this.screen = screen;
-        imageDirection = "right";
+        this.imageDirection = imgD;
     }
 
     /**

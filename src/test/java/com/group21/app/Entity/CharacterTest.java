@@ -63,6 +63,10 @@ public class CharacterTest {
         assertEquals("Character's right key is incorrect", 2, character.position.x);
     }
 
+    /**
+     * This tests the keyboard movement for the down key
+     * 
+     */
     @Test
     public void characterMovesDown(){
         character.position.x = 1;
@@ -70,6 +74,11 @@ public class CharacterTest {
         character.keyPressed(down);
         assertEquals("Character's down key is incorrect", 2, character.position.y);
     }
+
+    /**
+     * This tests the keyboard movement for the dowleftn key
+     * 
+     */
     @Test
     public void characterMovesLeft(){
         character.position.x = 2;
@@ -77,29 +86,4 @@ public class CharacterTest {
         character.keyPressed(left);
         assertEquals("Character's left key is incorrect", 1, character.position.x);
     }
-
-    @Test
-    public void characterKeyReleaseAndKeyPressed(){
-        character.position.x = 2;
-        character.position.y = 1;
-        character.keyReleased(left);
-        assertEquals("Character's left key is incorrect", 2, character.position.x);
-        character.keyPressed(left);
-        assertEquals("Character's left key is incorrect", 1, character.position.x);
-    }
-
-    @Test
-    public void screenPanelKeyListeners(){
-        character.position.x = 2;
-        character.position.y = 1;
-        screenpanel.keyPressed(left);
-        screenpanel.keyTyped(left);
-        assertEquals("Character's left key is incorrect", 2, character.position.x);
-    }
-
-    @Test 
-    public void characterKeyTyped(){
-        character.keyTyped(left);
-    }
-
 }

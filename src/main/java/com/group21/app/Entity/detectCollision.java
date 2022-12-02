@@ -27,23 +27,16 @@ public class detectCollision {
         this.screen = screen;
     }
 
-    
-    /** 
-     * This class contains the main logic for detecting every collision with the character.
-     * It also includes incrementing or decrementing the
-     * character's health and calling the lose and win screen
-     * 
-     * @param entity instance of Entity to detect collision for
-     * @see ScreenPanel
-     * @see UI
-     * @author Jimmy
-     * @author Jeffrey
+    /**
+     * This method simulates the character's movement. This movement
+     * is then checked in checkCell() to determine if there is a collision with that
+     * cell and the character.
+     *
+     * @param entity character instance
+     * @param newPos new simulated position
+     * @author Preet
      */
-    public void checkCell(Entity entity) {
-
-        int[] newPos = new int[2];
-
-        
+    public void simulateCharacterMove(Entity entity, int[] newPos) {
         switch (entity.direction) {
             case "left":
                 newPos[0] = entity.position.x - 1;
@@ -61,9 +54,26 @@ public class detectCollision {
                 newPos[0] = entity.position.x;
                 newPos[1] = entity.position.y + 1;
                 break;
-            default: 
+            default:
                 break;
         }
+    }
+
+    /**
+     * This method contains the main logic for detecting every collision with the character.
+     * It also includes incrementing or decrementing the
+     * character's health and calling the lose and win screen
+     *
+     * @param entity instance of Entity to detect collision for
+     * @see ScreenPanel
+     * @see UI
+     * @author Jimmy
+     * @author Jeffrey
+     */
+    public void checkCell(Entity entity) {
+        int[] newPos = new int[2];
+
+        simulateCharacterMove(entity, newPos);
         
         // If character moves into a rock
         if (screen.cellM.map[newPos[1]][newPos[0]] == 2 || screen.cellM.map[newPos[1]][newPos[0]] == 3) {

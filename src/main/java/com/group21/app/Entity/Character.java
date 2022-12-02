@@ -16,11 +16,11 @@ import java.awt.event.KeyListener;
  */
 public class Character extends Entity implements KeyListener {
     // main character attributes
-    private Image characterLeft;
-    private Image characterRight;
+    private Image characterLeftImage;
+    private Image characterRightImage;
     public static int score = 0;
     public static int rewardsCollected = 0;
-    public String imageDirection;
+    private String imageDirection;
     private boolean keyDownFlag = false;
     ScreenPanel screen;
 
@@ -48,8 +48,8 @@ public class Character extends Entity implements KeyListener {
      * @author Preet
      */
     private void loadImage () {
-        characterLeft = new ImageIcon("src/main/resources/images/frodo_left.png").getImage();
-        characterRight = new ImageIcon("src/main/resources/images/frodo_right.png").getImage();
+        characterLeftImage = new ImageIcon("src/main/resources/images/frodo_left.png").getImage();
+        characterRightImage = new ImageIcon("src/main/resources/images/frodo_right.png").getImage();
     }
 
     /**
@@ -66,10 +66,10 @@ public class Character extends Entity implements KeyListener {
 
         switch(imageDirection) {
             case "left":
-                img = characterLeft;
+                img = characterLeftImage;
                 break;
             case "right":
-                img = characterRight;
+                img = characterRightImage;
                 break;
         }
 

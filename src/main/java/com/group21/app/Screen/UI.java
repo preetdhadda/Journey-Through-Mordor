@@ -242,5 +242,48 @@ public class UI {
         window.setLocationRelativeTo(null); // open window in middle of user's device
         window.setVisible(true); // display window
     }
-    
+    /**
+     * This method instantiates the win panel, deletes the game window,
+     * and resets the game variables for a new game when the user
+     * wins the game from collecting all the rewards
+     * 
+     * @see ScreenPanel
+     * @see Enemy
+     * @see detectCollision
+     * @author Jimmy
+     */
+    public void makeWinRewardsWindow(){
+        makeWinWindow();
+        disposeGameWindow();
+        ScreenPanel.deleteInstance();
+        Enemy.playerFound = true;
+    }
+
+    /**
+     * This method instantiates the lose window and deletes the instances
+     * of gamewindow and screen panel when the user loses because
+     * they did not collect all the rewards before reaching the 
+     * end goal
+     * 
+     * @see Screenpanel 
+     * @see detectCollision
+     * @author Jimmy
+     */
+    public void makeLoseRewardsWindow(){
+        makeLoseWindow("rewards");
+        disposeGameWindow();
+        ScreenPanel.deleteInstance();
+    }
+
+    /**
+     * This method instantiates the lose window and disposes the 
+     * game window when the user's score drops below 0
+     * 
+     * @see detectCollision
+     * @author Jimmy 
+     */
+    public void makeLoseScoreWindow(){
+        makeLoseWindow("score");
+        disposeGameWindow();
+    }
 }

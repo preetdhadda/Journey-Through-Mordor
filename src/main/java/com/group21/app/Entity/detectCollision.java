@@ -102,14 +102,9 @@ public class detectCollision {
 
             // Check if character collected all 20 rewards
             if (ScreenPanel.character.rewardsCollected >= 20) {
-                ui.makeWinWindow();
-                ui.disposeGameWindow();
-                ScreenPanel.deleteInstance();
-                Enemy.playerFound = true;
+                ui.makeWinRewardsWindow();
             } else {
-                ui.makeLoseWindow("rewards");
-                ui.disposeGameWindow();
-                ScreenPanel.deleteInstance();
+                ui.makeLoseRewardsWindow();
             }
         }
 
@@ -158,8 +153,7 @@ public class detectCollision {
 
         // if character score drops below 0
         if (Character.score < 0) {
-            ui.makeLoseWindow("score");
-            ui.disposeGameWindow();
+            ui.makeLoseScoreWindow();
         }
     }
 }

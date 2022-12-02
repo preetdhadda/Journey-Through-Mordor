@@ -99,7 +99,8 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         witch_king = null;
         gollum = null;
         
-        character = new Character(this,"left");
+        character = new Character(this,"right");
+        //character = Character.getInstance();
         ork = new Enemy(this,"orc",1,13);
         shelob = new Enemy(this,"shelob",6, 4);
         witch_king = new Enemy(this,"witch_king",26, 2);

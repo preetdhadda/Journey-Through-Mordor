@@ -62,122 +62,71 @@ public class CellMap {
     }
 
     /**
-     * This class loads the images for each of the cells to be displayed on the screen.
-     * It uses ImageIcon from javax.swing to get the images.
+     * This method is a helper for loadCellImage() and it sets the cell attributes in
+     * the cell map.
      *
+     * @param num cell's index in the array of cells
+     * @param fileName image location for the cell
+     * @param cellType
      * @see Cell
+     * @author Preet
+     */
+    public void createCell(int num, String fileName, String cellType) {
+        cell[num] = new Cell();
+        cell[num].img = new ImageIcon(fileName).getImage();
+        cell[num].type = cellType;
+    }
+
+    /**
+     * This method loads the images for each of the cells to be displayed on the screen
+     * by calling the createCell() helper method
+     *
      * @author Preet
      * @author Jeffrey
      * @author Jessy
      */
     public void loadCellImage() {
-        // plain background cell
-        cell[0] = new Cell();
-        cell[0].img = new ImageIcon("src/main/resources/images/background.png").getImage();
-        cell[0].type = "empty";
+        // empty cell:
+        createCell(0, "src/main/resources/images/background.png", "empty");
 
-        // lava cell (punishment cell)
-        cell[1] = new Cell();
-        cell[1].img = new ImageIcon("src/main/resources/images/lava.png").getImage();
-        cell[1].type = "lava";
+        // lava cell:
+        createCell(1, "src/main/resources/images/lava.png", "lava");
 
-        // rock cells (obstacle)
-        cell[2] = new Cell();
-        cell[2].img = new ImageIcon("src/main/resources/images/rock1.png").getImage();
-        cell[2].type = "rock";
-        cell[2].collision = true;
-        cell[3] = new Cell();
-        cell[3].img = new ImageIcon("src/main/resources/images/rock2.png").getImage();
-        cell[3].type = "rock";
-        cell[3].collision = true;
-        
-        // volcano cells (winning cells)
-        cell[4] = new Cell();
-        cell[4].img = new ImageIcon("src/main/resources/images/volcano_00.png").getImage();
-        cell[4].type = "mount doom";
-        cell[5] = new Cell();
-        cell[5].img = new ImageIcon("src/main/resources/images/volcano_01.png").getImage();
-        cell[5].type = "mount doom";
-        cell[6] = new Cell();
-        cell[6].img = new ImageIcon("src/main/resources/images/volcano_10.png").getImage();
-        cell[6].type = "mount doom";
-        cell[7] = new Cell();
-        cell[7].img = new ImageIcon("src/main/resources/images/volcano_11.png").getImage();
-        cell[7].type = "mount doom";
+        // rock cells:
+        createCell(2, "src/main/resources/images/rock1.png", "rock");
+        createCell(3, "src/main/resources/images/rock2.png", "rock");
 
-        // bow (reward)
-        cell[8] = new Cell();
-        cell[8].img = new ImageIcon("src/main/resources/images/bow.png").getImage();
-        cell[8].type = "bow";
+        // mount doom cells:
+        createCell(4, "src/main/resources/images/volcano_00.png", "mount doom");
+        createCell(5, "src/main/resources/images/volcano_01.png", "mount doom");
+        createCell(6, "src/main/resources/images/volcano_10.png", "mount doom");
+        createCell(7, "src/main/resources/images/volcano_11.png", "mount doom");
 
-        // bread (reward)
-        cell[9] = new Cell();
-        cell[9].img = new ImageIcon("src/main/resources/images/bread.png").getImage();
-        cell[9].type = "bread";
+        // reward cells:
+        createCell(8, "src/main/resources/images/bow.png", "bow");
+        createCell(9, "src/main/resources/images/bread.png", "bread");
+        createCell(10, "src/main/resources/images/dagger.png", "dagger");
+        createCell(11, "src/main/resources/images/spear.png", "spear");
+        createCell(12, "src/main/resources/images/water.png", "water");
 
-        // dagger (reward)
-        cell[10] = new Cell();
-        cell[10].img = new ImageIcon("src/main/resources/images/dagger.png").getImage();
-        cell[10].type = "dagger";
+        // bonus cells:
+        createCell(13, "src/main/resources/images/gandalf_right.png", "gandalf");
+        createCell(14, "src/main/resources/images/sam_left.png", "sam");
 
-        // spear (reward)
-        cell[11] = new Cell();
-        cell[11].img = new ImageIcon("src/main/resources/images/spear.png").getImage();
-        cell[11].type = "spear";
+        // enemy cells:
+        createCell(15, "src/main/resources/images/orc_left.png", "orc");
+        createCell(16, "src/main/resources/images/shelob.png", "shelob");
+        createCell(17, "src/main/resources/images/witch_king_left.png", "witch");
+        createCell(18, "src/main/resources/images/smeagol_left.png", "smeagol");
 
-        // water (reward)
-        cell[12] = new Cell();
-        cell[12].img = new ImageIcon("src/main/resources/images/water.png").getImage();
-        cell[12].type = "water";
+        // eye of sauron cells:
+        createCell(19, "src/main/resources/images/eye_of_sauron_00.png", "sauron");
+        createCell(20, "src/main/resources/images/eye_of_sauron_01.png", "sauron");
+        createCell(21, "src/main/resources/images/eye_of_sauron_10.png", "sauron");
+        createCell(22, "src/main/resources/images/eye_of_sauron_11.png", "sauron");
 
-        // gandalf (bonus)
-        cell[13] = new Cell();
-        cell[13].img = new ImageIcon("src/main/resources/images/gandalf_right.png").getImage();
-        cell[13].type = "gandalf";
-
-        // sam (bonus)
-        cell[14] = new Cell();
-        cell[14].img = new ImageIcon("src/main/resources/images/sam_left.png").getImage();
-        cell[14].type = "sam";
-
-        // orc (enemy)
-        cell[15] = new Cell();
-        cell[15].img = new ImageIcon("src/main/resources/images/orc_left.png").getImage();
-        cell[15].type = "orc";
-
-        // shelob (enemy)
-        cell[16] = new Cell();
-        cell[16].img = new ImageIcon("src/main/resources/images/shelob.png").getImage();
-        cell[16].type = "shelob";
-
-        // witch king (enemy)
-        cell[17] = new Cell();
-        cell[17].img = new ImageIcon("src/main/resources/images/witch_king_left.png").getImage();
-        cell[17].type = "witch";
-
-        // smeagol (enemy)
-        cell[18] = new Cell();
-        cell[18].img = new ImageIcon("src/main/resources/images/smeagol_left.png").getImage();
-        cell[18].type = "smeagol";
-
-        // eye of sauron cells (punishment cells)
-        cell[19] = new Cell();
-        cell[19].img = new ImageIcon("src/main/resources/images/eye_of_sauron_00.png").getImage();
-        cell[19].type = "sauron";
-        cell[20] = new Cell();
-        cell[20].img = new ImageIcon("src/main/resources/images/eye_of_sauron_01.png").getImage();
-        cell[20].type = "sauron";
-        cell[21] = new Cell();
-        cell[21].img = new ImageIcon("src/main/resources/images/eye_of_sauron_10.png").getImage();
-        cell[21].type = "sauron";
-        cell[22] = new Cell();
-        cell[22].img = new ImageIcon("src/main/resources/images/eye_of_sauron_11.png").getImage();
-        cell[22].type = "sauron";
-
-        // spider web (punishment cells)
-        cell[23] = new Cell();
-        cell[23].img = new ImageIcon("src/main/resources/images/web.png").getImage();
-        cell[23].type = "web";
+        // web cell:
+        createCell(23, "src/main/resources/images/web.png", "web");
     }
 
     /**

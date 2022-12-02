@@ -1,5 +1,6 @@
 package com.group21.app.Cell;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**

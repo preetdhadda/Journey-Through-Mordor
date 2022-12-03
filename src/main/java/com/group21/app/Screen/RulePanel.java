@@ -32,11 +32,8 @@ public class RulePanel extends JPanel implements ActionListener,KeyListener {
         UI.gameState = "rulePanel";
 
         // create JButton for playBTN
-        continueBTN = new JButton(new ImageIcon("src/main/resources/images/continue.png"));
-        continueBTN.setFocusable(false); // to prevent button from taking focus in window
-        continueBTN.setOpaque(true);
-        continueBTN.setBorderPainted(true);
-        continueBTN.setBounds(460,590, 400,70);
+        continueBTN = new Buttons("continue",460,590,400,70).getBTN();
+        
         setLayout(null);
 
         // Add playBTN

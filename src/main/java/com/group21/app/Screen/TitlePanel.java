@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import com.group21.app.Screen.Buttons;
 
 /**
  * This class creates the images and and buttons 
@@ -32,11 +33,7 @@ public class TitlePanel extends JPanel implements ActionListener {
         UI.gameState = "titlePanel";
     
         // create JButton for playBTN
-        playBTN = new JButton(new ImageIcon("src/main/resources/images/playGame.png"));
-        playBTN.setFocusable(false); // to prevent button from taking focus in window
-        playBTN.setOpaque(true);
-        playBTN.setBorderPainted(true);
-        playBTN.setBounds(460,350, 400,70);
+        playBTN = new Buttons("playGame",460,350,400,70).getBTN();
         setLayout(null);
 
         // Add playBTN

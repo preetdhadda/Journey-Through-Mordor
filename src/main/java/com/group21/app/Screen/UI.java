@@ -253,6 +253,7 @@ public class UI {
      * @author Jimmy
      */
     public void makeWinRewardsWindow(){
+        Character.deleteInstance();
         makeWinWindow();
         disposeGameWindow();
         ScreenPanel.deleteInstance();
@@ -270,6 +271,7 @@ public class UI {
      * @author Jimmy
      */
     public void makeLoseRewardsWindow(){
+        Character.deleteInstance();
         makeLoseWindow("rewards");
         disposeGameWindow();
         ScreenPanel.deleteInstance();
@@ -283,6 +285,7 @@ public class UI {
      * @author Jimmy 
      */
     public void makeLoseScoreWindow(){
+        Character.deleteInstance();
         makeLoseWindow("score");
         disposeGameWindow();
     }

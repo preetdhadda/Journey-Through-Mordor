@@ -130,6 +130,7 @@ public class Enemy extends Entity {
             }
         } else if (Math.abs((pathToPlayer.x)) == Math.abs(0) && (pathToPlayer.y) == Math.abs(0)) {
             playerFound = true;
+            Character.deleteInstance();
             ui.makeLoseWindow("enemy");
             ui.disposeGameWindow();
             ScreenPanel.timer.stop();

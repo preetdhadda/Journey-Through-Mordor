@@ -16,7 +16,7 @@ import java.awt.event.KeyListener;
  */
 public class Character extends Entity implements KeyListener {
     // main character attributes
-    static Character singletonInstance;
+    static Character singletonInstance = null;
     private Image characterLeftImage;
     private Image characterRightImage;
     public static int score = 0;
@@ -39,31 +39,31 @@ public class Character extends Entity implements KeyListener {
         this.imageDirection = imgD;
     }
 
-//    /**
-//     * Use the singleton design pattern to only allow
-//     * for one instance of ScreenPanel to exist
-//     *
-//     * @return Character
-//     * @author Preet
-//     */
-//    public static Character getInstance(){
-//        if (singletonInstance == null){
-//            return singletonInstance = new Character(screen, "right");
-//        }
-//        else{
-//            return singletonInstance;
-//        }
-//    }
-//
-//    /**
-//     * Resets every static object in Character by
-//     * setting it to null
-//     *
-//     * @author Preet
-//     */
-//    public static void deleteInstance() {
-//        singletonInstance = null;
-//    }
+    /**
+     * Use the singleton design pattern to only allow
+     * for one instance of Character to exist
+     *
+     * @return Character
+     * @author Preet
+     */
+    public static Character getInstance(ScreenPanel screen, String imgD){
+        if (singletonInstance == null){
+            return singletonInstance = new Character(screen, imgD);
+        }
+        else{
+            return singletonInstance;
+        }
+    }
+
+    /**
+     * Resets every static object in Character by
+     * setting it to null
+     *
+     * @author Preet
+     */
+    public static void deleteInstance() {
+        singletonInstance = null;
+    }
 
     /**
      * This method loads the left and right images for character.

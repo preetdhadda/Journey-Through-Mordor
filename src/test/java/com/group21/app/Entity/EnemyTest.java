@@ -189,18 +189,18 @@ public class EnemyTest {
     @Test
     public void EnemyMovement(){
         ork = new Enemy(screenpanel,"orc",2,3);
-        ork.imageDirection = "right";
+        ork.imageFacingDirection = "right";
         ork.position.translate(1, 0);
         assertEquals(ork.position.x, 3);
         assertEquals(ork.position.y, 3);
-        assertEquals(ork.imageDirection, "right");
+        assertEquals(ork.imageFacingDirection, "right");
 
         ork = new Enemy(screenpanel,"orc",2,3);
-        ork.imageDirection = "left";
+        ork.imageFacingDirection = "left";
         ork.position.translate(-1, 0);
         assertEquals(ork.position.x, 1);
         assertEquals(ork.position.y, 3);
-        assertEquals(ork.imageDirection, "left");
+        assertEquals(ork.imageFacingDirection, "left");
 
         // up
         ork = new Enemy(screenpanel,"orc",2,3);

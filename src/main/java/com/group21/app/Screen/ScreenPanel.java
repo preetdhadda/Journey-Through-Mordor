@@ -34,32 +34,25 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     // instantiate rewards and bonuses
     public Reward bow = new Reward(this, 8,13, 1,50);
 
-    public Reward bread1 = new Reward(this, 9,  7, 1,20);
-    public Reward bread2 = new Reward(this, 9,  4, 3,20);
-    public Reward bread3 = new Reward(this, 9,  8, 7,20);
-    public Reward bread4 = new Reward(this, 9,  7, 11,20);
-    public Reward bread5 = new Reward(this, 9,  13, 13,20);
-    public Reward bread6 = new Reward(this, 9,  10, 14,20);
-    public Reward bread7 = new Reward(this, 9,  2, 19,20);
-    public Reward bread8 = new Reward(this, 9,  9, 24,20);
-    public Reward bread9 = new Reward(this, 9,  6, 26,20);
-
     public Reward dagger = new Reward(this, 10,  4, 28,50);
 
     public Reward spear = new Reward(this, 11,  1, 13,50);
 
-    public Reward water1 = new Reward(this, 12,  1, 4,10);
-    public Reward water2 = new Reward(this, 12,  6, 5,10);
-    public Reward water3 = new Reward(this, 12,  13, 6,10);
-    public Reward water4 = new Reward(this, 12,  7, 14,10);
-    public Reward water5 = new Reward(this, 12,  10, 16,10);
-    public Reward water6 = new Reward(this, 12,  8, 21,10);
-    public Reward water7 = new Reward(this, 12,  11, 26,10);
-    public Reward water8 = new Reward(this, 12,  8, 27,10);
-
     public Bonus gandalf = new Bonus(this, 13, 6, 23,100);
     public Bonus sam = new Bonus(this, 14, 13, 8,100);
 
+    // due to the amount of bread and water, they are to be instantiated in the constructor
+    public Reward bread1, bread2, bread3, bread4, bread5, bread6, bread7, bread8, bread9;
+    public Reward[] bread = {bread1, bread2, bread3, bread4, bread5, bread6, bread7, bread8, bread9};
+    public int[] breadXPositions = {7,4,8,7,13,10,2,9,6};
+    public int[] breadYPositions = {1,3,7,11,13,14,19,24,26};
+
+    public Reward water1, water2, water3, water4, water5, water6, water7, water8;
+    public Reward[] water = {water1, water2, water3, water4, water5, water6, water7, water8};
+    public int[] waterXPositions = {1,6,13,7,10,8,11,8};
+    public int[] waterYPositions = {4,5,6,14,16,21,26,27};
+
+    // instantiate enemies
     public static Enemy gollum = null;
     public static Enemy ork = null;
     public static Enemy shelob = null;
@@ -105,6 +98,13 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
         Enemy.EnemyArray.add(witch_king);
         Enemy.EnemyArray.add(gollum);
         
+        // instantiate bread1 to bread9 and water1 to water8
+        for (int i=0; i<9; i++) {
+            bread[i] = new Reward(this, 9, breadXPositions[i], breadYPositions[i], 20);
+            if (i<8) { // for last iteration don't instantiate water (no more)
+                water[i] = new Reward(this, 12, waterXPositions[i], waterYPositions[i], 10);
+            }
+        }
         timer = null;
         timer = new Timer(delay, this);
         timer.start();

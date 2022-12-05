@@ -27,11 +27,11 @@ public class Reward extends Entity {
      * @see ScreenPanel
      * @author Jeffrey
      */
-    public Reward(ScreenPanel s, int id, int x, int y, int rs) {
+    public Reward(ScreenPanel s, int id, int x, int y, int score) {
         screen = s;
         xPos = x;
         yPos = y;
-        rewardScore = rs;
+        rewardScore = score;
         screen.cellM.map[xPos][yPos] = id;
         rewardList.add(this);
     }

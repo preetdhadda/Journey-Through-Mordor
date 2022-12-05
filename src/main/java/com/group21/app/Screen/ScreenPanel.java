@@ -27,7 +27,7 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public final int numRows = 15;
 
     // instantiate main character
-    public static Character character;
+    public static Character character = null;
     // instantiate cell map
     public CellMap cellM = new CellMap(this);
 
@@ -60,10 +60,10 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
     public Bonus gandalf = new Bonus(this, 13, 6, 23,100);
     public Bonus sam = new Bonus(this, 14, 13, 8,100);
 
-    public static Enemy gollum;
-    public static Enemy ork;
-    public static Enemy shelob;
-    public static Enemy witch_king;
+    public static Enemy gollum = null;
+    public static Enemy ork = null;
+    public static Enemy shelob = null;
+    public static Enemy witch_king = null;
 
     // timer attributes
     public static Timer timer;
@@ -92,12 +92,6 @@ public class ScreenPanel extends JPanel implements ActionListener, KeyListener {
 
         // Set state of game
         UI.gameState = "screenPanel";
-
-        character = null;
-        ork = null;
-        shelob = null;
-        witch_king = null;
-        gollum = null;
         
         //character = new Character(this,"right");
         character = Character.getInstance(this,"right");

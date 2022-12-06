@@ -33,7 +33,16 @@ mvn package
 
 Navigate to target->site->jacoco and open the index.html file
 
+<br>
 
+# Javadocs
+To generate Javadocs, type in the terminal:
+```
+mvn clean
+mvn javadoc:javadoc
+```
+
+Navigate to target->site->apidocs and open the index.html file
 
 
 
